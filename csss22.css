@@ -1,0 +1,547 @@
+/* ====================================================== */
+/* == Styles V6 - En-tête, Menu, Recherche, Utilisateur, Personnalisation == */
+/* ====================================================== */
+
+/* --- 1. Variables CSS et Styles Généraux --- */
+
+/* --- !!! تم تعليق هذه القاعدة لأنها تتعارض مع نظام الستايل والوضع الليلي !!! --- */
+/*
+body {
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKAyB7D4CXsn2lE8KW_dAJE_vBSKF1jmjMuhOCMT6MSwoIdjGTidPRm3KVNdvt5MtTjyI8G_a8kC6Azd0nKJrjFmqV8tgdsBjL-ReGhkK52qb1U1oEYBwXfW2JPCL-eCSdeLKQbMlTUQk/s160-Ic42/cream_pixels.png");
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0 0;
+  background-color: #ffffff;
+}
+*/
+/* --- !!! تم تعليق هذه القاعدة لأنها قديمة وغير مستخدمة بواسطة نظام الستايل أدناه !!! --- */
+/*
+body{
+    --main-color: #446FAA;
+    --sub-color: #444444;
+    --hocolor: #FC5400;
+    --link-color: #3e5b7e;
+    --border-color: #cccccc;
+    --text-color: #555;
+    --bg-color: #ffffff;
+    --bg-body-pattern: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKAyB7D4CXsn2lE8KW_dAJE_vBSKF1jmjMuhOCMT6MSwoIdjGTidPRm3KVNdvt5MtTjyI8G_a8kC6Azd0nKJrjFmqV8tgdsBjL-ReGhkK52qb1U1oEYBwXfW2JPCL-eCSdeLKQbMlTUQk/s160-Ic42/cream_pixels.png);
+    --header-bg-color: #f8f8f8;
+    --widget-bg-color: #ffffff;
+    --menu-bg-color: #446FAA;
+    --menu-text-color: #ffffff;
+    --footer-credit-bg: #446FAA;
+    --footer-credit-text: #ffffff;
+    --code-bg: #f8f9fa;
+    --code-text: #202124;
+    --code-border: #dadce0;
+    --code-footer-bg: #f1f3f4;
+}
+*/
+
+/* --- هذا هو الجزء الفعال لتعريف المتغيرات --- */
+:root {
+  --main-bg-color: #f0f0f0; /* خلفية الصفحة العامة */
+  --content-bg-color: #ffffff; /* خلفية المحتوى */
+  --primary-color: #446FAB; /* اللون الأساسي (يتم تحديثه بلوحة التحكم) */
+  --secondary-color: #333333; /* لون ثانوي (مثل القائمة) */
+  --accent-color: #fc5400; /* لون تمييز */
+  --text-color: #333333; /* لون النص الأساسي */
+  --link-color: #446FAB; /* لون الرابط (يتبع اللون الأساسي) */
+  --header-text-color: #ffffff; /* لون النص فوق الخلفيات الأساسية/الثانوية */
+  --menu-text-color: #ffffff; /* لون نص القائمة */
+  --menu-hover-bg: #446FAB; /* لون خلفية الماوس فوق القائمة (يتبع اللون الأساسي) */
+  --dropdown-bg: #444444; /* خلفية القوائم المنسدلة */
+  --dropdown-text: #eeeeee; /* نص القوائم المنسدلة */
+  --dropdown-hover-bg: #555555; /* خلفية الماوس فوق القوائم المنسدلة */
+  --border-color: #dddddd; /* لون الحدود */
+  --body-font-size: 14px; /* حجم الخط الافتراضي */
+  --body-font-family: "Droid Arabic Kufi", Tahoma, Verdana, Arial, sans-serif; /* خط الموقع */
+  --code-font-family: Consolas, Monaco, monospace; /* خط الأكواد */
+
+  /* Variables mode nuit */
+  --dark-bg: #22272e;
+  --dark-content-bg: #2d333b;
+  --dark-text: #cdd9e5;
+  --dark-link: #58a6ff;
+  --dark-border: #444c56;
+  --dark-primary: #58a6ff;
+  --dark-secondary: #373e47;
+  --dark-header-text: #cdd9e5;
+  --dark-menu-text: #cdd9e5;
+  --dark-dropdown-bg: #444c56;
+  --dark-dropdown-text: #cdd9e5;
+  --dark-dropdown-hover-bg: #586069;
+
+  /* --- <<< NEW/MODIFIED >>> Variables pour la barre de défilement --- */
+  --scrollbar-track-color: var(--main-bg-color);
+  --scrollbar-thumb-color: var(--primary-color);
+  --scrollbar-thumb-hover-color: color-mix(in srgb, var(--primary-color) 80%, black);
+  /* تعريف منفصل لألوان الوضع الليلي لتجنب الاعتماد فقط على إعادة التعريف العام */
+  --dark-scrollbar-track-color: var(--dark-bg);
+  --dark-scrollbar-thumb-color: var(--dark-primary);
+  --dark-scrollbar-thumb-hover-color: color-mix(in srgb, var(--dark-primary) 80%, white);
+}
+
+/* --- 2. Styles Généraux & Application des Variables --- */
+body#phpbb {
+  background-color: var(--main-bg-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0; padding: 0;
+}
+body#phpbb.dark-mode {
+  /* إعادة تعريف المتغيرات لقيم الوضع الليلي */
+  --main-bg-color: var(--dark-bg);
+  --content-bg-color: var(--dark-content-bg);
+  --text-color: var(--dark-text);
+  --link-color: var(--dark-link);
+  --primary-color: var(--dark-primary);
+  --secondary-color: var(--dark-secondary);
+  --menu-hover-bg: var(--dark-primary);
+  --border-color: var(--dark-border);
+  --header-text-color: var(--dark-header-text);
+  --menu-text-color: var(--dark-menu-text);
+  --dropdown-bg: var(--dark-dropdown-bg);
+  --dropdown-text: var(--dark-dropdown-text);
+  --dropdown-hover-bg: var(--dark-dropdown-hover-bg);
+  /* --- <<< MODIFIED >>> إعادة تعريف متغيرات شريط التمرير للوضع الليلي صراحة --- */
+  --scrollbar-track-color: var(--dark-scrollbar-track-color);
+  --scrollbar-thumb-color: var(--dark-scrollbar-thumb-color);
+  --scrollbar-thumb-hover-color: var(--dark-scrollbar-thumb-hover-color);
+}
+
+*, *:before, *:after { box-sizing: border-box; }
+.a7la7ekaya-header { direction: rtl; }
+a { color: var(--link-color); text-decoration: none !important; transition: color 0.2s ease; border-bottom: none !important; }
+a:hover { text-decoration: underline !important; color: var(--primary-color); }
+body.dark-mode a { color: var(--dark-link); }
+body.dark-mode a:hover { color: #79c0ff; }
+hr { border: 0; border-top: 1px solid var(--border-color); margin: 5px 0; }
+
+/* ... (باقي كود القسم 2 كما هو) ... */
+.bodyline, #page-body, .main-content, #wrap, .panel, #content-container { background-color: var(--content-bg-color); border: 1px solid var(--border-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+body.dark-mode .bodyline, body.dark-mode #page-body, body.dark-mode .main-content, body.dark-mode #wrap, body.dark-mode .panel, body.dark-mode #content-container { background-color: var(--dark-content-bg); border-color: var(--dark-border); color: var(--dark-text); }
+.forumline th, th.thHead, th.thCornerL, th.thCornerR, .category td.cat, .category td.catHead, .category td.catBottom, .catHead, .table_header { background: var(--primary-color) !important; color: var(--header-text-color) !important; border-color: var(--primary-color) !important; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+.forumline td.row1, .forumline td.row2, .forumline td.row3, .row1, .row2, .row3 { background-color: var(--content-bg-color); color: var(--text-color); border-bottom: 1px solid var(--border-color); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+body.dark-mode .forumline td.row1, body.dark-mode .forumline td.row2, body.dark-mode .forumline td.row3, body.dark-mode .row1, body.dark-mode .row2, body.dark-mode .row3 { background-color: var(--dark-content-bg); border-bottom: 1px solid var(--dark-border); }
+.topictitle, .topic-title a, .forumlink { color: var(--link-color); font-weight: bold; }
+.postdetails, .postdetails a, .gensmall, .postby, .postdetails span { color: var(--text-color); font-size: 0.9em; transition: color 0.3s ease; }
+body.dark-mode .postdetails, body.dark-mode .postdetails a, body.dark-mode .gensmall, body.dark-mode .postby, body.dark-mode .postdetails span { color: var(--dark-text); }
+.nav, .nav a, .maintitle a, #page-header .nav a, .breadcrumbs a { color: var(--text-color); transition: color 0.3s ease; }
+body.dark-mode .nav, body.dark-mode .nav a, body.dark-mode .maintitle a, body.dark-mode #page-header .nav a, body.dark-mode .breadcrumbs a { color: var(--dark-text); }
+.btn, input.button, input[type="submit"], input[type="button"], button.button, .button1, .button2 { background-color: var(--primary-color); color: var(--header-text-color) !important; border: 1px solid var(--primary-color); padding: 5px 10px; border-radius: 3px; cursor: pointer; transition: filter 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; font-weight: bold; }
+.btn:hover, input.button:hover, input[type="submit"]:hover, input[type="button"]:hover, button.button:hover, .button1:hover, .button2:hover { filter: brightness(1.1); text-decoration: none !important; color: var(--header-text-color) !important; }
+body.dark-mode .btn, body.dark-mode input.button, body.dark-mode input[type="submit"], body.dark-mode input[type="button"], body.dark-mode button.button, body.dark-mode .button1, body.dark-mode .button2 { background-color: var(--dark-primary); color: var(--dark-bg) !important; border-color: var(--dark-primary); }
+input[type="text"], input[type="password"], textarea, select { border: 1px solid var(--border-color); padding: 5px; background-color: var(--content-bg-color); color: var(--text-color); border-radius: 3px; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+body.dark-mode input[type="text"], body.dark-mode input[type="password"], body.dark-mode textarea, body.dark-mode select { background-color: var(--dark-content-bg); border-color: var(--dark-border); color: var(--dark-text); }
+input:focus, textarea:focus, select:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-color) 30%, transparent); }
+body.dark-mode input:focus, body.dark-mode textarea:focus, body.dark-mode select:focus { border-color: var(--dark-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--dark-primary) 30%, transparent); }
+blockquote { background-color: #f9f9f9; border-right: 4px solid var(--border-color); padding: 10px 15px; margin: 10px 0; color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+body.dark-mode blockquote { background-color: #3e444c; border-right-color: var(--dark-border); }
+.codebox code { font-family: var(--code-font-family); background-color: #f5f5f5; border: 1px solid var(--border-color); padding: 10px; display: block; overflow-x: auto; color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; text-align: left; direction: ltr; }
+body.dark-mode .codebox code { background-color: #282c34; border-color: var(--dark-border); color: #abb2bf; }
+.pagination span a, .pagination span a:link, .pagination span a:visited, .pagination > a { background-color: var(--content-bg-color); border: 1px solid var(--border-color); color: var(--link-color); padding: 3px 6px; margin: 0 1px; border-radius: 3px; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+.pagination span a:hover, .pagination > a:hover { background-color: var(--primary-color); color: var(--header-text-color) !important; border-color: var(--primary-color); text-decoration: none !important; }
+body.dark-mode .pagination span a, body.dark-mode .pagination span a:link, body.dark-mode .pagination span a:visited, body.dark-mode .pagination > a { background-color: var(--dark-content-bg); border-color: var(--dark-border); color: var(--dark-link); }
+body.dark-mode .pagination span a:hover, body.dark-mode .pagination > a:hover { background-color: var(--dark-primary); color: var(--dark-bg) !important; border-color: var(--dark-primary); }
+.pagination span strong, .pagination > span.page-current { background-color: var(--primary-color); color: var(--header-text-color) !important; border: 1px solid var(--primary-color); padding: 3px 6px; margin: 0 1px; border-radius: 3px; font-weight: bold; }
+body.dark-mode .pagination span strong, body.dark-mode .pagination > span.page-current { background-color: var(--dark-primary); color: var(--dark-bg) !important; border-color: var(--dark-primary); }
+
+/* --- 3. Styles du Menu Principal Personnalisé --- */
+/* ... (كود القائمة كما هو) ... */
+#custom-header-area { margin-bottom: 10px; }
+#custom-main-menu { background-color: var(--secondary-color); width: 100%; position: relative; z-index: 100; border-bottom: 3px solid var(--primary-color); transition: background-color 0.3s ease, border-color 0.3s ease; }
+.custom-menu-inner { max-width: 1100px; margin: 0 auto; padding: 0 10px; position: relative; min-height: 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.custom-smallogo { color: var(--menu-text-color); padding: 0 15px; font-weight: bold; text-decoration: none !important; line-height: 48px; white-space: nowrap; transition: background-color 0.3s ease, color 0.3s ease; order: 1; border-bottom: none !important; }
+.custom-smallogo:hover { background-color: rgba(255,255,255,0.1); color: var(--menu-text-color); text-decoration: none !important;}
+#custom-menubtn { display: none; }
+.custom-menublabel { display: none; cursor: pointer; padding: 10px; order: 4; margin-left: 0; margin-right: 10px; position: relative; top: 3px; }
+.custom-menublabel span, .custom-menublabel span::before, .custom-menublabel span::after { content: ''; display: block; background-color: var(--menu-text-color); height: 3px; width: 25px; margin-bottom: 5px; border-radius: 2px; transition: all 0.3s ease; }
+.custom-menublabel span::before { position: absolute; top: 4px; }
+.custom-menublabel span::after { position: absolute; top: 22px; }
+#custom-menubtn:checked ~ .custom-menublabel span { background-color: transparent; }
+#custom-menubtn:checked ~ .custom-menublabel span::before { transform: rotate(45deg) translate(5px, 7px); }
+#custom-menubtn:checked ~ .custom-menublabel span::after { transform: rotate(-45deg) translate(5px, -7px); }
+.custom-t-menu { list-style: none; padding: 0; margin: 0; display: flex; flex-grow: 1; order: 2; justify-content: flex-start; }
+.custom-t-menu li { position: relative; }
+.custom-t-menu li a { display: block; padding: 0 15px; line-height: 48px; color: var(--menu-text-color); text-decoration: none !important; white-space: nowrap; transition: background-color 0.3s ease, color 0.3s ease; border-bottom: none !important; }
+.custom-t-menu li a:hover, .custom-t-menu li:hover > a { background-color: var(--menu-hover-bg); color: var(--menu-text-color); text-decoration: none !important; }
+.custom-t-menu li ul.custom-drop { display: none; position: absolute; top: 100%; right: 0; background-color: var(--dropdown-bg); list-style: none; padding: 5px 0; margin: 0; min-width: 200px; box-shadow: 0 3px 6px rgba(0,0,0,0.2); z-index: 101; border-radius: 0 0 4px 4px; transition: background-color 0.3s ease; }
+.custom-t-menu li:hover > ul.custom-drop { display: block; }
+.custom-t-menu li ul.custom-drop li { width: 100%; }
+.custom-t-menu li ul.custom-drop li a { line-height: 38px; color: var(--dropdown-text); padding: 0 15px; font-size: 0.9em; transition: background-color 0.2s ease, color 0.2s ease; }
+.custom-t-menu li ul.custom-drop li a:hover { background-color: var(--dropdown-hover-bg); text-decoration: none !important; color: #fff; }
+body.dark-mode .custom-t-menu li ul.custom-drop li a:hover { color: #fff; }
+.custom-t-menu li#sub > a.custom-suba::after { content: " \f078"; font-family: "Font Awesome 5 Free", FontAwesome; font-weight: 900; font-size: 10px; margin-right: 5px; vertical-align: middle; }
+
+/* --- 4. Espace Utilisateur #custom-user-area --- */
+/* ... (كود منطقة المستخدم كما هو) ... */
+#custom-user-area { display: flex; align-items: center; margin: 0 15px 0 auto; padding: 0; order: 3; position: relative; }
+#custom-user-area .user-links-logged-out { display: flex; align-items: center; }
+#custom-user-area .login-input { padding: 5px 8px; border: 1px solid #555; background-color: #555; color: #eee; border-radius: 3px; height: 30px; font-size: 12px; margin-left: 5px; transition: all 0.3s ease; width: 110px; }
+#custom-user-area .login-input::placeholder { color: #bbb; opacity: 0.8; }
+#custom-user-area .login-input:focus { border-color: var(--primary-color); background-color: var(--content-bg-color); color: var(--text-color); outline: none; }
+body.dark-mode #custom-user-area .login-input { background-color: var(--dark-secondary); border-color: #666; color: var(--dark-menu-text); }
+body.dark-mode #custom-user-area .login-input:focus { background-color: var(--dark-content-bg); color: var(--dark-text); border-color: var(--dark-primary); }
+#custom-user-area .autologin-label { color: #ccc; font-size: 11px; margin-left: 8px; display: inline-flex; align-items: center; cursor: pointer; white-space: nowrap; }
+#custom-user-area .autologin-checkbox { margin-left: 3px; vertical-align: middle; cursor: pointer; }
+#custom-user-area .login-button { background-color: var(--primary-color); color: var(--menu-text-color); border: none; padding: 0 8px; height: 30px; border-radius: 3px; cursor: pointer; font-size: 13px; transition: background-color 0.3s ease; margin-left: 8px; line-height: 30px; }
+#custom-user-area .login-button:hover { filter: brightness(1.1); }
+#custom-user-area .user-links-logged-out a.register-link { color: #eee; text-decoration: none !important; font-size: 13px; transition: color 0.2s ease; white-space: nowrap; display: inline-flex; align-items: center; margin-left: 5px; padding: 5px; border-bottom: none !important; }
+#custom-user-area .user-links-logged-out a.register-link:hover { color: #fff; }
+#custom-user-area .user-links-logged-out a.register-link i { margin-left: 4px; }
+#custom-user-area .user-info-logged-in { display: flex; align-items: center; position: relative; }
+#custom-user-area .user-summary { display: flex; align-items: center; margin-left: 0px; }
+#custom-user-area .user-name { color: var(--menu-text-color); font-weight: bold; text-decoration: none !important; display: inline-flex; align-items: center; font-size: 13px; margin-left: 5px; border-bottom: none !important; }
+#custom-user-area .user-name:hover { text-decoration: none !important; color: #eee; }
+.user-avatar-small { width: 24px; height: 24px; border-radius: 50%; margin-left: 8px; border: 1px solid #666; vertical-align: middle; object-fit: cover; background-color: #555; display: inline-block; transition: border-color 0.3s ease; }
+.user-avatar-small-icon { font-size: 24px; margin-left: 8px; color: #ccc; vertical-align: middle; display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; background-color: #555; border-radius: 50%; }
+.user-pm-link, .user-logout-link { color: var(--menu-text-color); text-decoration: none !important; margin-left: 10px; font-size: 14px; position: relative; padding: 5px; transition: color 0.2s ease; border-bottom: none !important; }
+.user-pm-link .pm-count { background-color: red; color: white; border-radius: 10px; font-size: 10px; padding: 1px 5px; position: absolute; top: -2px; right: -8px; line-height: 1; font-weight: bold; box-shadow: 0 0 3px rgba(0,0,0,0.5); min-width: 16px; text-align: center; z-index: 1; }
+.user-pm-link:hover, .user-logout-link:hover { color: #eee; }
+.dropdown-trigger { cursor: pointer; padding: 10px 8px 10px 5px; display: inline-flex; align-items: center; }
+.dropdown-indicator { font-size: 12px; color: var(--menu-text-color); transition: transform 0.2s ease-in-out; display: inline-block; }
+#custom-user-area .user-info-logged-in.dropdown-active .dropdown-indicator { transform: rotate(180deg); }
+#user-dropdown { display: none; position: absolute; top: calc(100% + 5px); left: 0; background-color: var(--content-bg-color); list-style: none; padding: 8px 0; margin: 0; min-width: 220px; box-shadow: 0 5px 10px rgba(0,0,0,0.2); z-index: 102; border-radius: 4px; border: 1px solid var(--border-color); text-align: right; transition: background-color 0.3s ease, border-color 0.3s ease; }
+#user-dropdown li a { display: block; padding: 8px 15px; color: var(--text-color); text-decoration: none !important; font-size: 13px; white-space: nowrap; transition: background-color 0.2s ease, color 0.2s ease; border-bottom: none !important; }
+#user-dropdown li a:hover { background-color: #f0f0f0; text-decoration: none !important; color: var(--primary-color); }
+body.dark-mode #user-dropdown { background-color: var(--dark-dropdown-bg); border-color: var(--dark-border); }
+body.dark-mode #user-dropdown li a { color: var(--dark-dropdown-text); }
+body.dark-mode #user-dropdown li a:hover { background-color: var(--dark-dropdown-hover-bg); color: var(--dark-primary); }
+#user-dropdown li a i.fa-fw { margin-left: 10px; color: #888; width: 1.2em; text-align: center; transition: color 0.2s ease; }
+body.dark-mode #user-dropdown li a i.fa-fw { color: #aaa; }
+#user-dropdown li a:hover i.fa-fw { color: var(--primary-color); }
+body.dark-mode #user-dropdown li a:hover i.fa-fw { color: var(--dark-primary); }
+#user-dropdown hr.separator { border-top-color: var(--border-color); }
+
+/* --- 5. Espace Recherche Intégré #custom-search-area --- */
+/* ... (كود البحث كما هو) ... */
+#custom-search-area { display: flex; align-items: center; order: 5; margin-right: auto; position: relative; }
+#custom-search-trigger a { color: var(--menu-text-color); padding: 0 10px; line-height: 48px; font-size: 16px; text-decoration: none !important; display: block; transition: color 0.2s ease; border-bottom: none !important; }
+#custom-search-trigger a:hover { color: #ccc; }
+#custom-search-inline { position: absolute; top: 50%; left: calc(100% + 5px); transform: translateY(-50%); background-color: var(--secondary-color); display: flex; align-items: center; padding: 5px; border-radius: 4px; z-index: 103; box-shadow: 0 2px 5px rgba(0,0,0,0.3); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease, left 0.3s ease; }
+#custom-search-inline.active { left: 0; opacity: 1; visibility: visible; }
+#custom-search-inline form { display: flex; }
+#custom-search-text-inline { padding: 6px 10px; border: 1px solid #555; background-color: #555; color: #eee; border-radius: 3px 0 0 3px; height: 30px; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; font-size: 13px; width: 180px; }
+#custom-search-text-inline:focus { background-color: var(--content-bg-color); color: var(--text-color); border-color: var(--primary-color); outline: none; }
+body.dark-mode #custom-search-text-inline { background-color: var(--dark-secondary); border-color: #666; color: var(--dark-menu-text); }
+body.dark-mode #custom-search-text-inline:focus { background-color: var(--dark-content-bg); color: var(--dark-text); border-color: var(--dark-primary); }
+#custom-search-inline button[type="submit"] { background-color: var(--primary-color); border: none; color: var(--menu-text-color); padding: 0 10px; height: 30px; border-radius: 0; cursor: pointer; font-size: 13px; transition: background-color 0.3s ease; }
+#custom-search-inline button[type="submit"]:hover { filter: brightness(1.1); }
+#custom-search-inline button#close-inline-search { background-color: transparent; border: none; color: #aaa; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 8px; transition: color 0.2s ease; margin-right: 5px; border-radius: 0 3px 3px 0; height: 30px; }
+#custom-search-inline button#close-inline-search:hover { color: #eee; }
+
+/* --- 6. Styles En-tête Principal (Logo/Titre) --- */
+#custom-header-wrapper {
+  background-color: var(--primary-color); /* يعتمد على المتغير */
+  padding: 20px 0;
+  transition: background-color 0.3s ease;
+}
+/* ... (باقي كود الهيدر الداخلي) ... */
+.custom-header-inner { max-width: 1100px; margin: 0 auto; padding: 0 10px; text-align: right; }
+.custom-titlewrapper { margin-bottom: 5px; }
+.custom-title a { color: var(--header-text-color); font-size: 2.2em; font-weight: bold; text-decoration: none !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); transition: color 0.3s ease; display: inline-block; border-bottom: none !important; }
+.custom-title a:hover { text-decoration: none !important; }
+.custom-title img#forum_logo { max-height: 70px; width: auto; display: inline-block; vertical-align: middle; }
+.custom-description span { color: #eee; font-size: 0.95em; transition: color 0.3s ease; }
+body.dark-mode .custom-description span { color: #ccc; }
+
+/* --- <<< NEW/MODIFIED >>> إضافة قاعدة صريحة للوضع الليلي للهيدر --- */
+body#phpbb.dark-mode #custom-header-wrapper {
+    background-color: var(--dark-primary);
+}
+body#phpbb.dark-mode .custom-title a {
+    color: var(--dark-header-text);
+}
+/* --- نهاية الإضافة --- */
+
+
+/* --- 7. Panneau de Personnalisation du Style --- */
+/* ... (كود لوحة التحكم كما هو، مع التأكد من أن #style-options-trigger يستخدم المتغيرات) ... */
+#style-options-container { position: fixed; top: 150px; left: -255px; z-index: 999; direction: ltr; transition: left 0.3s ease-in-out; }
+#style-options-container.open { left: 0; }
+#style-options-trigger {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: var(--primary-color); /* يعتمد على المتغير */
+  color: var(--header-text-color);       /* يعتمد على المتغير */
+  padding: 8px 10px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-left: none;
+}
+#style-options-trigger:hover { filter: brightness(1.1); }
+/* <<< NEW/MODIFIED >>> إضافة قاعدة صريحة للوضع الليلي لزر الإعدادات */
+body#phpbb.dark-mode #style-options-trigger {
+    background-color: var(--dark-primary);
+    color: var(--dark-header-text);
+    border-color: rgba(255,255,255,0.1);
+}
+#style-options-panel { width: 250px; background-color: var(--content-bg-color); border: 1px solid var(--border-color); border-left: none; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); border-radius: 0 5px 5px 0; padding: 15px; height: auto; max-height: calc(100vh - 180px); overflow-y: auto; transition: background-color 0.3s ease, border-color 0.3s ease; }
+body.dark-mode #style-options-panel { background-color: var(--dark-content-bg); border-color: var(--dark-border); }
+#style-options-panel h4 { margin-top: 15px; margin-bottom: 8px; font-size: 1em; color: var(--text-color); border-bottom: 1px solid var(--border-color); padding-bottom: 5px; transition: color 0.3s ease, border-color 0.3s ease; }
+#style-options-panel h4:first-child { margin-top: 0; }
+.options-tabs-nav { list-style: none; padding: 0; margin: 0 0 15px 0; display: flex; border-bottom: 1px solid var(--border-color); transition: border-color 0.3s ease; }
+.options-tabs-nav li { margin-right: 5px; padding: 8px 12px; cursor: pointer; color: var(--text-color); border: 1px solid transparent; border-bottom: none; border-radius: 4px 4px 0 0; font-size: 0.9em; transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+.options-tabs-nav li.active { background-color: var(--content-bg-color); border-color: var(--border-color); border-bottom-color: var(--content-bg-color) !important; position: relative; top: 1px; font-weight: bold; }
+body.dark-mode .options-tabs-nav li { color: var(--dark-text); }
+body.dark-mode .options-tabs-nav li.active { background-color: var(--dark-content-bg); border-color: var(--dark-border); border-bottom-color: var(--dark-content-bg) !important; }
+.options-tabs-nav li:hover:not(.active) { background-color: rgba(128,128,128,0.1); }
+body.dark-mode .options-tabs-nav li:hover:not(.active) { background-color: rgba(200,200,200,0.1); }
+.options-tab-pane { display: none; }
+.options-tab-pane.active { display: block; }
+#color-swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+.color-swatch { width: 25px; height: 25px; border: 1px solid var(--border-color); border-radius: 50%; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.3s ease; padding: 0; }
+.color-swatch:hover { transform: scale(1.1); }
+.color-swatch.active { box-shadow: 0 0 0 2px var(--content-bg-color), 0 0 0 4px var(--primary-color); }
+body.dark-mode .color-swatch.active { box-shadow: 0 0 0 2px var(--dark-content-bg), 0 0 0 4px var(--dark-primary); }
+.control-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.control-item span { font-size: 0.9em; color: var(--text-color); transition: color 0.3s ease; }
+.toggle-button { background-color: #ccc; color: #fff; border: none; padding: 4px 10px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: bold; min-width: 50px; text-align: center; position: relative; transition: background-color 0.3s ease; }
+.toggle-button:before { content: ''; display: block; width: 18px; height: 18px; background-color: white; border-radius: 50%; position: absolute; top: 2px; left: 3px; transition: left 0.3s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+.toggle-button[data-state="on"] { background-color: var(--primary-color); }
+.toggle-button[data-state="on"]:before { left: calc(100% - 21px); }
+body.dark-mode .toggle-button { background-color: #555; }
+body.dark-mode .toggle-button[data-state="on"] { background-color: var(--dark-primary); }
+#font-family-select { width: 100%; padding: 6px; border: 1px solid var(--border-color); border-radius: 3px; font-size: 0.9em; background-color: var(--content-bg-color); color: var(--text-color); transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+body.dark-mode #font-family-select { background-color: #555; border-color: var(--dark-border);}
+.font-size-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.font-size-controls button { background-color: #eee; border: 1px solid var(--border-color); color: var(--text-color); width: 30px; height: 30px; border-radius: 50%; font-size: 1.2em; line-height: 1; cursor: pointer; transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+body.dark-mode .font-size-controls button { background-color: #555; border-color: var(--dark-border); color: var(--dark-text); }
+.font-size-controls button:hover { background-color: #ddd; }
+body.dark-mode .font-size-controls button:hover { background-color: #666; }
+#current-font-size { font-weight: bold; color: var(--text-color); transition: color 0.3s ease; }
+#reset-font-settings, #reset-all-options { margin-top: 15px; width: 100%; background: #ffc107; border: 1px solid #b98d06; color: #333; padding: 6px; font-size: 13px; cursor: pointer; border-radius: 3px; text-align: center; transition: filter 0.2s ease; }
+#reset-all-options { background: #dc3545; border-color: #a71d2a; color: #fff; }
+#reset-font-settings:hover, #reset-all-options:hover { filter: brightness(1.1); }
+body.sidebar-hidden #sidebar, body.sidebar-hidden #LeftCol, body.sidebar-hidden #RightCol, body.sidebar-hidden .layout-left-sidebar, body.sidebar-hidden .layout-right-sidebar { display: none !important; }
+body.sidebar-hidden #mainContent, body.sidebar-hidden .forumline:not(#latest_topics_list):not(.profile), body.sidebar-hidden #page-body > table > tbody > tr > td:first-child:not([colspan]), body.sidebar-hidden .layout-content { width: 100% !important; margin: 0 !important; padding: 0 5px !important; float: none !important; }
+
+
+/* --- 8. Styles Adaptatifs --- */
+/* ... (أكواد @media كما هي) ... */
+@media screen and (max-width: 1150px) { #style-options-container { display: none; } }
+@media screen and (max-width: 1050px) {
+    .custom-t-menu { display: none; }
+    .custom-menublabel { display: block; }
+    #custom-user-area { order: 2; margin: 0 10px 0 auto; }
+    #custom-search-area { order: 3; margin-right: 10px; }
+    #custom-menubtn:checked ~ .custom-t-menu { display: flex; flex-direction: column; width: 100%; position: absolute; top: 100%; right: 0; background-color: #3d3d3d; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-top: 1px solid #555; order: 5; z-index: 100; }
+    #custom-menubtn:checked ~ .custom-t-menu li { width: 100%; }
+    #custom-menubtn:checked ~ .custom-t-menu li a { line-height: 45px; border-bottom: 1px solid #505050; text-align: right; padding: 0 20px; color: #eee; }
+    #custom-menubtn:checked ~ .custom-t-menu li:last-child a { border-bottom: none; }
+    #custom-menubtn:checked ~ .custom-t-menu li ul.custom-drop { position: static; display: block !important; background-color: transparent; box-shadow: none; padding: 0; border-radius: 0; border-top: 1px solid #505050; }
+    #custom-menubtn:checked ~ .custom-t-menu li ul.custom-drop li a { color: #ccc; padding: 0 30px; line-height: 40px; font-size: 0.85em; border-bottom: none; }
+}
+@media screen and (max-width: 768px) {
+  .custom-menu-inner { min-height: 50px; justify-content: space-between; flex-wrap: nowrap; padding: 0 5px; }
+  .custom-smallogo { order: 1; margin-left: 5px; padding: 0 5px; font-size: 0.9em; line-height: 50px; flex-shrink: 0; }
+  #custom-user-area { order: 2; padding: 0; flex-shrink: 1; overflow: hidden; margin: 0 5px; }
+  #custom-search-area { order: 3; margin-right: 0; margin-left: 5px; }
+  .custom-menublabel { order: 4; margin-right: 0; padding: 8px; }
+
+  #custom-user-area .user-links-logged-out { flex-wrap: nowrap; }
+  #custom-user-area .login-input { width: 75px; height: 28px; font-size: 11px; margin-left: 3px; padding: 4px 6px;}
+  #custom-user-area .login-button, #custom-user-area .user-links-logged-out a.register-link { height: 28px; padding: 0 6px; font-size: 11px; line-height: 28px; }
+  #custom-user-area .autologin-label { display: none; }
+
+  #custom-user-area .user-info-logged-in .user-summary { margin-left: 0; }
+  #custom-user-area .user-info-logged-in .user-name { font-size: 12px; margin-left: 3px; }
+  .user-avatar-small, .user-avatar-small-icon { width: 20px; height: 20px; margin-left: 5px; }
+  .user-pm-link, .user-logout-link { font-size: 13px; margin-left: 5px; padding: 3px; }
+  .user-pm-link .pm-count { font-size: 9px; padding: 0px 3px; top: -2px; right: -3px; min-width: 12px; }
+  .dropdown-trigger { padding: 8px 3px 8px 5px; margin-left: 0; }
+  #user-dropdown { min-width: 180px; left: auto; right: 0; transform: none; }
+
+  #custom-search-trigger a { line-height: 50px; padding: 0 8px; }
+  #custom-search-inline { padding: 5px; left: auto; right: 100%; transform: translate(0, -50%); }
+  #custom-search-inline.active { right: 0; }
+  #custom-search-text-inline { width: calc(100vw - 100px); max-width: 150px; height: 28px; font-size: 12px;}
+  #custom-search-inline button { height: 28px; padding: 0 8px; }
+  #custom-search-inline button#close-inline-search { font-size: 16px; padding: 0 4px; }
+
+  .custom-header-inner { text-align: center; }
+  .custom-title a { font-size: 1.8em; }
+}
+@media screen and (max-width: 550px) {
+     #custom-user-area .login-input { width: 65px; }
+     #custom-user-area .user-links-logged-out a.register-link { display: none; }
+     #custom-search-text-inline { max-width: 120px; }
+}
+@media screen and (max-width: 480px) {
+    .custom-smallogo { display: none; }
+    .custom-menu-inner { justify-content: flex-end; }
+    #custom-user-area { order: 1; margin-right: 5px; flex-grow: 1; }
+    #custom-search-area { order: 2; flex-shrink: 0; }
+    .custom-menublabel { order: 3; }
+    #custom-user-area .user-links-logged-out { width: 100%; justify-content: center; flex-wrap: wrap; }
+    #custom-user-area .login-input { width: calc(50% - 35px); margin-bottom: 3px; }
+    #custom-user-area .login-button { width: calc(50% - 10px); margin-left: 0; margin-bottom: 3px; }
+    #custom-user-area .autologin-label { display: none; }
+    #custom-user-area .user-info-logged-in .user-name { max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: middle;}
+    .user-avatar-small, .user-avatar-small-icon { margin-left: 3px; }
+    .user-pm-link, .user-logout-link { margin-left: 3px; }
+    #custom-search-text-inline { width: calc(100vw - 110px); max-width: 100px; }
+}
+
+
+/* ============================================ */
+/* == Fin des Styles V6 == */
+/* ============================================ */
+
+
+
+
+............... (أكواد بلوجر السابقة)
+
+
+/* --- استيراد الخطوط المستخدمة --- */
+/* FontAwesome ضروري للأيقونات ويُفترض تحميله */
+@font-face {
+  font-family: Almarai;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Almarai'), local('Almarai-Regular'), url(https://fonts.gstatic.com/s/almarai/v2/tsstApxBaigK_hnnQ1iFo0C3.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+} /* <<< CORRECTED: Added closing brace */
+
+/* --- !!! الأجزاء المكررة معلقة !!! --- */
+/* ... */
+
+/* --- تنسيقات .post-home وما يتبعها (إذا كانت مستخدمة) --- */
+/* ... (الكود كما هو في الإجابة السابقة، يعتمد على متغيرات V6) ... */
+.widget ul, .widget li { margin: 0; padding: 0; list-style: none; }
+.blog-posts { }
+.date-outer, .date-posts { }
+.jadeed { display: none; }
+.post-home { background-color: var(--content-bg-color); box-shadow: 0 0 0 1px var(--border-color); float: right; height: 300px; margin-bottom: 20px; margin-left: 12px; overflow: hidden; position: relative; width: 318px; box-sizing: border-box; }
+.thumcont { border-bottom: 1px solid var(--border-color); height: 150px; overflow: hidden; position: relative; width: 100%; background-color: #e9e9e9; }
+body.dark-mode .thumcont { background-color: #3e444c; border-bottom: 1px solid var(--dark-border); }
+.thnoimg { position: absolute; width: 100%; height: 100%; z-index: 1; background-color: var(--secondary-color); }
+body.dark-mode .thnoimg { background-color: var(--dark-secondary); }
+.thnoimg::before { color: var(--menu-text-color); content: "\f030"; display: block; font-size: 60px; line-height: 150px; font-family: 'Font Awesome 5 Pro', FontAwesome; text-align: center; width: 100%; height: 100%; }
+body.dark-mode .thnoimg::before { color: var(--dark-menu-text); }
+.thumbin { position: absolute; width: 100%; height: 100%; z-index: 2; }
+.thumcont img { display: block; height: 100%; width: 100%; object-fit: cover; transition: all 0.7s ease 0s; }
+.post-home:hover .thumcont img { opacity: 0.5; transform: scale(1.3); }
+.sharebuto { background-color: rgba(255, 255, 255, 0.7); border-radius: 2px 0 0; bottom: 0; box-shadow: -1px -1px 1px rgba(0,0,0,0.1); list-style: none; margin: 0; padding: 3px !important; position: absolute; right: 0; z-index: 99; display: flex; gap: 2px; }
+body.dark-mode .sharebuto { background-color: rgba(45, 51, 59, 0.7); box-shadow: -1px -1px 1px rgba(0,0,0,0.2); }
+.sharebuto li { padding: 0; }
+.sharebuto a { color: #fff; display: block; height: 20px; width: 20px; line-height: 20px; text-align: center; font-size: 12px; font-family: 'Font Awesome 5 Pro', FontAwesome; text-decoration: none !important; border-bottom: none !important; }
+.sharebuto a:hover { background-color: var(--secondary-color) !important; text-decoration: none !important; }
+body.dark-mode .sharebuto a:hover { background-color: var(--dark-secondary) !important; }
+.sharebuto .fa.fa-facebook { background-color: #3b5998; }
+.sharebuto .fa.fa-twitter { background-color: #1DA1F2; }
+.sharebuto .fa.fa-google-plus { background-color: #db4437; }
+.post-home .title-summ { padding: 5px 10px 10px 10px; }
+.ptitle { display: block; line-height: 1.7em; margin: 5px 0 8px 0; text-align: center; font-size: 15px; color: var(--link-color); font-weight: bold; text-decoration: none !important; border-bottom: none !important; }
+.ptitle:hover { color: var(--primary-color); text-decoration: underline !important; }
+.post-snippet { font: 13px/1.8em Tahoma, sans-serif; margin: 0; text-align: center; color: var(--text-color); max-height: 5.4em; overflow: hidden; }
+.labandcomm { background-color: var(--content-bg-color); border-top: 1px solid var(--border-color); bottom: 0; font-size: 12px; height: 30px; line-height: 30px; position: absolute; width: 100%; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.3s ease, border-color 0.3s ease; }
+body.dark-mode .labandcomm { background-color: var(--dark-content-bg); border-top: 1px solid var(--dark-border); }
+.labelsmm { padding-right: 5px; display: flex; align-items: center; color: var(--text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 1; margin-left: 5px; }
+body.dark-mode .labelsmm { color: var(--dark-text); }
+.labelsmm::before { content: "\f02c"; font-family: 'Font Awesome 5 Pro', FontAwesome; font-size: 14px; margin-left: 4px; color: inherit; flex-shrink: 0; }
+.labelsmm a { color: var(--link-color); margin-left: 4px; text-decoration: none !important; border-bottom: none !important; }
+.labelsmm a:hover { color: var(--primary-color); text-decoration: underline !important; }
+body.dark-mode .labelsmm a { color: var(--dark-link); }
+body.dark-mode .labelsmm a:hover { color: #79c0ff; }
+.comment-bubble { background-color: var(--secondary-color); color: var(--menu-text-color); font-family: arial, sans-serif; font-size: 12px; height: 30px; width: 55px; display: flex; align-items: center; justify-content: center; position: relative; text-decoration: none !important; transition: background-color 0.3s ease, color 0.3s ease; flex-shrink: 0; border-bottom: none !important; }
+body.dark-mode .comment-bubble { background-color: var(--dark-secondary); color: var(--dark-menu-text); }
+.comment-bubble:hover { background-color: var(--primary-color); color: var(--header-text-color) !important; text-decoration: none !important; }
+body.dark-mode .comment-bubble:hover { background-color: var(--dark-primary); color: var(--dark-bg) !important; }
+.comment-bubble::before { content: "\f086"; font-family: 'Font Awesome 5 Pro', FontAwesome; font-size: 14px; margin-right: 3px; }
+.comment-bubble::after { content: "\f0da"; font-family: 'Font Awesome 5 Pro', FontAwesome; font-size: 22px; color: var(--secondary-color); position: absolute; right: -7px; top: 50%; transform: translateY(-50%); transition: color 0.3s ease; }
+body.dark-mode .comment-bubble::after { color: var(--dark-secondary); }
+.comment-bubble:hover::after { color: var(--primary-color); }
+body.dark-mode .comment-bubble:hover::after { color: var(--dark-primary); }
+@keyframes fadeInUp { 0% {opacity: 0;transform: translateY(20px);} 100% {opacity: 1;transform: translateY(0);} }
+.fadeInUp { animation-duration: 1s; animation-fill-mode: both; animation-name: fadeInUp; }
+@media screen and (max-width : 680px) { #main-wrapper { float: none; margin: 0 auto; width: 98%; max-width: 600px; } .post-home { width: 100%; margin-left: 0; height: auto; min-height: 280px; } }
+@media screen and (max-width : 420px) { }
+
+/* --- التنسيق الأساسي للفوتر (للوضع الطبيعي غير الثابت) --- */
+.credit {
+  background-color: var(--primary-color); /* يستخدم اللون الأساسي */
+  color: var(--header-text-color, #fff); /* يستخدم لون نص الهيدر */
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  clear: both;
+  margin-top: 20px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* --- تنسيق الحاوية الداخلية (.increk) --- */
+.increk {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* --- تنسيق رابط الحقوق --- */
+#oncn a {
+  /* اللون يرثه تلقائياً */
+  text-decoration: underline !important;
+  border-bottom: none !important;
+}
+#oncn a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- <<< NEW/MODIFIED >>> إضافة قاعدة صريحة للوضع الليلي للفوتر --- */
+body#phpbb.dark-mode .credit {
+    background-color: var(--dark-primary);
+    color: var(--dark-header-text);
+}
+/* تعديل لون رابط الحقوق في الوضع الليلي */
+body#phpbb.dark-mode .credit #oncn a {
+    color: var(--dark-header-text); /* جعله يطابق لون نص الفوتر */
+}
+body#phpbb.dark-mode .credit #oncn a:hover {
+    color: rgba(205, 217, 229, 0.8); /* مثال: جعل لون النص الليلي أفتح قليلاً عند المرور */
+}
+/* --- نهاية الإضافة --- */
+
+/* --- تنسيق شريط التمرير --- */
+/* يعمل على متصفحات WebKit */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color);
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* <<< NEW >>> انتقال لون المسار */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-color);
+}
+
+/* يعمل على Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+  /* Firefox لا يدعم انتقال الألوان لشريط التمرير حاليًا */
+}
+
+/* --- !!! تم حذف تعريف :root المكرر في النهاية !!! --- */
