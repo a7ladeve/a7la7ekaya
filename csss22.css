@@ -870,7 +870,7 @@ span.labelsmm a.last-post-icon {
 span.labelsmm strong a.gensmall span.color-groups strong {
     float: inline-end;
 }
-a.commmment-bubble::after {
+.commmment-bubble::after {
     content: "\f0d9";
     font-family: 'Font Awesome 5 Pro', FontAwesome;
     font-size: 22px;
