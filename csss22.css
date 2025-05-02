@@ -57,41 +57,34 @@ body{
   --body-font-size: 14px; /* حجم الخط الافتراضي */
   --body-font-family: "Droid Arabic Kufi", Tahoma, Verdana, Arial, sans-serif; /* خط الموقع */
   --code-font-family: Consolas, Monaco, monospace; /* خط الأكواد */
-
   /* Variables mode nuit */
-  --dark-bg: #22272e;
-  --dark-content-bg: #2d333b;
-  --dark-text: #cdd9e5;
-  --dark-link: #58a6ff;
-  --dark-border: #444c56;
-  --dark-primary: #58a6ff;
-  --dark-secondary: #373e47;
-  --dark-header-text: #cdd9e5;
-  --dark-menu-text: #cdd9e5;
-  --dark-dropdown-bg: #444c56;
-  --dark-dropdown-text: #cdd9e5;
-  --dark-dropdown-hover-bg: #586069;
-
-  /* --- <<< NEW/MODIFIED >>> Variables pour la barre de défilement --- */
-  --scrollbar-track-color: var(--main-bg-color);
-  --scrollbar-thumb-color: var(--primary-color);
-  --scrollbar-thumb-hover-color: color-mix(in srgb, var(--primary-color) 80%, black);
-  /* تعريف منفصل لألوان الوضع الليلي لتجنب الاعتماد فقط على إعادة التعريف العام */
-  --dark-scrollbar-track-color: var(--dark-bg);
-  --dark-scrollbar-thumb-color: var(--dark-primary);
-  --dark-scrollbar-thumb-hover-color: color-mix(in srgb, var(--dark-primary) 80%, white);
+  --dark-bg: #22272e; /* خلفية الصفحة بالوضع الليلي */
+  --dark-content-bg: #2d333b; /* خلفية المحتوى بالوضع الليلي */
+  --dark-text: #cdd9e5; /* لون النص بالوضع الليلي */
+  --dark-link: #58a6ff; /* لون الرابط بالوضع الليلي */
+  --dark-border: #444c56; /* لون الحدود بالوضع الليلي */
+  --dark-primary: #58a6ff; /* اللون الأساسي بالوضع الليلي */
+  --dark-secondary: #373e47; /* اللون الثانوي بالوضع الليلي */
+  --dark-header-text: #cdd9e5; /* لون نص الهيدر/الفوتر بالوضع الليلي */
+  --dark-menu-text: #cdd9e5; /* لون نص القائمة بالوضع الليلي */
+  --dark-dropdown-bg: #444c56; /* خلفية المنسدلة بالوضع الليلي */
+  --dark-dropdown-text: #cdd9e5; /* نص المنسدلة بالوضع الليلي */
+  --dark-dropdown-hover-bg: #586069; /* خلفية الماوس فوق المنسدلة بالوضع الليلي */
 }
 
 /* --- 2. Styles Généraux & Application des Variables --- */
-body#phpbb {
-  background-color: var(--main-bg-color);
+body#phpbb { /* يستهدف body فقط إذا كان منتدى (له ID=phpbb) */
+  background-color: var(--main-bg-color); /* يطبق خلفية الصفحة العامة */
   font-family: var(--body-font-family);
   font-size: var(--body-font-size);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
   margin: 0; padding: 0;
+  /* أي خلفية صورة يجب تطبيقها هنا إذا أردتها ديناميكية */
+  /* مثال: background-image: var(--bg-body-pattern); */
+  /* لكن يجب تعريف --bg-body-pattern في :root و body#phpbb.dark-mode */
 }
-body#phpbb.dark-mode {
+body#phpbb.dark-mode { /* عند تفعيل الوضع الليلي */
   /* إعادة تعريف المتغيرات لقيم الوضع الليلي */
   --main-bg-color: var(--dark-bg);
   --content-bg-color: var(--dark-content-bg);
@@ -106,21 +99,20 @@ body#phpbb.dark-mode {
   --dropdown-bg: var(--dark-dropdown-bg);
   --dropdown-text: var(--dark-dropdown-text);
   --dropdown-hover-bg: var(--dark-dropdown-hover-bg);
-  /* --- <<< MODIFIED >>> إعادة تعريف متغيرات شريط التمرير للوضع الليلي صراحة --- */
-  --scrollbar-track-color: var(--dark-scrollbar-track-color);
-  --scrollbar-thumb-color: var(--dark-scrollbar-thumb-color);
-  --scrollbar-thumb-hover-color: var(--dark-scrollbar-thumb-hover-color);
+  /* هنا يمكنك أيضًا تغيير خلفية الصورة إذا أردت */
+  /* --bg-body-pattern: url(رابط-صورة-الوضع-الليلي.png); */
 }
 
 *, *:before, *:after { box-sizing: border-box; }
 .a7la7ekaya-header { direction: rtl; }
-a { color: var(--link-color); text-decoration: none !important; transition: color 0.2s ease; border-bottom: none !important; }
-a:hover { text-decoration: underline !important; color: var(--primary-color); }
+a { color: var(--link-color); text-decoration: none !important; transition: color 0.2s ease; border-bottom: none !important; } /* تم إضافة !important لإلغاء الخط */
+a:hover { text-decoration: underline !important; color: var(--primary-color); } /* يمكنك إزالة !important إذا لم تكن هناك حاجة ماسة */
 body.dark-mode a { color: var(--dark-link); }
 body.dark-mode a:hover { color: #79c0ff; }
 hr { border: 0; border-top: 1px solid var(--border-color); margin: 5px 0; }
 
-/* ... (باقي كود القسم 2 كما هو) ... */
+/* --- باقي الكود --- */
+/* (Application des couleurs aux éléments courants d'AhlaForum) */
 .bodyline, #page-body, .main-content, #wrap, .panel, #content-container { background-color: var(--content-bg-color); border: 1px solid var(--border-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
 body.dark-mode .bodyline, body.dark-mode #page-body, body.dark-mode .main-content, body.dark-mode #wrap, body.dark-mode .panel, body.dark-mode #content-container { background-color: var(--dark-content-bg); border-color: var(--dark-border); color: var(--dark-text); }
 .forumline th, th.thHead, th.thCornerL, th.thCornerR, .category td.cat, .category td.catHead, .category td.catBottom, .catHead, .table_header { background: var(--primary-color) !important; color: var(--header-text-color) !important; border-color: var(--primary-color) !important; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
@@ -132,7 +124,7 @@ body.dark-mode .postdetails, body.dark-mode .postdetails a, body.dark-mode .gens
 .nav, .nav a, .maintitle a, #page-header .nav a, .breadcrumbs a { color: var(--text-color); transition: color 0.3s ease; }
 body.dark-mode .nav, body.dark-mode .nav a, body.dark-mode .maintitle a, body.dark-mode #page-header .nav a, body.dark-mode .breadcrumbs a { color: var(--dark-text); }
 .btn, input.button, input[type="submit"], input[type="button"], button.button, .button1, .button2 { background-color: var(--primary-color); color: var(--header-text-color) !important; border: 1px solid var(--primary-color); padding: 5px 10px; border-radius: 3px; cursor: pointer; transition: filter 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; font-weight: bold; }
-.btn:hover, input.button:hover, input[type="submit"]:hover, input[type="button"]:hover, button.button:hover, .button1:hover, .button2:hover { filter: brightness(1.1); text-decoration: none !important; color: var(--header-text-color) !important; }
+.btn:hover, input.button:hover, input[type="submit"]:hover, input[type="button"]:hover, button.button:hover, .button1:hover, .button2:hover { filter: brightness(1.1); text-decoration: none !important; color: var(--header-text-color) !important; } /* تم إضافة !important هنا أيضًا */
 body.dark-mode .btn, body.dark-mode input.button, body.dark-mode input[type="submit"], body.dark-mode input[type="button"], body.dark-mode button.button, body.dark-mode .button1, body.dark-mode .button2 { background-color: var(--dark-primary); color: var(--dark-bg) !important; border-color: var(--dark-primary); }
 input[type="text"], input[type="password"], textarea, select { border: 1px solid var(--border-color); padding: 5px; background-color: var(--content-bg-color); color: var(--text-color); border-radius: 3px; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
 body.dark-mode input[type="text"], body.dark-mode input[type="password"], body.dark-mode textarea, body.dark-mode select { background-color: var(--dark-content-bg); border-color: var(--dark-border); color: var(--dark-text); }
@@ -143,19 +135,21 @@ body.dark-mode blockquote { background-color: #3e444c; border-right-color: var(-
 .codebox code { font-family: var(--code-font-family); background-color: #f5f5f5; border: 1px solid var(--border-color); padding: 10px; display: block; overflow-x: auto; color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; text-align: left; direction: ltr; }
 body.dark-mode .codebox code { background-color: #282c34; border-color: var(--dark-border); color: #abb2bf; }
 .pagination span a, .pagination span a:link, .pagination span a:visited, .pagination > a { background-color: var(--content-bg-color); border: 1px solid var(--border-color); color: var(--link-color); padding: 3px 6px; margin: 0 1px; border-radius: 3px; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-.pagination span a:hover, .pagination > a:hover { background-color: var(--primary-color); color: var(--header-text-color) !important; border-color: var(--primary-color); text-decoration: none !important; }
+.pagination span a:hover, .pagination > a:hover { background-color: var(--primary-color); color: var(--header-text-color) !important; border-color: var(--primary-color); text-decoration: none !important; } /* !important */
 body.dark-mode .pagination span a, body.dark-mode .pagination span a:link, body.dark-mode .pagination span a:visited, body.dark-mode .pagination > a { background-color: var(--dark-content-bg); border-color: var(--dark-border); color: var(--dark-link); }
 body.dark-mode .pagination span a:hover, body.dark-mode .pagination > a:hover { background-color: var(--dark-primary); color: var(--dark-bg) !important; border-color: var(--dark-primary); }
 .pagination span strong, .pagination > span.page-current { background-color: var(--primary-color); color: var(--header-text-color) !important; border: 1px solid var(--primary-color); padding: 3px 6px; margin: 0 1px; border-radius: 3px; font-weight: bold; }
 body.dark-mode .pagination span strong, body.dark-mode .pagination > span.page-current { background-color: var(--dark-primary); color: var(--dark-bg) !important; border-color: var(--dark-primary); }
 
+
 /* --- 3. Styles du Menu Principal Personnalisé --- */
-/* ... (كود القائمة كما هو) ... */
 #custom-header-area { margin-bottom: 10px; }
 #custom-main-menu { background-color: var(--secondary-color); width: 100%; position: relative; z-index: 100; border-bottom: 3px solid var(--primary-color); transition: background-color 0.3s ease, border-color 0.3s ease; }
 .custom-menu-inner { max-width: 1100px; margin: 0 auto; padding: 0 10px; position: relative; min-height: 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
 .custom-smallogo { color: var(--menu-text-color); padding: 0 15px; font-weight: bold; text-decoration: none !important; line-height: 48px; white-space: nowrap; transition: background-color 0.3s ease, color 0.3s ease; order: 1; border-bottom: none !important; }
 .custom-smallogo:hover { background-color: rgba(255,255,255,0.1); color: var(--menu-text-color); text-decoration: none !important;}
+
+/* Bouton Menu Mobile */
 #custom-menubtn { display: none; }
 .custom-menublabel { display: none; cursor: pointer; padding: 10px; order: 4; margin-left: 0; margin-right: 10px; position: relative; top: 3px; }
 .custom-menublabel span, .custom-menublabel span::before, .custom-menublabel span::after { content: ''; display: block; background-color: var(--menu-text-color); height: 3px; width: 25px; margin-bottom: 5px; border-radius: 2px; transition: all 0.3s ease; }
@@ -164,10 +158,14 @@ body.dark-mode .pagination span strong, body.dark-mode .pagination > span.page-c
 #custom-menubtn:checked ~ .custom-menublabel span { background-color: transparent; }
 #custom-menubtn:checked ~ .custom-menublabel span::before { transform: rotate(45deg) translate(5px, 7px); }
 #custom-menubtn:checked ~ .custom-menublabel span::after { transform: rotate(-45deg) translate(5px, -7px); }
+
+/* Menu Principal ul.custom-t-menu */
 .custom-t-menu { list-style: none; padding: 0; margin: 0; display: flex; flex-grow: 1; order: 2; justify-content: flex-start; }
 .custom-t-menu li { position: relative; }
 .custom-t-menu li a { display: block; padding: 0 15px; line-height: 48px; color: var(--menu-text-color); text-decoration: none !important; white-space: nowrap; transition: background-color 0.3s ease, color 0.3s ease; border-bottom: none !important; }
 .custom-t-menu li a:hover, .custom-t-menu li:hover > a { background-color: var(--menu-hover-bg); color: var(--menu-text-color); text-decoration: none !important; }
+
+/* Sous-menus */
 .custom-t-menu li ul.custom-drop { display: none; position: absolute; top: 100%; right: 0; background-color: var(--dropdown-bg); list-style: none; padding: 5px 0; margin: 0; min-width: 200px; box-shadow: 0 3px 6px rgba(0,0,0,0.2); z-index: 101; border-radius: 0 0 4px 4px; transition: background-color 0.3s ease; }
 .custom-t-menu li:hover > ul.custom-drop { display: block; }
 .custom-t-menu li ul.custom-drop li { width: 100%; }
@@ -177,8 +175,9 @@ body.dark-mode .custom-t-menu li ul.custom-drop li a:hover { color: #fff; }
 .custom-t-menu li#sub > a.custom-suba::after { content: " \f078"; font-family: "Font Awesome 5 Free", FontAwesome; font-weight: 900; font-size: 10px; margin-right: 5px; vertical-align: middle; }
 
 /* --- 4. Espace Utilisateur #custom-user-area --- */
-/* ... (كود منطقة المستخدم كما هو) ... */
 #custom-user-area { display: flex; align-items: center; margin: 0 15px 0 auto; padding: 0; order: 3; position: relative; }
+
+/* Connexion directe */
 #custom-user-area .user-links-logged-out { display: flex; align-items: center; }
 #custom-user-area .login-input { padding: 5px 8px; border: 1px solid #555; background-color: #555; color: #eee; border-radius: 3px; height: 30px; font-size: 12px; margin-left: 5px; transition: all 0.3s ease; width: 110px; }
 #custom-user-area .login-input::placeholder { color: #bbb; opacity: 0.8; }
@@ -192,6 +191,8 @@ body.dark-mode #custom-user-area .login-input:focus { background-color: var(--da
 #custom-user-area .user-links-logged-out a.register-link { color: #eee; text-decoration: none !important; font-size: 13px; transition: color 0.2s ease; white-space: nowrap; display: inline-flex; align-items: center; margin-left: 5px; padding: 5px; border-bottom: none !important; }
 #custom-user-area .user-links-logged-out a.register-link:hover { color: #fff; }
 #custom-user-area .user-links-logged-out a.register-link i { margin-left: 4px; }
+
+/* Infos Membre Connecté */
 #custom-user-area .user-info-logged-in { display: flex; align-items: center; position: relative; }
 #custom-user-area .user-summary { display: flex; align-items: center; margin-left: 0px; }
 #custom-user-area .user-name { color: var(--menu-text-color); font-weight: bold; text-decoration: none !important; display: inline-flex; align-items: center; font-size: 13px; margin-left: 5px; border-bottom: none !important; }
@@ -201,9 +202,12 @@ body.dark-mode #custom-user-area .login-input:focus { background-color: var(--da
 .user-pm-link, .user-logout-link { color: var(--menu-text-color); text-decoration: none !important; margin-left: 10px; font-size: 14px; position: relative; padding: 5px; transition: color 0.2s ease; border-bottom: none !important; }
 .user-pm-link .pm-count { background-color: red; color: white; border-radius: 10px; font-size: 10px; padding: 1px 5px; position: absolute; top: -2px; right: -8px; line-height: 1; font-weight: bold; box-shadow: 0 0 3px rgba(0,0,0,0.5); min-width: 16px; text-align: center; z-index: 1; }
 .user-pm-link:hover, .user-logout-link:hover { color: #eee; }
+
 .dropdown-trigger { cursor: pointer; padding: 10px 8px 10px 5px; display: inline-flex; align-items: center; }
 .dropdown-indicator { font-size: 12px; color: var(--menu-text-color); transition: transform 0.2s ease-in-out; display: inline-block; }
 #custom-user-area .user-info-logged-in.dropdown-active .dropdown-indicator { transform: rotate(180deg); }
+
+/* Sous-menu Utilisateur */
 #user-dropdown { display: none; position: absolute; top: calc(100% + 5px); left: 0; background-color: var(--content-bg-color); list-style: none; padding: 8px 0; margin: 0; min-width: 220px; box-shadow: 0 5px 10px rgba(0,0,0,0.2); z-index: 102; border-radius: 4px; border: 1px solid var(--border-color); text-align: right; transition: background-color 0.3s ease, border-color 0.3s ease; }
 #user-dropdown li a { display: block; padding: 8px 15px; color: var(--text-color); text-decoration: none !important; font-size: 13px; white-space: nowrap; transition: background-color 0.2s ease, color 0.2s ease; border-bottom: none !important; }
 #user-dropdown li a:hover { background-color: #f0f0f0; text-decoration: none !important; color: var(--primary-color); }
@@ -216,8 +220,8 @@ body.dark-mode #user-dropdown li a i.fa-fw { color: #aaa; }
 body.dark-mode #user-dropdown li a:hover i.fa-fw { color: var(--dark-primary); }
 #user-dropdown hr.separator { border-top-color: var(--border-color); }
 
+
 /* --- 5. Espace Recherche Intégré #custom-search-area --- */
-/* ... (كود البحث كما هو) ... */
 #custom-search-area { display: flex; align-items: center; order: 5; margin-right: auto; position: relative; }
 #custom-search-trigger a { color: var(--menu-text-color); padding: 0 10px; line-height: 48px; font-size: 16px; text-decoration: none !important; display: block; transition: color 0.2s ease; border-bottom: none !important; }
 #custom-search-trigger a:hover { color: #ccc; }
@@ -234,12 +238,7 @@ body.dark-mode #custom-search-text-inline:focus { background-color: var(--dark-c
 #custom-search-inline button#close-inline-search:hover { color: #eee; }
 
 /* --- 6. Styles En-tête Principal (Logo/Titre) --- */
-#custom-header-wrapper {
-  background-color: var(--primary-color); /* يعتمد على المتغير */
-  padding: 20px 0;
-  transition: background-color 0.3s ease;
-}
-/* ... (باقي كود الهيدر الداخلي) ... */
+#custom-header-wrapper { background-color: var(--primary-color); padding: 20px 0; transition: background-color 0.3s ease; }
 .custom-header-inner { max-width: 1100px; margin: 0 auto; padding: 0 10px; text-align: right; }
 .custom-titlewrapper { margin-bottom: 5px; }
 .custom-title a { color: var(--header-text-color); font-size: 2.2em; font-weight: bold; text-decoration: none !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); transition: color 0.3s ease; display: inline-block; border-bottom: none !important; }
@@ -248,46 +247,26 @@ body.dark-mode #custom-search-text-inline:focus { background-color: var(--dark-c
 .custom-description span { color: #eee; font-size: 0.95em; transition: color 0.3s ease; }
 body.dark-mode .custom-description span { color: #ccc; }
 
-/* --- <<< NEW/MODIFIED >>> إضافة قاعدة صريحة للوضع الليلي للهيدر --- */
+/* --- إضافة: تطبيق ألوان الوضع الليلي صراحة للهيدر --- */
 body#phpbb.dark-mode #custom-header-wrapper {
-    background-color: var(--dark-primary);
+    background-color: var(--dark-primary); /* استخدام متغير الوضع الليلي الأساسي */
 }
 body#phpbb.dark-mode .custom-title a {
-    color: var(--dark-header-text);
+    color: var(--dark-header-text); /* استخدام متغير نص الوضع الليلي */
 }
 /* --- نهاية الإضافة --- */
 
 
 /* --- 7. Panneau de Personnalisation du Style --- */
-/* ... (كود لوحة التحكم كما هو، مع التأكد من أن #style-options-trigger يستخدم المتغيرات) ... */
 #style-options-container { position: fixed; top: 150px; left: -255px; z-index: 999; direction: ltr; transition: left 0.3s ease-in-out; }
 #style-options-container.open { left: 0; }
-#style-options-trigger {
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background-color: var(--primary-color); /* يعتمد على المتغير */
-  color: var(--header-text-color);       /* يعتمد على المتغير */
-  padding: 8px 10px;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-left: none;
-}
+#style-options-trigger { position: absolute; left: 100%; top: 0; background-color: var(--primary-color); color: var(--header-text-color); padding: 8px 10px; border-radius: 0 5px 5px 0; cursor: pointer; font-size: 20px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); transition: background-color 0.3s ease, color 0.3s ease; border: 1px solid rgba(0,0,0,0.2); border-left: none; }
 #style-options-trigger:hover { filter: brightness(1.1); }
-/* <<< NEW/MODIFIED >>> إضافة قاعدة صريحة للوضع الليلي لزر الإعدادات */
-body#phpbb.dark-mode #style-options-trigger {
-    background-color: var(--dark-primary);
-    color: var(--dark-header-text);
-    border-color: rgba(255,255,255,0.1);
-}
 #style-options-panel { width: 250px; background-color: var(--content-bg-color); border: 1px solid var(--border-color); border-left: none; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); border-radius: 0 5px 5px 0; padding: 15px; height: auto; max-height: calc(100vh - 180px); overflow-y: auto; transition: background-color 0.3s ease, border-color 0.3s ease; }
 body.dark-mode #style-options-panel { background-color: var(--dark-content-bg); border-color: var(--dark-border); }
 #style-options-panel h4 { margin-top: 15px; margin-bottom: 8px; font-size: 1em; color: var(--text-color); border-bottom: 1px solid var(--border-color); padding-bottom: 5px; transition: color 0.3s ease, border-color 0.3s ease; }
 #style-options-panel h4:first-child { margin-top: 0; }
+/* Onglets */
 .options-tabs-nav { list-style: none; padding: 0; margin: 0 0 15px 0; display: flex; border-bottom: 1px solid var(--border-color); transition: border-color 0.3s ease; }
 .options-tabs-nav li { margin-right: 5px; padding: 8px 12px; cursor: pointer; color: var(--text-color); border: 1px solid transparent; border-bottom: none; border-radius: 4px 4px 0 0; font-size: 0.9em; transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
 .options-tabs-nav li.active { background-color: var(--content-bg-color); border-color: var(--border-color); border-bottom-color: var(--content-bg-color) !important; position: relative; top: 1px; font-weight: bold; }
@@ -297,11 +276,13 @@ body.dark-mode .options-tabs-nav li.active { background-color: var(--dark-conten
 body.dark-mode .options-tabs-nav li:hover:not(.active) { background-color: rgba(200,200,200,0.1); }
 .options-tab-pane { display: none; }
 .options-tab-pane.active { display: block; }
+/* Échantillons de couleur */
 #color-swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
 .color-swatch { width: 25px; height: 25px; border: 1px solid var(--border-color); border-radius: 50%; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.3s ease; padding: 0; }
 .color-swatch:hover { transform: scale(1.1); }
 .color-swatch.active { box-shadow: 0 0 0 2px var(--content-bg-color), 0 0 0 4px var(--primary-color); }
 body.dark-mode .color-swatch.active { box-shadow: 0 0 0 2px var(--dark-content-bg), 0 0 0 4px var(--dark-primary); }
+/* Bouton à bascule */
 .control-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .control-item span { font-size: 0.9em; color: var(--text-color); transition: color 0.3s ease; }
 .toggle-button { background-color: #ccc; color: #fff; border: none; padding: 4px 10px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: bold; min-width: 50px; text-align: center; position: relative; transition: background-color 0.3s ease; }
@@ -310,6 +291,7 @@ body.dark-mode .color-swatch.active { box-shadow: 0 0 0 2px var(--dark-content-b
 .toggle-button[data-state="on"]:before { left: calc(100% - 21px); }
 body.dark-mode .toggle-button { background-color: #555; }
 body.dark-mode .toggle-button[data-state="on"] { background-color: var(--dark-primary); }
+/* Contrôles de police */
 #font-family-select { width: 100%; padding: 6px; border: 1px solid var(--border-color); border-radius: 3px; font-size: 0.9em; background-color: var(--content-bg-color); color: var(--text-color); transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
 body.dark-mode #font-family-select { background-color: #555; border-color: var(--dark-border);}
 .font-size-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
@@ -321,12 +303,11 @@ body.dark-mode .font-size-controls button:hover { background-color: #666; }
 #reset-font-settings, #reset-all-options { margin-top: 15px; width: 100%; background: #ffc107; border: 1px solid #b98d06; color: #333; padding: 6px; font-size: 13px; cursor: pointer; border-radius: 3px; text-align: center; transition: filter 0.2s ease; }
 #reset-all-options { background: #dc3545; border-color: #a71d2a; color: #fff; }
 #reset-font-settings:hover, #reset-all-options:hover { filter: brightness(1.1); }
+/* Masquage de la barre latérale - Ajustez les sélecteurs si nécessaire */
 body.sidebar-hidden #sidebar, body.sidebar-hidden #LeftCol, body.sidebar-hidden #RightCol, body.sidebar-hidden .layout-left-sidebar, body.sidebar-hidden .layout-right-sidebar { display: none !important; }
 body.sidebar-hidden #mainContent, body.sidebar-hidden .forumline:not(#latest_topics_list):not(.profile), body.sidebar-hidden #page-body > table > tbody > tr > td:first-child:not([colspan]), body.sidebar-hidden .layout-content { width: 100% !important; margin: 0 !important; padding: 0 5px !important; float: none !important; }
 
-
 /* --- 8. Styles Adaptatifs --- */
-/* ... (أكواد @media كما هي) ... */
 @media screen and (max-width: 1150px) { #style-options-container { display: none; } }
 @media screen and (max-width: 1050px) {
     .custom-t-menu { display: none; }
@@ -399,7 +380,7 @@ body.sidebar-hidden #mainContent, body.sidebar-hidden .forumline:not(#latest_top
 
 
 
-............... (أكواد بلوجر السابقة)
+...............
 
 
 /* --- استيراد الخطوط المستخدمة --- */
@@ -411,62 +392,402 @@ body.sidebar-hidden #mainContent, body.sidebar-hidden .forumline:not(#latest_top
   font-display: swap;
   src: local('Almarai'), local('Almarai-Regular'), url(https://fonts.gstatic.com/s/almarai/v2/tsstApxBaigK_hnnQ1iFo0C3.woff2) format('woff2');
   unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
-} /* <<< CORRECTED: Added closing brace */
+} /* End @font-face */
+/* الخطوط الأخرى المستخدمة: droid arabic kufi, georgia, tahoma, arial */
 
-/* --- !!! الأجزاء المكررة معلقة !!! --- */
-/* ... */
+/* --- تعريف متغيرات الألوان (للتوافق مع الملف الأصلي) --- */
+/* استبدل القيم بالافتراضية أو بقيم قالبك الفعلية */
+/* --- !!! تم تعليق هذا الجزء لأنه مكرر وغير مستخدم بواسطة نظام V6 !!! --- */
+/*
+:root {
+  --maincolor: #446FAA;
+  --subcolor: #444444;
+  --hocolor: #FC5400;
+  --linkcolor: #3e5b7e;
+  --bordcolor: #cccccc;
+}
+*/
 
-/* --- تنسيقات .post-home وما يتبعها (إذا كانت مستخدمة) --- */
-/* ... (الكود كما هو في الإجابة السابقة، يعتمد على متغيرات V6) ... */
-.widget ul, .widget li { margin: 0; padding: 0; list-style: none; }
-.blog-posts { }
-.date-outer, .date-posts { }
-.jadeed { display: none; }
-.post-home { background-color: var(--content-bg-color); box-shadow: 0 0 0 1px var(--border-color); float: right; height: 300px; margin-bottom: 20px; margin-left: 12px; overflow: hidden; position: relative; width: 318px; box-sizing: border-box; }
-.thumcont { border-bottom: 1px solid var(--border-color); height: 150px; overflow: hidden; position: relative; width: 100%; background-color: #e9e9e9; }
-body.dark-mode .thumcont { background-color: #3e444c; border-bottom: 1px solid var(--dark-border); }
-.thnoimg { position: absolute; width: 100%; height: 100%; z-index: 1; background-color: var(--secondary-color); }
-body.dark-mode .thnoimg { background-color: var(--dark-secondary); }
-.thnoimg::before { color: var(--menu-text-color); content: "\f030"; display: block; font-size: 60px; line-height: 150px; font-family: 'Font Awesome 5 Pro', FontAwesome; text-align: center; width: 100%; height: 100%; }
-body.dark-mode .thnoimg::before { color: var(--dark-menu-text); }
-.thumbin { position: absolute; width: 100%; height: 100%; z-index: 2; }
-.thumcont img { display: block; height: 100%; width: 100%; object-fit: cover; transition: all 0.7s ease 0s; }
-.post-home:hover .thumcont img { opacity: 0.5; transform: scale(1.3); }
-.sharebuto { background-color: rgba(255, 255, 255, 0.7); border-radius: 2px 0 0; bottom: 0; box-shadow: -1px -1px 1px rgba(0,0,0,0.1); list-style: none; margin: 0; padding: 3px !important; position: absolute; right: 0; z-index: 99; display: flex; gap: 2px; }
-body.dark-mode .sharebuto { background-color: rgba(45, 51, 59, 0.7); box-shadow: -1px -1px 1px rgba(0,0,0,0.2); }
-.sharebuto li { padding: 0; }
-.sharebuto a { color: #fff; display: block; height: 20px; width: 20px; line-height: 20px; text-align: center; font-size: 12px; font-family: 'Font Awesome 5 Pro', FontAwesome; text-decoration: none !important; border-bottom: none !important; }
-.sharebuto a:hover { background-color: var(--secondary-color) !important; text-decoration: none !important; }
-body.dark-mode .sharebuto a:hover { background-color: var(--dark-secondary) !important; }
-.sharebuto .fa.fa-facebook { background-color: #3b5998; }
-.sharebuto .fa.fa-twitter { background-color: #1DA1F2; }
-.sharebuto .fa.fa-google-plus { background-color: #db4437; }
-.post-home .title-summ { padding: 5px 10px 10px 10px; }
-.ptitle { display: block; line-height: 1.7em; margin: 5px 0 8px 0; text-align: center; font-size: 15px; color: var(--link-color); font-weight: bold; text-decoration: none !important; border-bottom: none !important; }
-.ptitle:hover { color: var(--primary-color); text-decoration: underline !important; }
-.post-snippet { font: 13px/1.8em Tahoma, sans-serif; margin: 0; text-align: center; color: var(--text-color); max-height: 5.4em; overflow: hidden; }
-.labandcomm { background-color: var(--content-bg-color); border-top: 1px solid var(--border-color); bottom: 0; font-size: 12px; height: 30px; line-height: 30px; position: absolute; width: 100%; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.3s ease, border-color 0.3s ease; }
-body.dark-mode .labandcomm { background-color: var(--dark-content-bg); border-top: 1px solid var(--dark-border); }
-.labelsmm { padding-right: 5px; display: flex; align-items: center; color: var(--text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 1; margin-left: 5px; }
-body.dark-mode .labelsmm { color: var(--dark-text); }
-.labelsmm::before { content: "\f02c"; font-family: 'Font Awesome 5 Pro', FontAwesome; font-size: 14px; margin-left: 4px; color: inherit; flex-shrink: 0; }
-.labelsmm a { color: var(--link-color); margin-left: 4px; text-decoration: none !important; border-bottom: none !important; }
-.labelsmm a:hover { color: var(--primary-color); text-decoration: underline !important; }
-body.dark-mode .labelsmm a { color: var(--dark-link); }
-body.dark-mode .labelsmm a:hover { color: #79c0ff; }
-.comment-bubble { background-color: var(--secondary-color); color: var(--menu-text-color); font-family: arial, sans-serif; font-size: 12px; height: 30px; width: 55px; display: flex; align-items: center; justify-content: center; position: relative; text-decoration: none !important; transition: background-color 0.3s ease, color 0.3s ease; flex-shrink: 0; border-bottom: none !important; }
-body.dark-mode .comment-bubble { background-color: var(--dark-secondary); color: var(--dark-menu-text); }
-.comment-bubble:hover { background-color: var(--primary-color); color: var(--header-text-color) !important; text-decoration: none !important; }
-body.dark-mode .comment-bubble:hover { background-color: var(--dark-primary); color: var(--dark-bg) !important; }
-.comment-bubble::before { content: "\f086"; font-family: 'Font Awesome 5 Pro', FontAwesome; font-size: 14px; margin-right: 3px; }
-.comment-bubble::after { content: "\f0da"; font-family: 'Font Awesome 5 Pro', FontAwesome; font-size: 22px; color: var(--secondary-color); position: absolute; right: -7px; top: 50%; transform: translateY(-50%); transition: color 0.3s ease; }
-body.dark-mode .comment-bubble::after { color: var(--dark-secondary); }
-.comment-bubble:hover::after { color: var(--primary-color); }
-body.dark-mode .comment-bubble:hover::after { color: var(--dark-primary); }
-@keyframes fadeInUp { 0% {opacity: 0;transform: translateY(20px);} 100% {opacity: 1;transform: translateY(0);} }
-.fadeInUp { animation-duration: 1s; animation-fill-mode: both; animation-name: fadeInUp; }
-@media screen and (max-width : 680px) { #main-wrapper { float: none; margin: 0 auto; width: 98%; max-width: 600px; } .post-home { width: 100%; margin-left: 0; height: auto; min-height: 280px; } }
-@media screen and (max-width : 420px) { }
+/* --- تنسيقات أساسية ومُعاد تعيينها --- */
+/* --- !!! تم تعليق هذا الجزء لأنه مكرر ومُعالج بشكل أفضل في body#phpbb !!! --- */
+/*
+body {
+  font-family: "droid arabic kufi", georgia, sans-serif;
+  color: #555;
+}
+*/
+
+/* --- !!! تم تعليق هذا الجزء الخاص بـ a لأنه مُعالج بشكل أفضل ومتناسق في القسم 2 !!! --- */
+/*
+a {
+  color: var(--linkcolor);
+  text-decoration: none;
+  transition: all 0.7s ease 0s;
+}
+a:hover {
+  color: #000;
+}
+*/
+
+.widget ul, .widget li { /* لإزالة أي تنسيقات قائمة افتراضية */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+} /* End .widget ul, .widget li */
+
+.blog-posts { /* حاوية رئيسية للمواضيع */
+  /* يمكن إضافة padding أو margin هنا إذا لزم الأمر */
+} /* End .blog-posts */
+
+/* إخفاء عناصر غير موجودة في المثال ولكن قد تكون في القالب */
+.date-outer, .date-posts {
+    /* لا تحتاج لتنسيق مرئي عادةً */
+} /* End .date-outer, .date-posts */
+
+.jadeed {
+   display: none;
+} /* End .jadeed */
+
+/* --- تنسيق حاوية الموضوع الرئيسية (.post-home) --- */
+/* --- !!! هذا الجزء خاص بقالب بلوجر، قد لا ينطبق على Forumotion بنفس الشكل !!! --- */
+/* --- يمكنك الاحتفاظ به إذا كنت تستخدم نظام مقالات مشابه أو حذفه --- */
+.post-home {
+  background-color: var(--content-bg-color); /* يستخدم لون خلفية المحتوى */
+  box-shadow: 0 0 0 1px var(--border-color);  /* يستخدم لون حدود الثيم */
+  float: right;
+  height: 300px;
+  margin-bottom: 20px;
+  margin-left: 12px;
+  overflow: hidden;
+  position: relative;
+  width: 318px;
+  box-sizing: border-box;
+} /* End .post-home */
+
+/* --- تنسيق منطقة الصورة المصغرة (.thumcont) --- */
+.thumcont {
+  border-bottom: 1px solid var(--border-color); /* يستخدم لون حدود الثيم */
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: #e9e9e9; /* لون خلفية احتياطي فاتح */
+} /* End .thumcont */
+body.dark-mode .thumcont {
+    background-color: #3e444c; /* لون خلفية احتياطي داكن */
+    border-bottom: 1px solid var(--dark-border);
+}
+
+/* رابط الصورة المصغرة (Placeholder إذا لم توجد صورة) */
+.thnoimg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: var(--secondary-color); /* يستخدم اللون الثانوي */
+} /* End .thnoimg */
+body.dark-mode .thnoimg {
+  background-color: var(--dark-secondary);
+}
+
+/* أيقونة الصورة الافتراضية (إذا كان .thnoimg مستخدم) */
+.thnoimg::before {
+  color: var(--menu-text-color); /* يستخدم لون نص القائمة */
+  content: "\f030";
+  display: block;
+  font-size: 60px;
+  line-height: 150px;
+  font-family: 'Font Awesome 5 Pro', FontAwesome;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+} /* End .thnoimg::before */
+body.dark-mode .thnoimg::before {
+    color: var(--dark-menu-text);
+}
+
+/* حاوية الصورة الفعلية */
+.thumbin {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+} /* End .thumbin */
+
+/* الصورة نفسها */
+.thumcont img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.7s ease 0s;
+} /* End .thumcont img */
+
+/* تأثير المرور على الصورة */
+.post-home:hover .thumcont img {
+  opacity: 0.5;
+  transform: scale(1.3);
+} /* End .post-home:hover .thumcont img */
+
+/* --- تنسيق أزرار المشاركة (.sharebuto) --- */
+.sharebuto {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 2px 0 0;
+  bottom: 0;
+  box-shadow: -1px -1px 1px rgba(0,0,0,0.1);
+  list-style: none;
+  margin: 0;
+  padding: 3px !important;
+  position: absolute;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  gap: 2px;
+} /* End .sharebuto */
+body.dark-mode .sharebuto {
+    background-color: rgba(45, 51, 59, 0.7); /* #2d333b */
+    box-shadow: -1px -1px 1px rgba(0,0,0,0.2);
+}
+
+.sharebuto li {
+  padding: 0;
+} /* End .sharebuto li */
+
+.sharebuto a {
+  color: #fff;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'Font Awesome 5 Pro', FontAwesome;
+  text-decoration: none !important;
+  border-bottom: none !important;
+} /* End .sharebuto a */
+
+.sharebuto a:hover {
+  background-color: var(--secondary-color) !important;
+  text-decoration: none !important;
+} /* End .sharebuto a:hover */
+body.dark-mode .sharebuto a:hover {
+    background-color: var(--dark-secondary) !important;
+}
+
+/* ألوان خلفيات الأزرار */
+.sharebuto .fa.fa-facebook { background-color: #3b5998; } /* لون فيسبوك */
+.sharebuto .fa.fa-twitter { background-color: #1DA1F2; } /* لون تويتر */
+.sharebuto .fa.fa-google-plus { background-color: #db4437; } /* لون جوجل+ */
+
+/* --- تنسيق منطقة النص (العنوان والملخص) --- */
+.post-home .title-summ { /* حاوية للنص للتأكد من الـ padding */
+    padding: 5px 10px 10px 10px;
+}
+
+/* العنوان */
+.ptitle {
+  display: block;
+  line-height: 1.7em; /* تعديل طفيف */
+  margin: 5px 0 8px 0; /* تعديل الهوامش */
+  text-align: center;
+  font-size: 15px;
+  color: var(--link-color); /* يستخدم لون رابط الثيم */
+  font-weight: bold; /* جعله سميك */
+  text-decoration: none !important;
+  border-bottom: none !important;
+} /* End .ptitle */
+
+.ptitle:hover {
+  color: var(--primary-color); /* يستخدم لون الثيم الأساسي عند المرور */
+  text-decoration: underline !important;
+} /* End .ptitle:hover */
+
+/* الملخص */
+.post-snippet {
+  font: 13px/1.8em Tahoma, sans-serif; /* تعديل الخط والحجم */
+  margin: 0; /* إزالة الهامش الافتراضي */
+  text-align: center;
+  color: var(--text-color); /* يستخدم لون نص الثيم */
+  max-height: 5.4em; /* 3 أسطر */
+  overflow: hidden;
+} /* End .post-snippet */
+
+/* --- تنسيق الشريط السفلي (.labandcomm) --- */
+.labandcomm {
+  background-color: var(--content-bg-color); /* نفس لون خلفية المحتوى */
+  border-top: 1px solid var(--border-color); /* يستخدم لون حدود الثيم */
+  bottom: 0;
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+} /* End .labandcomm */
+body.dark-mode .labandcomm {
+    background-color: var(--dark-content-bg);
+    border-top: 1px solid var(--dark-border);
+}
+
+/* منطقة التصنيفات/الوسوم */
+.labelsmm {
+  padding-right: 5px;
+  display: flex;
+  align-items: center;
+  color: var(--text-color); /* يرث لون النص */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  margin-left: 5px; /* مسافة من فقاعة التعليقات */
+} /* End .labelsmm */
+body.dark-mode .labelsmm {
+    color: var(--dark-text);
+}
+
+/* أيقونة التصنيفات */
+.labelsmm::before {
+  content: "\f02c";
+  font-family: 'Font Awesome 5 Pro', FontAwesome;
+  font-size: 14px; /* تصغير الأيقونة قليلاً */
+  margin-left: 4px;
+  color: inherit; /* يرث اللون من .labelsmm */
+  flex-shrink: 0;
+} /* End .labelsmm::before */
+
+/* روابط التصنيفات */
+.labelsmm a {
+  color: var(--link-color); /* لون رابط الثيم */
+  margin-left: 4px; /* تعديل المسافة */
+  text-decoration: none !important;
+  border-bottom: none !important;
+} /* End .labelsmm a */
+
+.labelsmm a:hover {
+  color: var(--primary-color); /* لون الثيم الأساسي عند المرور */
+  text-decoration: underline !important;
+} /* End .labelsmm a:hover */
+body.dark-mode .labelsmm a {
+    color: var(--dark-link);
+}
+body.dark-mode .labelsmm a:hover {
+    color: #79c0ff;
+}
+
+
+/* فقاعة عدد التعليقات */
+.comment-bubble {
+  background-color: var(--secondary-color); /* يستخدم اللون الثانوي */
+  color: var(--menu-text-color); /* يستخدم لون نص القائمة */
+  font-family: arial, sans-serif;
+  font-size: 12px;
+  height: 30px;
+  width: 55px; /* تصغير العرض قليلاً */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+  border-bottom: none !important;
+} /* End .comment-bubble */
+body.dark-mode .comment-bubble {
+    background-color: var(--dark-secondary);
+    color: var(--dark-menu-text);
+}
+
+.comment-bubble:hover {
+  background-color: var(--primary-color); /* لون الثيم الأساسي عند المرور */
+  color: var(--header-text-color) !important;
+  text-decoration: none !important;
+} /* End .comment-bubble:hover */
+body.dark-mode .comment-bubble:hover {
+    background-color: var(--dark-primary);
+    color: var(--dark-bg) !important;
+}
+
+/* أيقونة التعليقات */
+.comment-bubble::before {
+  content: "\f086";
+  font-family: 'Font Awesome 5 Pro', FontAwesome;
+  font-size: 14px; /* تصغير الأيقونة */
+  margin-right: 3px;
+} /* End .comment-bubble::before */
+
+/* السهم الجانبي لفقاعة التعليقات */
+.comment-bubble::after {
+  content: "\f0da";
+  font-family: 'Font Awesome 5 Pro', FontAwesome;
+  font-size: 22px;
+  color: var(--secondary-color); /* يطابق الخلفية */
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.3s ease;
+} /* End .comment-bubble::after */
+body.dark-mode .comment-bubble::after {
+    color: var(--dark-secondary);
+}
+
+.comment-bubble:hover::after {
+  color: var(--primary-color); /* يطابق الخلفية عند المرور */
+} /* End .comment-bubble:hover::after */
+body.dark-mode .comment-bubble:hover::after {
+    color: var(--dark-primary);
+}
+
+
+/* --- تأثيرات الحركة (اختياري، يعتمد على wow.js) --- */
+@keyframes fadeInUp {
+  0% {opacity: 0;transform: translateY(20px);}
+  100% {opacity: 1;transform: translateY(0);}
+} /* End @keyframes fadeInUp */
+
+.fadeInUp {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+} /* End .fadeInUp */
+
+/* --- تنسيقات تجاوبية (للتأكد من عملها على شاشات مختلفة) --- */
+@media screen and (max-width : 680px) { /* Start Media Query 680px */
+  #main-wrapper { /* إذا كان هذا هو الحاوي */
+      float: none;
+      margin: 0 auto;
+      width: 98%;
+      max-width: 600px;
+  } /* End #main-wrapper */
+  .post-home {
+      width: 100%;
+      margin-left: 0;
+      height: auto;
+      min-height: 280px; /* تقليل الارتفاع الأدنى */
+  } /* End .post-home */
+} /* End Media Query 680px */
+
+@media screen and (max-width : 420px) { /* Start Media Query 420px */
+  .thumcont {
+     /* height: 150px; */
+  } /* End .thumcont */
+} /* End Media Query 420px */
+
+/* --- !!! تم دمج إلغاء الخط في قاعدة a الرئيسية أعلاه !!! --- */
+/*
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+*/
+
 
 /* --- التنسيق الأساسي للفوتر (للوضع الطبيعي غير الثابت) --- */
 .credit {
@@ -501,10 +822,10 @@ body.dark-mode .comment-bubble:hover::after { color: var(--dark-primary); }
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* --- <<< NEW/MODIFIED >>> إضافة قاعدة صريحة للوضع الليلي للفوتر --- */
+/* --- إضافة: تطبيق ألوان الوضع الليلي صراحة للفوتر --- */
 body#phpbb.dark-mode .credit {
-    background-color: var(--dark-primary);
-    color: var(--dark-header-text);
+    background-color: var(--dark-primary); /* استخدام متغير الوضع الليلي الأساسي */
+    color: var(--dark-header-text);       /* استخدام متغير نص الوضع الليلي */
 }
 /* تعديل لون رابط الحقوق في الوضع الليلي */
 body#phpbb.dark-mode .credit #oncn a {
@@ -515,33 +836,59 @@ body#phpbb.dark-mode .credit #oncn a:hover {
 }
 /* --- نهاية الإضافة --- */
 
-/* --- تنسيق شريط التمرير --- */
-/* يعمل على متصفحات WebKit */
+/* --- !!! تم حذف القواعد الخاصة بكل ستايل للفوتر لأنها غير ضرورية مع استخدام المتغيرات !!! --- */
+/*
+body.prosilver .credit { ... }
+body.subsilver2 .credit { ... }
+body.invision .credit { ... }
+body.dark-theme-class .credit { ... }
+body.light-theme-class .credit { ... }
+*/
+
+/* --- تعريف متغيرات شريط التمرير (ضعها داخل :root) --- */
+:root {
+  /* ... متغيراتك الأخرى ... */
+  --scrollbar-size: 10px; /* عرض الشريط */
+  --scrollbar-track-color: var(--main-bg-color, #2d333b); /* لون مسار التمرير (استخدم لون خلفية الصفحة) */
+  --scrollbar-thumb-color: var(--primary-color, #446FAB); /* لون شريط التمرير نفسه (استخدم اللون الأساسي) */
+  --scrollbar-thumb-hover-color: color-mix(in srgb, var(--primary-color, #446FAB) 85%, black); /* لون الشريط عند المرور (أغمق قليلاً) */
+}
+
+/* --- تعريف متغيرات شريط التمرير للوضع الليلي (ضعها داخل body#phpbb.dark-mode) --- */
+body#phpbb.dark-mode {
+  /* ... متغيرات الوضع الليلي الأخرى ... */
+  --scrollbar-track-color: var(--dark-bg, #22272e); /* لون مسار التمرير الليلي */
+  --scrollbar-thumb-color: var(--dark-primary, #58a6ff); /* لون شريط التمرير الليلي */
+  --scrollbar-thumb-hover-color: color-mix(in srgb, var(--dark-primary, #58a6ff) 90%, black); /* لون الشريط الليلي عند المرور (أغمق قليلاً) */
+}
+
+/* --- تطبيق تنسيقات شريط التمرير --- */
+
+/* لمتصفحات WebKit (Chrome, Safari, Edge, Opera) */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: var(--scrollbar-size);  /* تطبيق عرض الشريط */
+  height: var(--scrollbar-size); /* تطبيق ارتفاع للشريط الأفقي */
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--scrollbar-track-color);
-  border-radius: 5px;
-  transition: background-color 0.3s ease; /* <<< NEW >>> انتقال لون المسار */
+  background: var(--scrollbar-track-color); /* تطبيق لون المسار */
+  border-radius: calc(var(--scrollbar-size) / 2); /* زوايا دائرية للمسار (اختياري) */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb-color);
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  background-color: var(--scrollbar-thumb-color); /* تطبيق لون الشريط */
+  border-radius: calc(var(--scrollbar-size) / 2); /* زوايا دائرية للشريط (اختياري) */
+  border: 2px solid var(--scrollbar-track-color); /* إضافة حدود بنفس لون المسار لإعطاء تأثير مسافة (اختياري) */
+  transition: background-color 0.3s ease; /* انتقال سلس للون */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-hover-color);
+  background-color: var(--scrollbar-thumb-hover-color); /* تطبيق لون المرور */
 }
 
-/* يعمل على Firefox */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
-  /* Firefox لا يدعم انتقال الألوان لشريط التمرير حاليًا */
+/* لمتصفح Firefox */
+html { /* تطبيق على العنصر الرئيسي القابل للتمرير */
+  scrollbar-width: thin; /* أو auto */
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color); /* لون الشريط ثم لون المسار */
 }
-
-/* --- !!! تم حذف تعريف :root المكرر في النهاية !!! --- */
+/* ملاحظة: Firefox لا يدعم تخصيص لون المرور أو الزوايا الدائرية عبر scrollbar-color */
