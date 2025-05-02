@@ -844,3 +844,29 @@ body.invision .credit { ... }
 body.dark-theme-class .credit { ... }
 body.light-theme-class .credit { ... }
 */
+
+
+.comment-bubble::before {
+    content: "\f086";
+    font-family: 'Font Awesome 5 Pro', FontAwesome;
+    font-size: 14px;
+    margin-right: 3px;
+    margin-left: 10px;
+}
+
+i.material-icons img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;   /* يجعل الزوايا دائرية تمامًا لتشكيل دائرة */
+  object-fit: cover;    /* يضمن ملء الصورة للمساحة دون تشويه وقص الزائد */
+  display: block;       /* يضمن أن تأخذ الصورة المساحة ككتلة ويمنع مسافات سفلية غير مرغوبة */
+  /* يمكنك أيضاً إضافة vertical-align: middle; إذا كان العنصر i يستخدم كـ inline-block للتحكم بالمحاذاة الرأسية */
+  /* vertical-align: middle; */
+}
+
+span.labelsmm a.last-post-icon {
+    display: none;
+}
+span.labelsmm strong a.gensmall span.color-groups strong {
+    float: inline-end;
+}
