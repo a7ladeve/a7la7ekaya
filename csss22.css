@@ -63,8 +63,7 @@ body{
   --dark-text: #cdd9e5; /* لون النص بالوضع الليلي */
   --dark-link: #58a6ff; /* لون الرابط بالوضع الليلي */
   --dark-border: #444c56; /* لون الحدود بالوضع الليلي */
-  --dark-primary: #2d333b; /* اللون الأساسي بالوضع الليلي */
-  --dark-primar11y: #58a6ff; /* اللون الأساسي بالوضع الليلي */
+  --dark-primary: #58a6ff; /* اللون الأساسي بالوضع الليلي */
   --dark-secondary: #373e47; /* اللون الثانوي بالوضع الليلي */
   --dark-header-text: #cdd9e5; /* لون نص الهيدر/الفوتر بالوضع الليلي */
   --dark-menu-text: #cdd9e5; /* لون نص القائمة بالوضع الليلي */
@@ -72,38 +71,7 @@ body{
   --dark-dropdown-text: #cdd9e5; /* نص المنسدلة بالوضع الليلي */
   --dark-dropdown-hover-bg: #586069; /* خلفية الماوس فوق المنسدلة بالوضع الليلي */
 }
-:roooooot {
-    --main-bg-color: #f0f0f0;
-    --content-bg-color: #ffffff;
-    --primary-color: #446FAB;
-    --secondary-color: #333333;
-    --accent-color: #fc5400;
-    --text-color: #333333;
-    --link-color: #446FAB;
-    --header-text-color: #ffffff;
-    --menu-text-color: #ffffff;
-    --menu-hover-bg: #446FAB;
-    --dropdown-bg: #444444;
-    --dropdown-text: #eeeeee;
-    --dropdown-hover-bg: #555555;
-    --border-color: #dddddd;
-    --body-font-size: 14px;
-    --body-font-family: "Droid Arabic Kufi", Tahoma, Verdana, Arial, sans-serif;
-    --code-font-family: Consolas, Monaco, monospace;
-    --dark-bg: #22272e;
-    --dark-content-bg: #2d333b;
-    --dark-text: #cdd9e5;
-    --dark-link: #58a6ff;
-    --dark-border: #444c56;
-    --dark-primary: #58a6ff;
-    --dark-black: #2d333b;
-    --dark-secondary: #373e47;
-    --dark-header-text: #cdd9e5;
-    --dark-menu-text: #cdd9e5;
-    --dark-dropdown-bg: #444c56;
-    --dark-dropdown-text: #cdd9e5;
-    --dark-dropdown-hover-bg: #586069;
-}
+
 /* --- 2. Styles Généraux & Application des Variables --- */
 body#phpbb { /* يستهدف body فقط إذا كان منتدى (له ID=phpbb) */
   background-color: var(--main-bg-color); /* يطبق خلفية الصفحة العامة */
@@ -867,3 +835,60 @@ body#phpbb.dark-mode .credit #oncn a:hover {
     color: rgba(205, 217, 229, 0.8); /* مثال: جعل لون النص الليلي أفتح قليلاً عند المرور */
 }
 /* --- نهاية الإضافة --- */
+
+/* --- !!! تم حذف القواعد الخاصة بكل ستايل للفوتر لأنها غير ضرورية مع استخدام المتغيرات !!! --- */
+/*
+body.prosilver .credit { ... }
+body.subsilver2 .credit { ... }
+body.invision .credit { ... }
+body.dark-theme-class .credit { ... }
+body.light-theme-class .credit { ... }
+*/
+
+/* --- تعريف متغيرات شريط التمرير (ضعها داخل :root) --- */
+:root {
+  /* ... متغيراتك الأخرى ... */
+  --scrollbar-size: 10px; /* عرض الشريط */
+  --scrollbar-track-color: var(--main-bg-color, #2d333b); /* لون مسار التمرير (استخدم لون خلفية الصفحة) */
+  --scrollbar-thumb-color: var(--primary-color, #446FAB); /* لون شريط التمرير نفسه (استخدم اللون الأساسي) */
+  --scrollbar-thumb-hover-color: color-mix(in srgb, var(--primary-color, #446FAB) 85%, black); /* لون الشريط عند المرور (أغمق قليلاً) */
+}
+
+/* --- تعريف متغيرات شريط التمرير للوضع الليلي (ضعها داخل body#phpbb.dark-mode) --- */
+body#phpbb.dark-mode {
+  /* ... متغيرات الوضع الليلي الأخرى ... */
+  --scrollbar-track-color: var(--dark-bg, #22272e); /* لون مسار التمرير الليلي */
+  --scrollbar-thumb-color: var(--dark-primary, #58a6ff); /* لون شريط التمرير الليلي */
+  --scrollbar-thumb-hover-color: color-mix(in srgb, var(--dark-primary, #58a6ff) 90%, black); /* لون الشريط الليلي عند المرور (أغمق قليلاً) */
+}
+
+/* --- تطبيق تنسيقات شريط التمرير --- */
+
+/* لمتصفحات WebKit (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+  width: var(--scrollbar-size);  /* تطبيق عرض الشريط */
+  height: var(--scrollbar-size); /* تطبيق ارتفاع للشريط الأفقي */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color); /* تطبيق لون المسار */
+  border-radius: calc(var(--scrollbar-size) / 2); /* زوايا دائرية للمسار (اختياري) */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color); /* تطبيق لون الشريط */
+  border-radius: calc(var(--scrollbar-size) / 2); /* زوايا دائرية للشريط (اختياري) */
+  border: 2px solid var(--scrollbar-track-color); /* إضافة حدود بنفس لون المسار لإعطاء تأثير مسافة (اختياري) */
+  transition: background-color 0.3s ease; /* انتقال سلس للون */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover-color); /* تطبيق لون المرور */
+}
+
+/* لمتصفح Firefox */
+html { /* تطبيق على العنصر الرئيسي القابل للتمرير */
+  scrollbar-width: thin; /* أو auto */
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color); /* لون الشريط ثم لون المسار */
+}
+/* ملاحظة: Firefox لا يدعم تخصيص لون المرور أو الزوايا الدائرية عبر scrollbar-color */
