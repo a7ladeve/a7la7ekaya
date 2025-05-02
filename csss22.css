@@ -6,11 +6,36 @@
 
 /* --- !!! تم تعليق هذه القاعدة لأنها تتعارض مع نظام الستايل والوضع الليلي !!! --- */
 /*
-
+body {
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKAyB7D4CXsn2lE8KW_dAJE_vBSKF1jmjMuhOCMT6MSwoIdjGTidPRm3KVNdvt5MtTjyI8G_a8kC6Azd0nKJrjFmqV8tgdsBjL-ReGhkK52qb1U1oEYBwXfW2JPCL-eCSdeLKQbMlTUQk/s160-Ic42/cream_pixels.png");
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0 0;
+  background-color: #ffffff;
+}
 */
 /* --- !!! تم تعليق هذه القاعدة لأنها قديمة وغير مستخدمة بواسطة نظام الستايل أدناه !!! --- */
 /*
-
+body{
+    --main-color: #446FAA;
+    --sub-color: #444444;
+    --hocolor: #FC5400;
+    --link-color: #3e5b7e;
+    --border-color: #cccccc;
+    --text-color: #555;
+    --bg-color: #ffffff;
+    --bg-body-pattern: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKAyB7D4CXsn2lE8KW_dAJE_vBSKF1jmjMuhOCMT6MSwoIdjGTidPRm3KVNdvt5MtTjyI8G_a8kC6Azd0nKJrjFmqV8tgdsBjL-ReGhkK52qb1U1oEYBwXfW2JPCL-eCSdeLKQbMlTUQk/s160-Ic42/cream_pixels.png);
+    --header-bg-color: #f8f8f8;
+    --widget-bg-color: #ffffff;
+    --menu-bg-color: #446FAA;
+    --menu-text-color: #ffffff;
+    --footer-credit-bg: #446FAA;
+    --footer-credit-text: #ffffff;
+    --code-bg: #f8f9fa;
+    --code-text: #202124;
+    --code-border: #dadce0;
+    --code-footer-bg: #f1f3f4;
+}
 */
 
 /* --- هذا هو الجزء الفعال لتعريف المتغيرات --- */
@@ -47,7 +72,36 @@
   --dark-dropdown-hover-bg: #586069; /* خلفية الماوس فوق المنسدلة بالوضع الليلي */
 }
 
-*****
+/* --- 2. Styles Généraux & Application des Variables --- */
+body#phpbb { /* يستهدف body فقط إذا كان منتدى (له ID=phpbb) */
+  background-color: var(--main-bg-color); /* يطبق خلفية الصفحة العامة */
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0; padding: 0;
+  /* أي خلفية صورة يجب تطبيقها هنا إذا أردتها ديناميكية */
+  /* مثال: background-image: var(--bg-body-pattern); */
+  /* لكن يجب تعريف --bg-body-pattern في :root و body#phpbb.dark-mode */
+}
+body#phpbb.dark-mode { /* عند تفعيل الوضع الليلي */
+  /* إعادة تعريف المتغيرات لقيم الوضع الليلي */
+  --main-bg-color: var(--dark-bg);
+  --content-bg-color: var(--dark-content-bg);
+  --text-color: var(--dark-text);
+  --link-color: var(--dark-link);
+  --primary-color: var(--dark-primary);
+  --secondary-color: var(--dark-secondary);
+  --menu-hover-bg: var(--dark-primary);
+  --border-color: var(--dark-border);
+  --header-text-color: var(--dark-header-text);
+  --menu-text-color: var(--dark-menu-text);
+  --dropdown-bg: var(--dark-dropdown-bg);
+  --dropdown-text: var(--dark-dropdown-text);
+  --dropdown-hover-bg: var(--dark-dropdown-hover-bg);
+  /* هنا يمكنك أيضًا تغيير خلفية الصورة إذا أردت */
+  /* --bg-body-pattern: url(رابط-صورة-الوضع-الليلي.png); */
+}
 
 *, *:before, *:after { box-sizing: border-box; }
 .a7la7ekaya-header { direction: rtl; }
