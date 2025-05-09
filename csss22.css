@@ -305,15 +305,8 @@ body.dark-mode .font-size-controls button:hover { background-color: #666; }
 #reset-font-settings:hover, #reset-all-options:hover { filter: brightness(1.1); }
 /* Masquage de la barre latérale - Ajustez les sélecteurs si nécessaire */
 
-body.sidebar-hidden #mainContent, /* يستهدف المحتوى الرئيسي */
-body.sidebar-hidden .forumline:not(#latest_topics_list):not(.profile),
-body.sidebar-hidden #page-body > table > tbody > tr > td:first-child:not([colspan]), /* محاولات لاستهداف خلية المحتوى الرئيسية في بعض تصاميم المنتديات */
-body.sidebar-hidden .layout-content { /* إذا كان لديك كلاس للمحتوى الرئيسي */
-    width: 100% !important;     /* يجعل المحتوى يأخذ العرض الكامل */
-    margin: 0 !important;       /* يزيل الهوامش الجانبية */
-    padding: 0 5px !important;  /* يضبط الحشو الداخلي */
-    float: none !important;     /* يزيل أي تعويم */
-}
+body.sidebar-hidden aside#sidebar { display: none !important; }
+
 body.sidebar-hidden #mainContent, body.sidebar-hidden .forumline:not(#latest_topics_list):not(.profile), body.sidebar-hidden #page-body > table > tbody > tr > td:first-child:not([colspan]), body.sidebar-hidden .layout-content { width: 100% !important; margin: 0 !important; padding: 0 5px !important; float: none !important; }
 
 /* --- 8. Styles Adaptatifs --- */
