@@ -305,7 +305,7 @@ body.dark-mode .font-size-controls button:hover { background-color: #666; }
 #reset-font-settings:hover, #reset-all-options:hover { filter: brightness(1.1); }
 /* Masquage de la barre latérale - Ajustez les sélecteurs si nécessaire */
 
-body.sidebar-hidden aside#sidebar { display: none !important; }
+body.sidebar-hidden aside#sidebar { display: none !important; width: 0px;}
 
 body.sidebar-hidden #mainContent, body.sidebar-hidden .forumline:not(#latest_topics_list):not(.profile), body.sidebar-hidden #page-body > table > tbody > tr > td:first-child:not([colspan]), body.sidebar-hidden .layout-content { width: 100% !important; margin: 0 !important; padding: 0 5px !important; float: none !important; }
 
