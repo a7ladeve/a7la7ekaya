@@ -306,7 +306,12 @@ body.dark-mode .font-size-controls button:hover { background-color: #666; }
 /* Masquage de la barre latérale - Ajustez les sélecteurs si nécessaire */
 
 body.sidebar-hidden aside#sidebar { display: none !important; width: 0px;}
-
+body.sidebar-hidden main#index {
+    margin-left: 75px;
+    transition: none;
+    margin: 0 auto 0 auto;
+    margin-right: 75px;
+}
 body.sidebar-hidden #mainContent, body.sidebar-hidden .forumline:not(#latest_topics_list):not(.profile), body.sidebar-hidden #page-body > table > tbody > tr > td:first-child:not([colspan]), body.sidebar-hidden .layout-content { width: 100% !important; margin: 0 !important; padding: 0 5px !important; float: none !important; }
 
 /* --- 8. Styles Adaptatifs --- */
