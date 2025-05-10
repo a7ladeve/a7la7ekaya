@@ -19,8 +19,13 @@ html {
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
-body {
-	margin: 0;
+div#sidebar-wrapper {
+    display: none;
+}
+.box {
+    margin-bottom: 24px;
+    font-size: 13px;
+    display: none;
 }
 article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
 	display: block;
