@@ -1088,3 +1088,674 @@ a:active {
 #sidebar h2::before {
     background-color: rgba(255, 255, 255, 0.15);
 }
+
+
+
+
+
+
+/* ========================================= */
+/* == تخصيص شريط التمرير (Scrollbar) == */
+/* ========================================= */
+.commmment-bubble {
+    background-color: var(--secondary-color);
+    color: var(--menu-text-color);
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    height: 30px;
+    width: 55px;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+    border-bottom: none !important;
+}
+#sidebar, #sidebar-left {
+    width: 320px;
+}
+span.label-icon-box .fa-tag:before{
+    background-color: rgba(255, 255, 255, 0.15);
+    float: right;
+    font: 16px / 30px fontawesome;
+    height: 30px;
+    
+    text-align: center;
+    width: 30px;
+}
+
+/* --- الوضع النهاري (الافتراضي) --- */
+#page-footer {
+    background-color: #;
+  
+}
+/* لأغلب المتصفحات (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 10px; /* عرض شريط التمرير */
+  height: 10px; /* ارتفاع شريط التمرير (للأفقي) */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* لون خلفية المسار (فاتح) */
+  border-radius: 5px; /* حواف دائرية للمسار (اختياري) */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d4e89; /* لون المقبض (الأزرق الداكن من الموقع) */
+  border-radius: 5px; /* حواف دائرية للمقبض (اختياري) */
+  border: 2px solid #f1f1f1; /* إضافة حدود بلون المسار لإعطاء مسافة */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #133a6a; /* لون المقبض عند تمرير الماوس (أزرق أغمق) */
+}
+
+/* لمتصفح Firefox */
+/* يتم تطبيق هذا على العنصر html أو body */
+html {
+  scrollbar-width: thin; /* عرض الشريط: thin أو auto */
+  scrollbar-color: #1d4e89 #f1f1f1; /* لون المقبض ثم لون المسار */
+}
+
+
+/* --- الوضع الليلي --- */
+/* نفترض وجود كلاس اسمه 'dark-mode' يتم إضافته للعنصر body> أو html> عند تفعيل الوضع الليلي */
+
+/* لأغلب المتصفحات (Chrome, Edge, Safari, Opera) */
+body.dark-mode ::-webkit-scrollbar-track,
+html.dark-mode ::-webkit-scrollbar-track {
+  background: #343a40; /* لون خلفية المسار (داكن) */
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb,
+html.dark-mode ::-webkit-scrollbar-thumb {
+  background: #6c757d; /* لون المقبض (رمادي متوسط) */
+  border-color: #343a40; /* تغيير لون الحدود لتناسب المسار الداكن */
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover,
+html.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #adb5bd; /* لون المقبض عند تمرير الماوس (رمادي أفتح) */
+}
+
+/* لمتصفح Firefox */
+html.dark-mode,
+body.dark-mode { /* استهداف العنصر الذي يحمل الكلاس */
+  scrollbar-color: #6c757d #343a40; /* لون المقبض ثم لون المسار للوضع الليلي */
+}
+
+/* يمكنك إزالة body.dark-mode أو html.dark-mode إذا كان الكلاس يطبق على العنصر الآخر فقط */
+
+span.labelsmm strong a.gensmall span.color-groups strong, .material-icons img {
+    margin-left: 10px;
+    margin: 0 auto 0 auto;
+    margin-right: 10px;
+}
+.labandcomm {
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    bottom: 0;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    width: 100%;
+}
+ul#sidebar h2.title {
+    font-size: 14px;
+}
+
+
+***************************************************
+#sidebar h2 { background-color: var(--main-color); color: var(--menu-text-color); }
+  #sidebar h2::before { background-color: var(--hocolor); }
+  #sidebar h2::after { color: var(--main-color); }
+
+#sidebar h2::before { background-color: var(--hocolor); content: "\f1cb";     font-family: 'Font Awesome 5 Pro', FontAwesome; display: block; position: absolute; font: 24px/34px fontawesome; height: 34px; width: 34px; } /* Use variable */
+#sidebar h2::after { color: var(--main-color); content: "\f0dd"; display: block;    font-family: 'Font Awesome 5 Pro', FontAwesome; font: 30px fontawesome; margin-top: -22px; position: absolute; width: 100%; -webkit-margin-before: -19px; } /* Use variable */
+#sidebar h2 { background-color: var(--main-color); color: var(--menu-text-color); font-size: 14px; height: 34px; line-height: 34px; margin: 0 0 15px 0; position: relative; text-align: center; } /* Use variables */
+
+/* ============================================ */
+/* == تنسيق عناوين الشريط الجانبي (مثل بلوجر) == */
+/* == مع تنسيق الروابط الداخلية             == */
+/* ============================================ */
+
+/* استهداف عناوين المستوى الثاني داخل الشريط الجانبي */
+#sidebar h2{
+    /* --- الألوان الأساسية والتكيف مع الوضع الليلي --- */
+    background-color: var(--primary-color); /* اللون الأساسي للمنتدى للخلفية */
+    color: var(--header-text-color);       /* لون النص (الافتراضي) المستخدم فوق الخلفيات الأساسية */
+
+    /* --- الأبعاد والحشو --- */
+  
+    /* --- انتقالات سلسة --- */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#sidebar h2::after {
+    /* --- الألوان الأساسية والتكيف مع الوضع الليلي --- */
+    color: var(--primary-color); /* اللون الأساسي للمنتدى للخلفية */
+
+
+    /* --- الأبعاد والحشو --- */
+  
+    /* --- انتقالات سلسة --- */
+    transition: color 0.3s ease, color 0.3s ease;
+}
+/* إنشاء الشريط البرتقالي على اليمين */
+ul#sidebar {
+    width: 100%;
+}
+
+/* إنشاء المثلث "القاطع" بين الأزرق والبرتقالي */
+
+/* --- !!! تعديل هام: تنسيق الروابط داخل H2 !!! --- */
+
+/* استهداف أي رابط a> داخل #sidebar h2 */
+#sidebar h2 a {
+    /* جعل لون الرابط نفس لون النص الافتراضي للعناوين (لضمان التباين مع الخلفية الزرقاء) */
+    color: var(--header-text-color);
+
+    /* إضافة خط أسفل الرابط لتمييزه بشكل أوضح */
+    text-decoration: none !important; /* استخدام !important للتأكيد إذا لزم الأمر */
+    border-bottom: none !important; /* إلغاء أي حدود سفلية أخرى */
+
+    /* انتقال سلس للون عند المرور (إذا أضفنا حالة hover) */
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* تنسيق الرابط عند مرور الماوس فوقه */
+#sidebar h2 a:hover {
+    /* يمكن تغيير اللون قليلاً عند المرور، مثلاً جعله أفتح قليلاً */
+    /* أو استخدام opacity لجعله باهتًا قليلاً */
+    opacity: 0.85;
+    /* أو تغيير اللون إلى لون آخر يتناسب، مثل: */
+    /* color: var(--accent-color); */ /* قد يكون البرتقالي جيدًا هنا */
+
+    /* التأكيد على عدم وجود خط سفلي إضافي غير الـ text-decoration */
+    border-bottom: none !important;
+}
+
+/* --- نهاية تعديل تنسيق الروابط --- */
+
+
+/* --- (اختياري) إزالة أي أيقونات FontAwesome قد تكون موجودة تلقائيًا من ::before في ستايلات أخرى --- */
+/*
+#sidebar h2::before {
+    font-family: inherit;
+    content: '';
+}
+*/
+/* ============================================ */
+/* == إزالة الخط السفلي من جميع الروابط نهائياً == */
+/* ============================================ */
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none !important; /* يزيل خط النص القياسي */
+    border-bottom: none !important;   /* يضمن إزالة أي حدود سفلية قد تبدو كخط */
+}
+#sidebar h2::before {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+
+
+
+
+
+
+
+/* --- متغيرات ألوان الستايل الأساسية من :root المنتدى (يفترض وجودها) --- */
+/* :root {
+    --primary-color: #446FAB;
+    --secondary-color: #333333;
+    --header-text-color: #ffffff;
+    --menu-text-color: #ffffff;
+    --dark-primary: #2d333b;
+    --menu-hover-bg: #557FB9; /* لون أفتح قليلاً يمكن استخدامه للأيقونة */
+    /* ... باقي متغيراتك ... */
+/* } */
+
+
+/* --- CSS للتبويبات المخصصة مع ألوان الستايل من :root المنتدى --- */
+.custom-tabs-container {
+    background-color: var(--content-bg-color, #ffffff);
+    border: 1px solid var(--border-color, #cccccc);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    direction: rtl;
+    font-family: var(--body-font-family, Arial, sans-serif);
+    overflow: hidden;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-tabs-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: var(--secondary-color, #333333);
+}
+
+.custom-tabs-nav li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.custom-tabs-nav li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    text-decoration: none;
+    color: var(--menu-text-color, #ffffff);
+    font-size: 11px;
+    font-weight: bold;
+    position: relative;
+    border-left: 1px solid var(--dark-border, #444c56);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.custom-tabs-nav li:first-child a {
+    border-left: none;
+}
+
+.custom-tabs-nav li a .fa {
+    margin-left: 7px;
+    font-size: 15px;
+}
+
+.custom-tabs-nav li a.active-tab {
+    background-color: var(--primary-color, #446FAB);
+    color: var(--header-text-color, #ffffff);
+    border-left-color: var(--primary-color, #446FAB);
+}
+
+.custom-tabs-nav li a.active-tab::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--primary-color, #446FAB);
+    z-index: 10;
+}
+
+.custom-tab-pane {
+    padding: 15px;
+    display: none;
+    background-color: var(--content-bg-color, #ffffff);
+}
+
+.custom-tab-pane.active-pane {
+    display: block;
+}
+
+/* --- تنسيقات جديدة لعناصر التسميات باستخدام متغيرات المنتدى --- */
+.styled-labels-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.styled-label-item {
+    margin-bottom: 5px;
+}
+
+.styled-label-item a {
+    display: flex;
+    align-items: stretch;
+    text-decoration: none;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--primary-color, #446FAB);
+    transition: opacity 0.2s ease;
+    height: 30px;
+}
+.styled-label-item a:hover {
+    opacity: 0.85;
+}
+
+.label-count-box {
+    background-color: var(--dark-primary, #1D3E5C); /* استخدام لون أغمق من الأساسي للعدد */
+    color: var(--header-text-color, #ffffff);
+    padding: 8px 10px;
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label-text-content {
+    background-color: var(--primary-color, #446FAB); /* اللون الأساسي لنص التسمية */
+    color: var(--header-text-color, #ffffff);
+    padding: 8px 8px;
+    flex-grow: 1;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.label-icon-box {
+    background-color: var(--menu-hover-bg, #5c85ad); /* ****** التغيير هنا: استخدام لون أزرق فاتح للخلفية ****** */
+                                                    /* يمكنك استخدام متغير مثل --menu-hover-bg إذا كان موجودًا ومناسبًا، */
+                                                    /* أو يمكنك وضع قيمة لون ثابتة مثل #5c85ad أو #7BA4CC */
+    color: var(--header-text-color, #ffffff);       /* ****** التغيير هنا: لون الأيقونة أبيض ****** */
+    padding: 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.label-icon-box .fa { /* هذا يستهدف أيقونة .fa داخل الصندوق */
+    font-size: 14px;
+    /* color: inherit; /* ليرث اللون من .label-icon-box وهو الأبيض */
+}
+
+
+/* تنسيقات المحتوى الداخلي الأخرى (للشائعة والتعليقات) */
+.popular-post-item, .comment-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border-color, #e0e0e0);
+}
+.popular-post-item:last-child, .comment-item:last-child {
+    margin-bottom: 0; padding-bottom: 0; border-bottom: none;
+}
+.popular-post-thumbnail {
+    width: 60px; height: 60px; min-width:60px;
+    object-fit: cover; margin-left: 12px;
+    border: 1px solid var(--border-color, #e0e0e0); border-radius: 2px;
+}
+.popular-post-title {
+    font-weight: bold; color: var(--link-color, #0056b3); text-decoration: none;
+    font-size: 13px; display: block; margin-bottom: 4px; line-height: 1.3;
+}
+.popular-post-snippet {
+    font-size: 12px; color: var(--text-color-light, #444444); line-height: 1.5;
+}
+.comment-avatar {
+    width: 40px; height: 40px; min-width: 40px;
+    border-radius: 50%; margin-left: 10px;
+    border: 1px solid var(--border-color, #e0e0e0);
+}
+.comment-author {
+    font-weight: bold; font-size: 13px; color: var(--primary-color, #446FAB);
+    display: block; margin-bottom: 3px;
+}
+.comment-text {
+    font-size: 12px; color: var(--text-color, #333333); margin: 0 0 5px 0; line-height: 1.5;
+}
+.comment-link {
+    font-size: 11px; color: var(--link-color, #0056b3); text-decoration: none;
+}
+
+.popular-post-details {
+    width: 310px;
+}
+.popular-post-details {
+    /* font-size: 12px; */
+    font-weight: bold;
+    white-space: nowrap;
+    width: 285px;
+    border: 0px solid #000000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 2 !important;
+}
+span.comment-avatar, span.comment-avatar a {
+    font-size: 0;
+}
+
+span.comment-avatar {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    object-fit: cover;
+    margin-left: 12px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 2px;
+}
+
+div#wrap, div#page-body {
+    margin: 0 auto 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+span#topic-img {
+  position: relative; /* مهم لجعل ::before يتمركز بالنسبة لهذا العنصر */
+  display: inline-block; /* أو block، ليأخذ أبعادًا ويسمح بـ position:absolute للـ ::before بشكل صحيح */
+  z-index: 1; /* للتأكد أن محتوى الـ span (إذا وجد) فوق الخلفية */
+  /* أضف padding إذا كان لديك نص داخل الـ span وتريد مساحة حوله */
+  /* يمكنك إضافة حدود أو خلفية للعنصر نفسه إذا أردت */
+  /* border: 1px solid #ccc; */
+}
+
+span#topic-img::before {
+  content: "\f030"; /* كود أيقونة الكاميرا في Font Awesome 5 */
+  font-family: 'Font Awesome 5 Pro', FontAwesome; /* تأكد من تحميل هذا الخط بشكل صحيح */
+  color: chocolate;
+  font-size: 35px; /* حجم الأيقونة كخلفية، اجعله أكبر */
+
+  position: absolute; /* لتحديد موضعها بشكل حر بالنسبة للعنصر الأب */
+  top: 50%;           /* للتوسيط الرأسي */
+  left: 50%;          /* للتوسيط الأفقي */
+  transform: translate(-50%, -50%); /* لضبط التوسيط بشكل دقيق */
+
+  z-index: -1;        /* هذا هو المفتاح! يضع العنصر الزائف خلف محتوى العنصر الأب */
+  opacity: 0.4;       /* اختياري: لجعلها تبدو كعلامة مائية أو خلفية باهتة */
+                      /* يمكنك زيادة القيمة لجعلها أوضح، أو 1 للوضوح الكامل */
+}
+
+
+
+
+
+/* --- بداية كود المجلة المخصص --- */
+
+.custom-magazine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 أعمدة بشكل افتراضي */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    direction: rtl;
+}
+
+@keyframes slideInFromLeftSlow {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.movie-card-ahla {
+    background-color: var(--content-bg-color, #1e1e1e);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color, #333);
+    opacity: 0; /* للأنيميشن عند التحميل */
+    transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+}
+
+.movie-card-ahla.animate-slide-in {
+    animation-name: slideInFromLeftSlow;
+    animation-duration: 1.0s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-fill-mode: forwards;
+}
+
+.movie-card-image-ahla { /* أو .movie-card-ahla > img */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* خلف المحتوى */
+    /* --- التعديل: إزالة transform من transition إذا كان فقط للـ scale --- */
+    transition: filter 0.4s ease-out;
+}
+/* إذا كنت تستخدم img> مباشرة بدلاً من div.movie-card-image-ahla لخلفية الصورة */
+.movie-card-ahla > img { /* نفس تنسيقات .movie-card-image-ahla تقريبًا */
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* --- التعديل: إزالة transform من transition إذا كان فقط للـ scale --- */
+    transition: filter 0.4s ease-out;
+}
+
+
+/* تأثيرات الـ HOVER على البطاقة والصورة (تبقى كما هي) */
+.movie-card-ahla:hover {
+    transform: translateY(-7px); /* البطاقة نفسها تتحرك */
+    box-shadow: 0 15px 30px color-mix(in srgb, var(--primary-color, #e50914) 40%, transparent);
+}
+@supports not (background: color-mix(in srgb, white 50%, transparent)) {
+    .movie-card-ahla:hover {
+        box-shadow: 0 15px 30px var(--primary-color, #e50914);
+    }
+}
+
+/* --- التعديل هنا: إزالة transform: scale من الصورة عند HOVER --- */
+.movie-card-ahla:hover .movie-card-image-ahla, /* إذا كانت الصورة داخل div */
+.movie-card-ahla:hover > img                   /* إذا كانت الصورة img> مباشرة */
+{
+    /* transform: scale(1.15); */ /* --- هذا السطر تم إزالته/التعليق عليه بالكامل --- */
+    filter: brightness(0.7); /* يبقى هذا التأثير لتعتيم الصورة وإظهار النص بشكل أفضل */
+}
+
+/* --- التحكم في ظهور واختفاء .movie-card-content-ahla بالكامل (يبقى كما هو) --- */
+.movie-card-content-ahla {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 25%, rgba(0, 0, 0, 0.2) 70%, transparent 100%);
+    padding: 15px;
+    box-sizing: border-box;
+    color: var(--dark-header-text, #f0f0f0);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    max-height: 75%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.movie-card-ahla:hover .movie-card-content-ahla {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* (باقي كود CSS للعناصر الداخلية للمحتوى و Media Queries يبقى كما هو بالضبط كما في طلبك الأخير) */
+.movie-title-ahla {
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: var(--primary-color, #e50914);
+    font-weight: 700;
+    line-height: 1.3;
+}
+.movie-title-ahla a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.movie-description-ahla {
+    font-size: 0.85em;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    max-height: 4.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: inherit;
+}
+
+.movie-meta-ahla {
+    font-size: 0.75em;
+    margin-bottom: 10px;
+    color: #b0b0b0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.movie-meta-ahla .meta-item-ahla { display: block; line-height: 1.3; }
+.movie-meta-ahla .meta-item-ahla strong { color: #ccc; margin-left: 5px; }
+
+.movie-genre-ahla {
+    font-size: 0.75em;
+    background-color: var(--primary-color, rgba(229,9,20,0.8));
+    color: var(--header-text-color, #fff);
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+@media (max-width: 992px) {
+    .custom-magazine-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .movie-card-ahla { height: 380px; }
+    .movie-title-ahla { font-size: 1.3em; }
+}
+
+@media (max-width: 767px) {
+    .custom-magazine-grid { grid-template-columns: 1fr; gap: 15px; }
+    .movie-card-ahla { height: 350px; }
+    .movie-title-ahla { font-size: 1.2em; }
+    .movie-description-ahla { -webkit-line-clamp: 2; max-height: 3em; }
+    .movie-card-content-ahla { padding: 12px; max-height: 70%; }
+}
+.movie-card-image-ahla img {
+    height: 400px;
+    width: 100%;
+}
+/* --- نهاية كود المجلة المخصص --- */
