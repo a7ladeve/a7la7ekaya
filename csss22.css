@@ -1759,3 +1759,122 @@ span#topic-img::before {
     width: 100%;
 }
 /* --- نهاية كود المجلة المخصص --- */
+
+
+/* --- الشكل 5 معدل بالكامل لمتغيرات CSS --- */
+p.nav {
+  font-family: var(--body-font-family, 'Roboto', sans-serif); /* استخدام خط المنتدى مع خط احتياطي */
+  direction: rtl;
+  text-align: right;
+  margin-bottom: 20px;
+  display: flex;
+  /* استخدام لون خلفية عام أو لون محتوى إذا كان ذلك مناسبًا */
+  background-color: var(--main-bg-color, #f4f4f4); /* أو var(--content-bg-color) إذا كان أنسب */
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  /* لون الفواصل الأصلية (::) - اجعله قريبًا من لون النص الباهت أو الحدود */
+  color: var(--border-color, #bbb);
+  font-size: 1px; /* محاولة لجعل الفواصل الأصلية صغيرة جداً */
+}
+
+p.nav a {
+  font-size: var(--body-font-size, 14px); /* استخدام حجم خط المنتدى */
+  color: var(--text-color, #555); /* لون نص الرابط العادي */
+  text-decoration: none;
+  padding: 10px 15px; /* تعديل البادينج قليلًا ليتناسب أكثر */
+  background-color: var(--content-bg-color, #fff); /* خلفية الرابط - عادة لون المحتوى */
+  border-left: 1px solid var(--border-color, #e0e0e0); /* لون الفاصل بين الروابط */
+  flex-grow: 1;
+  text-align: center;
+  transition: background-color 0.25s, color 0.25s;
+  position: relative;
+}
+
+/* إزالة الحد من أول عنصر (الذي سيكون أقصى اليمين في RTL) */
+p.nav a:first-of-type {
+  border-left: none;
+}
+
+/* مؤشر السهم الصغير */
+p.nav a:not(:last-of-type)::after {
+  content: "❯";
+  font-family: sans-serif;
+  font-size: 10px;
+  /* لون السهم - يمكن أن يكون أفتح من لون النص العادي أو بلون الحدود */
+  color: var(--secondary-color, #aaa); /* أو var(--border-color) */
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.25s;
+}
+
+/* تأثير التحويم على الروابط العادية */
+p.nav a:hover {
+  background-color: var(--primary-color, #446FAB); /* اللون الرئيسي للتحويم */
+  color: var(--header-text-color, white); /* لون النص على اللون الرئيسي (عادة أبيض) */
+}
+
+/* تغيير لون السهم عند التحويم على الرابط */
+p.nav a:hover::after {
+  color: var(--header-text-color, white); /* نفس لون النص عند التحويم */
+}
+
+/* === الجزء المطلوب تعديله: الرابط الأخير (الصفحة الحالية) === */
+p.nav a:last-of-type {
+  /* استخدام اللون الرئيسي أو لون التمييز للرابط النشط */
+  background-color: var(--primary-color, #446FAB);
+  /* لون النص على اللون الرئيسي */
+  color: var(--header-text-color, #fff);
+  font-weight: 700; /* أو bold */
+  /* يمكنك إزالة أو تعديل الحد إذا كان اللون الرئيسي يغطيه */
+  /* border-left-color: var(--primary-color, #446FAB); */
+}
+
+/* لا نحتاج لـ ::after على العنصر الأخير لأنه لا يشير إلى شيء بعده */
+p.nav a:last-of-type::after {
+  display: none;
+}
+
+/* --- إضافات للوضع الداكن (Dark Mode) إذا كان المنتدى يستخدم فئة مثل .dark-theme على body --- */
+/* تأكد من اسم الفئة الصحيحة للوضع الداكن من خلال فحص المنتدى */
+body.dark-theme p.nav, /* أو .dark, أو أي اسم فئة يستخدمه المنتدى */
+:root[data-theme="dark"] p.nav { /* طريقة أخرى شائعة للوضع الداكن */
+  background-color: var(--dark-bg, #22272e);
+  color: var(--dark-border, #444c56); /* لون الفواصل في الوضع الداكن */
+}
+
+body.dark-theme p.nav a,
+:root[data-theme="dark"] p.nav a {
+  color: var(--dark-text, #cdd9e5);
+  background-color: var(--dark-content-bg, #2d333b);
+  border-left-color: var(--dark-border, #444c56);
+}
+
+body.dark-theme p.nav a:not(:last-of-type)::after,
+:root[data-theme="dark"] p.nav a:not(:last-of-type)::after {
+  color: var(--dark-secondary, #373e47); /* أو var(--dark-border) */
+}
+
+body.dark-theme p.nav a:hover,
+:root[data-theme="dark"] p.nav a:hover {
+  background-color: var(--dark-primary, #2d333b); /* أو var(--dark-link) إذا كان أنسب للتحويم */
+  color: var(--dark-header-text, #cdd9e5);
+}
+
+body.dark-theme p.nav a:hover::after,
+:root[data-theme="dark"] p.nav a:hover::after {
+  color: var(--dark-header-text, #cdd9e5);
+}
+
+body.dark-theme p.nav a:last-of-type,
+:root[data-theme="dark"] p.nav a:last-of-type {
+  background-color: var(--dark-primary, #2d333b); /* أو var(--dark-link) إذا كان أنسب للرابط النشط */
+  color: var(--dark-header-text, #cdd9e5);
+  /* border-left-color: var(--dark-primary, #2d333b); */
+}
+
+p.nav a:last-of-type span {
+    color: snow;
+}
