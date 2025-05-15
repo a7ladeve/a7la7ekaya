@@ -136,7 +136,7 @@ body.dark-mode .forumline td.row1, body.dark-mode .forumline td.row2, body.dark-
 body.dark-mode .postdetails, body.dark-mode .postdetails a, body.dark-mode .gensmall, body.dark-mode .postby, body.dark-mode .postdetails span { color: var(--dark-text); }
 .nav, .nav a, .maintitle a, #page-header .nav a, .breadcrumbs a { color: var(--text-color); transition: color 0.3s ease; }
 body.dark-mode .nav, body.dark-mode .nav a, body.dark-mode .maintitle a, body.dark-mode #page-header .nav a, body.dark-mode .breadcrumbs a { color: var(--dark-text); }
-.btn, input.button, input[type="submit"], input[type="button"], button.button, .button1, .button2 { background-color: var(--primary-color); color: var(--header-text-color) !important; border: 1px solid var(--primary-color); padding: 5px 10px; border-radius: 3px; cursor: pointer; transition: filter 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; font-weight: bold; }
+.btn, input.button, input[type="submit"], input[type="button"], button.button, .button1, .button2 { background-color: var(--primary-color); color: var(--header-text-color) !important; border: 1px solid var(--primary-color); /* padding: 5px 10px; */ border-radius: 3px; cursor: pointer; transition: filter 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; font-weight: bold; }
 .btn:hover, input.button:hover, input[type="submit"]:hover, input[type="button"]:hover, button.button:hover, .button1:hover, .button2:hover { filter: brightness(1.1); text-decoration: none !important; color: var(--header-text-color) !important; } /* تم إضافة !important هنا أيضًا */
 body.dark-mode .btn, body.dark-mode input.button, body.dark-mode input[type="submit"], body.dark-mode input[type="button"], body.dark-mode button.button, body.dark-mode .button1, body.dark-mode .button2 { background-color: var(--dark-primary); color: var(--dark-bg) !important; border-color: var(--dark-primary); }
 input[type="text"], input[type="password"], textarea, select { border: 1px solid var(--border-color); padding: 5px; background-color: var(--content-bg-color); color: var(--text-color); border-radius: 3px; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
@@ -1979,6 +1979,10 @@ p.right a.btn.btn-flat[href*="mode=split"]::after {
 /* زر إدماج المواضيع */
 p.right a.btn.btn-flat[href*="/merge?t="]::after { /* لاحظ أن محدد الدمج مختلف قليلاً */
     content: "إدماج المواضيع";
+}
+p.right a.btn.btn-flat[href*="mode=trash"]::after {
+    content: "النقل لسلة المهملات";
+    
 }
 
 /* (اختياري) تنسيقات عامة للنص المضاف إذا كانت الأزرار تبدو فارغة */
