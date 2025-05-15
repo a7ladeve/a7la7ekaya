@@ -2294,3 +2294,6 @@ body#phpbb a, body#phpbb a:hover  {
     text-decoration: none !important; /* إزالة الخط السفلي من جميع الروابط داخل الودجت */
 }
 
+.quick-reply-textarea-wrap {
+    padding-right: 0px;
+}
