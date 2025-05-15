@@ -38,6 +38,18 @@ body{
 }
 */
 
+div#HTML13 {
+    background-color: var(--content-bg-color, #ffffff);
+    border: 1px solid var(--border-color, #cccccc);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    direction: rtl;
+    font-family: var(--body-font-family, Arial, sans-serif);
+    overflow: hidden;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* --- هذا هو الجزء الفعال لتعريف المتغيرات --- */
 :root {
   --main-bg-color: #f0f0f0; /* خلفية الصفحة العامة */
