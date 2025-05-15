@@ -1994,14 +1994,30 @@ p.right a.btn.btn-flat {
 }
 
 
+span.legend-content-GROUP b {
+    display: inline-table;
+    margin-left: 10px;
+}
+div#Admin-ONLINE a span[style="color:#D60303"], div#Admin-ONLINE a span[style="color:#F00058"] {
+    font-size: 15px;
+}
 div#Admin-ONLINE a {
-    
     font-size: 0px;
 }
-div#Moderators-ONLINE a span[style="color:#000099"] {
-    display: none;
+
+div#Moderators-ONLINE a span[style="color:#084094"], div#Moderators-ONLINE a span[style="color:#077A07"],div#Moderators-ONLINE a span[style="color:#850707"],div#Moderators-ONLINE a span[style="color:#020994"] {
+    font-size: 15px;
+}
+div#Moderators-ONLINE a {
+    font-size: 0px;
 }
 
+div#Members-ONLINE a span[style="color:#8553F2"], div#Members-ONLINE a span[style="color:#02A186"],div#Members-ONLINE a span[style="color:#0B7D05"] {
+    font-size: 15px;
+}
+div#Members-ONLINE a {
+    font-size: 0px;
+}
 
 
 /* --- Forum Stats Widget for A7la7ekaya (General) --- */
