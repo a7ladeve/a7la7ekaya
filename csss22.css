@@ -1878,3 +1878,22 @@ body.dark-theme p.nav a:last-of-type,
 p.nav a:last-of-type span {
     color: snow;
 }
+.movie-card-image-ahla::before {
+    content: "\f030"; /* تأكد من صحة رمز الأيقونة لإصدار Font Awesome المستخدم */
+    font-family: 'Font Awesome 5 Pro', FontAwesome, "Font Awesome 5 Free"; /* أضفت Font Awesome 5 Free كاحتياطي إضافي */
+    font-weight: 900; /*  مهم لبعض أيقونات Font Awesome 5 Pro/Free Solid */
+    
+    font-size: 95px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; 
+    opacity: 0.25; /* !!! قللت الشفافية قليلاً لجعلها أكثر وضوحًا للاختبار !!! */
+}
+
+/* تأثير التحويم على الروابط العادية */
+.movie-card-image-ahla::before {
+  color: var(--primary-color, #446FAB); /* اللون الرئيسي للتحويم */
+}
+
