@@ -1947,3 +1947,404 @@ a.creative-button.gradient-hover-btn.new-topic-btn {
   
 /* نهاية كود إنشاء موضوع */
 
+a.quick-reply-btn.quick-reply-upload, div#quick-reply-avatar {
+    display: none;
+}
+.quick-reply-textarea-wrap {
+    padding: 0px;
+    position: relative;
+    width: 100%;
+    padding-left: 64px;
+}
+.contentRow-figure span#js-XFUniqueId3 img {
+    width: 96px;
+    height: 96px;
+}
+
+.message-avatar {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.message-avatar span.avatar-u1-m img {
+    width: 96px;
+    height: 96px;
+}
+span#quickreply-img img {
+    height: 96px;
+}
+
+button.btn.btn-default.btn-icon {
+    /* color: var(--primary-color, #446FAB); */
+    background-color: var(--primary-color, #446FAB);
+}
+.btn:hover, input.button:hover, input[type="submit"]:hover, input[type="button"]:hover, button.button:hover, .button1:hover, .button2:hover {
+    background-color: var(--primary-color, #446FAB);
+}
+.btn, input.button, input[type="submit"], input[type="button"], button.button, .button1, .button2
+{
+    background-color: var(--primary-color, #446FAB);
+}
+
+#tabs .activetab a, .tabs .activetab a {
+    color: orangered;
+    font-weight: 700;
+}
+
+a {
+    color: unset;
+  font-weight: 700;
+}
+
+/* إخفاء جميع الصور داخل الروابط المستهدفة */
+p.right a.btn.btn-flat img {
+    display: none !important; /* نستخدم !important للتأكد من تجاوز أي أنماط أخرى */
+}
+
+/* إظهار النص البديل لكل زر */
+
+/* زر حذف هذا الموضوع */
+p.right a.btn.btn-flat[href*="mode=delete"]::after {
+    content: "حذف هذا الموضوع";
+    /* يمكنك إضافة تنسيقات إضافية هنا إذا أردت */
+    /* padding: 5px 10px; */
+    /* color: #yourcolor; */
+}
+
+/* زر انقل هذا الموضوع */
+p.right a.btn.btn-flat[href*="mode=move"]::after {
+    content: "انقل هذا الموضوع";
+}
+
+/* زر اقفل هذا الموضوع */
+p.right a.btn.btn-flat[href*="mode=lock"]::after {
+    content: "اقفل هذا الموضوع";
+}
+
+/* زر تقسيم الموضوع */
+p.right a.btn.btn-flat[href*="mode=split"]::after {
+    content: "تقسيم الموضوع";
+}
+
+/* زر إدماج المواضيع */
+p.right a.btn.btn-flat[href*="/merge?t="]::after { /* لاحظ أن محدد الدمج مختلف قليلاً */
+    content: "إدماج المواضيع";
+}
+
+/* (اختياري) تنسيقات عامة للنص المضاف إذا كانت الأزرار تبدو فارغة */
+p.right a.btn.btn-flat::after {
+    display: inline-block; /* للتأكد من أن النص يعامل ككتلة ويأخذ مساحة */
+    vertical-align: middle; /* لمحاذاة النص مع أيقونات أخرى إذا وجدت */
+    /* يمكنك إضافة padding عام هنا إذا لم تحدده لكل زر على حدة */
+    /* padding: 3px 8px; */
+}
+
+p.right a.btn.btn-flat {
+    background-color: var(--primary-color, #446FAB);
+}
+
+
+div#Admin-ONLINE a {
+    
+    font-size: 0px;
+}
+div#Moderators-ONLINE a span[style="color:#000099"] {
+    display: none;
+}
+
+
+
+/* --- Forum Stats Widget for A7la7ekaya (General) --- */
+.forum-stats-widget.ahlamontada-stats {
+    font-family: Tahoma, Arial, sans-serif;
+    background-color: #fff;
+    border: 1px solid #CADCEA;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+    overflow: hidden;
+}
+
+.forum-stats-widget.ahlamontada-stats h2 {
+    background: linear-gradient(to bottom, #E5EEF5 0%, #D8E6F2 100%);
+    border-bottom: 1px solid #CADCEA;
+    color: #00417D;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px 12px;
+    margin: 0;
+    text-align: right;
+}
+
+.forum-stats-widget.ahlamontada-stats h2 i {
+    margin-left: 8px;
+    font-size: 1.1em;
+}
+
+/* --- Horizontal Stats Specific Styles --- */
+.horizontal-stats ul {
+    list-style-type: none;
+    padding: 10px 5px;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* أو space-between إذا كنت تفضل */
+}
+
+.horizontal-stats li {
+    flex: 1 1 130px; /* flex-grow, flex-shrink, flex-basis */
+    background-color: #f7f9fc;
+    border: 1px solid #dfe8f1;
+    border-radius: 4px;
+    padding: 12px 8px;
+    margin: 5px;
+    text-align: center;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    /* تمت إزالة display: block; و border-bottom: none; لأن flex يهتم بالترتيب */
+}
+
+.horizontal-stats li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.horizontal-stats li i {
+    display: block; /* للحفاظ على الأيقونة فوق النص */
+    font-size: 1.8em;
+    margin: 0 auto 8px auto; /* توسيط وتوفير مسافة سفلية */
+}
+
+.horizontal-stats li i.icon-green { color: #28a745; }
+.horizontal-stats li i.icon-blue { color: #007bff; }
+.horizontal-stats li i.icon-purple { color: #6f42c1; }
+.horizontal-stats li i.icon-orange { color: #fd7e14; }
+.horizontal-stats li i.icon-red { color: #dc3545; }
+
+.horizontal-stats li .stat-label {
+    display: block; /* للحفاظ على النص الوصفي فوق القيمة */
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.horizontal-stats .stat-value {
+    display: block; /* للحفاظ على القيمة تحت النص الوصفي */
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #00417D;
+}
+
+.horizontal-stats .stat-value a {
+    color: #0056b3 !important; /* لضمان تطبيق اللون */
+    text-decoration: none !important;
+    font-weight: bold !important;
+}
+
+.horizontal-stats .stat-value a:hover {
+    text-decoration: underline !important;
+    color: #00417D !important;
+}
+
+/* --- Additional Stats Section Styles --- */
+.additional-stats {
+    padding: 0 10px 10px 10px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 10px;
+}
+
+.additional-stats .stat-section {
+    padding: 10px 0;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.additional-stats .stat-section:last-child {
+    border-bottom: none;
+}
+
+.additional-stats .stat-section h3 {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 8px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.additional-stats .stat-section h3 i {
+    margin-left: 6px;
+    color: #777;
+}
+
+.additional-stats p {
+    margin: 0;
+    font-size: 12px;
+    color: #444;
+}
+
+.additional-stats .small-text {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.additional-stats .online-users-list,
+.additional-stats .birthday-users-list,
+.additional-stats .legend-content,
+.additional-stats .users-online-today-list {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #444;
+    /* اختياري: للتحكم في ارتفاع القوائم الطويلة */
+    /* max-height: 150px; */
+    /* overflow-y: auto; */
+}
+
+.additional-stats .online-users-list a,
+.additional-stats .birthday-users-list a,
+.additional-stats .users-online-today-list a {
+    text-decoration: none;
+    margin: 0 2px; /* مسافة صغيرة بين الأسماء/الروابط */
+}
+
+.additional-stats .online-users-list a:hover,
+.additional-stats .birthday-users-list a:hover,
+.additional-stats .users-online-today-list a:hover {
+    text-decoration: underline;
+}
+
+.additional-stats .legend-content span[style*="color"] {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* رسائل إذا كانت القوائم فارغة (أحلى منتدى عادة ما يعالج هذا) */
+.additional-stats .online-users-list:empty::before,
+.additional-stats .birthday-users-list:empty::before,
+.additional-stats .users-online-today-list:empty::before {
+    /* content: "لا يوجد أعضاء."; */ /* يمكنك تفعيل هذا إذا لزم الأمر */
+    /* font-style: italic; */
+    /* color: #888; */
+}
+
+/* --- Quick Links Section Styles --- */
+.quick-links-section {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* أو space-between أو center */
+    gap: 8px; /* مسافة بين الأزرار */
+}
+
+.quick-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* توسيط المحتوى داخل الزر */
+    background-color: #e9eff5;
+    color: #004a91;
+    border: 1px solid #c5d9e8;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    flex-grow: 1; /* للسماح للأزرار بالتمدد */
+    min-width: 150px; /* لضمان ظهور الأزرار بشكل جيد */
+    text-align: center; /* احتياطي إذا لم يعمل flex بشكل صحيح في بعض الحالات */
+}
+
+.quick-link-btn i {
+    margin-left: 6px;
+    font-size: 1.1em;
+}
+
+.quick-link-btn:hover {
+    background-color: #d8e6f2;
+    color: #003366;
+    border-color: #b0c9dd;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.quick-link-btn.quick-link-logout {
+    background-color: #ffebee; /* أحمر فاتح */
+    color: #c62828; /* أحمر داكن */
+    border-color: #ffcdd2;
+}
+
+.quick-link-btn.quick-link-logout:hover {
+    background-color: #ffcdd2;
+    color: #b71c1c;
+    border-color: #ef9a9a;
+}
+
+.quick-link-btn.quick-link-logoin {
+    background-color: #05178f;
+    color: #ffffff;
+    border-color: #0f4a8b;
+}
+.fa-sign-oin-alt:before {
+    content: "\f090";
+  font-family: FontAwesome;
+}
+.quick-link-btn.quick-link-logoin:hover {
+    background-color: #0f4a8b;
+    color: #ffffff;
+    border-color: #05178f;
+}
+
+
+.cm_NEWEST_USER {
+    font-size: 0;
+}
+
+.cm_NEWEST_USER a {
+    font-size: 16px;
+}
+
+span#total-posts-val {
+    font-size: 0;
+}
+span#total-posts-val .a7la-COUNTPOST {
+    font-size: 16px;
+}
+
+span#total-topics-val
+ {
+    font-size: 0px;
+}
+
+span#total-topics-val .a7la-COUNTOPIC {
+    font-size: 16px;
+}
+span#total-members-val {
+    font-size: 0px;
+}
+span#total-members-val .a7la-COUNTUSER {
+    font-size: 16px;
+}
+
+span#online-members-val {
+    font-size: 0px;
+}
+
+span#online-members-val strong {
+    font-size: 16px;
+}
+span.legend-content-GROUP {
+    font-size: 0px;
+}
+span.legend-content-GROUP b a {
+    font-size: 12px;
+}
+
+body#phpbb a, body#phpbb a:hover  {
+    text-decoration: none !important; /* إزالة الخط السفلي من جميع الروابط داخل الودجت */
+}
+
