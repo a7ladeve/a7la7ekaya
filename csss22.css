@@ -79,7 +79,10 @@ span.userTitle {
     FONT-WEIGHT: 700;
     font-size: 14px;
 }
-
+.block-container .block-body {
+    /* padding-left: 0px; */
+    width: 100%;
+}
 
 /* --- هذا هو الجزء الفعال لتعريف المتغيرات --- */
 :root {
