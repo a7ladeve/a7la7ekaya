@@ -1044,6 +1044,230 @@ span.commmment-bubble::after {
 }
 **********************
 
+/* --- Comprehensive Poll Styling for AhlaMontada/PHPBB (Full HTML Context) --- */
+
+/* Main block containing the poll */
+.block.block-big {
+    margin-bottom: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background: #f3f8fb;
+    border: 1px solid #dff1fb;
+    padding: 10px;
+}
+
+/* Poll header styling */
+.block.block-big .block-header {
+    background-color: #282828; /* Header background slightly different or same */
+    padding: 12px 18px;
+    border-bottom: 1px solid #383838;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute space for title and delete icon */
+}
+
+.block.block-big .block-header h2 {
+    margin: 0;
+    font-size: 1.3em; /* Adjust title size */
+    color: #00A2E8; /* Blue accent color for title */
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.block.block-big .block-header h2 .material-icons {
+    font-size: 1.2em; /* Icon size relative to text */
+    margin-right: 8px; /* Space between icon and text (for LTR, use margin-left) */
+    color: #00A2E8; /* Icon color */
+    vertical-align: middle;
+}
+.block.block-big .block-header h2 span:not(:first-child) { /* Target the title text */
+    color: #e0e0e0; /* Light text for the title string */
+}
+
+
+/* Delete icon styling in header */
+.block.block-big .block-header a {
+    color: #999999; /* Grey for delete icon */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.block.block-big .block-header a:hover {
+    color: #E91E63; /* Red or accent color on hover for delete */
+}
+.block.block-big .block-header a .material-icons {
+    font-size: 1.4em; /* Adjust icon size */
+    vertical-align: middle;
+}
+
+/* Poll content area (form and results link) */
+.block .block-content {
+    background-color: #f3f8fb;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 12px 16px 8px;
+}
+
+
+/* Poll form itself */
+.poll {
+    /* No need for extra background/border if .block-content handles it */
+    margin-bottom: 0; /* Remove margin if inside padded .block-content */
+}
+
+/* Styling for each poll option wrapper (label) */
+.poll .radio-wrap label {
+    display: flex
+;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+    color: #ccc;
+    padding: 12px 15px;
+    /* background-color: #5b5b5b; */
+    background-color: var(--primary-color, #446FAB);
+    border: 1px solid #484848;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.poll .radio-wrap label:hover {
+    background-color: #3A3A3A;
+    border-color: #00A2E8;
+    box-shadow: 0 0 8px rgba(0, 162, 232, 0.3);
+}
+
+/* Styling when the option is selected (using :has() for modern browsers) */
+.poll .radio-wrap label:has(input[type="checkbox"]:checked) {
+    background-color: #224053; /* Darker blue when option is selected */
+    border-color: #00A2E8;
+    color: #ffffff; /* Brighter text for selected option */
+    font-weight: 500;
+}
+.poll .radio-wrap label:has(input[type="checkbox"]:checked) .radio {
+    background-color: #00A2E8; /* Blue background for the custom checkbox box */
+    border-color: #007bb5;
+}
+
+
+/* Hide the default checkbox */
+.poll .radio-wrap input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* The custom checkbox visual container (the span.radio) */
+.poll .radio-wrap label .radio {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #c9c6c6;
+    border: 1px solid #c1bebe;
+    border-radius: 4px;
+    margin-left: 12px;
+    transition: background-color .2s ease, border-color .2s ease;
+    flex-shrink: 0;
+}
+
+/* The checkmark style (the span.radio-check) */
+.poll .radio-wrap label .radio .radio-check {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: 0%; /* Hidden by default by making size 0 */
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-size 0.2s ease;
+}
+
+/* Show checkmark when checkbox is checked */
+.poll .radio-wrap input[type="checkbox"]:checked + .radio-check {
+    background-size: 70%; /* Show checkmark */
+}
+
+/* Text of the poll option */
+.poll .radio-wrap label span:last-of-type { /* Target the text span more reliably */
+    flex-grow: 1;
+}
+
+/* Styling for the buttons */
+.poll input[type="submit"].btn.btn-default,
+.poll a.btn.btn-flat {
+    background-color: #00A2E8;
+    color: white;
+    border: 1px solid #007bb5;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    font-size: 0.95em;
+    display: inline-block; /* Ensure proper spacing and margin */
+}
+
+.poll input[type="submit"].btn.btn-default:hover,
+.poll a.btn.btn-flat:hover {
+    background-color: #007bb5;
+    border-color: #005b8f;
+    transform: translateY(-1px);
+}
+
+.poll input[type="submit"].btn.btn-default {
+    /* Primary button specific, if any */
+}
+
+.poll a.btn.btn-flat { /* "استعرض النتائج" button */
+    background-color: #555555;
+    border-color: #444444;
+    margin-right: 10px; /* Space between buttons */
+}
+
+.poll a.btn.btn-flat:hover {
+    background-color: #636363;
+    border-color: #505050;
+}
+
+/* Placeholder for vote expiration message */
+#vote_expire {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #888888;
+    text-align: center;
+}
+a.btn.btn-flat {
+   
+}
+a.btn.btn-flat {
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, var(--primary-color, #007bff) 0%, var(--accent-color, #ff6b6b) 50%, /* لون تمييز أو لون ثانوي */ var(--primary-color, #007bff) 100%);
+    color: var(--header-text-color, #ffffff);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-position 0.5s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color .2s ease, border-color .2s ease, transform .1s ease;
+    margin-top: 20px;
+    font-size: .95em;
+    display: inline-block;
+    line-height: 1.5;
+}
+.block-header, .block-minorHeader {
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, var(--primary-color, #007bff) 0%, var(--accent-color, #ff6b6b) 50%, /* لون تمييز أو لون ثانوي */ var(--primary-color, #007bff) 100%);
+    color: var(--header-text-color, #ffffff);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-position 0.5s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease;
+}
 
 
 
