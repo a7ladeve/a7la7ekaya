@@ -37,6 +37,82 @@ body{
     --code-footer-bg: #f1f3f4;
 }
 */
+/* --- تنسيقات جديدة لعناصر التسميات باستخدام متغيرات المنتدى --- */
+.styled-labels-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.styled-label-item {
+    margin-bottom: 5px;
+}
+
+.styled-label-item a {
+    display: flex;
+    align-items: stretch;
+    text-decoration: none;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--primary-color, #446FAB);
+    transition: opacity 0.2s ease;
+    height: 30px;
+}
+.styled-label-item a:hover {
+    opacity: 0.85;
+}
+
+.label-count-box {
+    background-color: var(--dark-primary, #1D3E5C); /* استخدام لون أغمق من الأساسي للعدد */
+    color: var(--header-text-color, #ffffff);
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label-text-content {
+    background-color: var(--primary-color, #446FAB); /* اللون الأساسي لنص التسمية */
+    color: var(--header-text-color, #ffffff);
+    flex-grow: 1;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.label-icon-box {
+    background-color: var(--menu-hover-bg, #5c85ad); /* ****** التغيير هنا: استخدام لون أزرق فاتح للخلفية ****** */
+                                                    /* يمكنك استخدام متغير مثل --menu-hover-bg إذا كان موجودًا ومناسبًا، */
+                                                    /* أو يمكنك وضع قيمة لون ثابتة مثل #5c85ad أو #7BA4CC */
+    color: var(--header-text-color, #ffffff);       /* ****** التغيير هنا: لون الأيقونة أبيض ****** */
+    padding: 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.label-icon-box .fa { /* هذا يستهدف أيقونة .fa داخل الصندوق */
+    font-size: 14px;
+    /* color: inherit; /* ليرث اللون من .label-icon-box وهو الأبيض */
+}
+span.label-icon-box {
+    position: absolute;
+    
+}
+
+span.label-text-content {
+    position: static;
+    padding-right: 35px;
+}
+span.label-count-box {
+    position: absolute;
+    margin-right: 270px;
+}
+span.label-text-content a {
+    width: 230px;
+}
+
 div#Admin-ONLINE h2.title::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 700;
