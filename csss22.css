@@ -50,7 +50,19 @@ div#Admin-ONLINE, div#Moderators-ONLINE ,div#Members-ONLINE, div#HTML13, div#HTM
     margin-left: auto;
     margin-right: auto;
 }
+.post-body .post .post-content img, .post-body .post .post-content a img {
+    min-width: 700px;
+    min-height: 500px;
+    width: 700px;
+    height: 500px;
+}
 
+.post-body .post .post-content img[alt=":lheidl!"] {
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: auto;
+}
 /* --- هذا هو الجزء الفعال لتعريف المتغيرات --- */
 :root {
   --main-bg-color: #f0f0f0; /* خلفية الصفحة العامة */
