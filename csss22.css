@@ -56,6 +56,12 @@ div#Admin-ONLINE, div#Moderators-ONLINE ,div#Members-ONLINE, div#HTML13, div#HTM
     width: 700px;
     height: 500px;
 }
+.post-body .post .post-content img[src^="/users/"][src*="/smiles/"]{
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: auto;
+}
 
 .post-body .post .post-content img[alt=":lheidl!"] {
     width: auto;
