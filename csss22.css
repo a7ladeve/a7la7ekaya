@@ -37,6 +37,23 @@ body{
     --code-footer-bg: #f1f3f4;
 }
 */
+div#Admin-ONLINE h2.title::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    content: "\f521";
+}
+
+div#Moderators-ONLINE h2.title::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    content: "\f21b";
+}
+
+div#Members-ONLINE h2.title::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    content: "\f0c0";
+}
 
 div#Admin-ONLINE, div#Moderators-ONLINE ,div#Members-ONLINE, div#HTML13, div#HTML14, div#HTML15 {
     background-color: var(--content-bg-color, #ffffff);
