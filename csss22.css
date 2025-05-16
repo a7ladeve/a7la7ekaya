@@ -63,6 +63,24 @@ div#Admin-ONLINE, div#Moderators-ONLINE ,div#Members-ONLINE, div#HTML13, div#HTM
     min-width: auto;
     min-height: auto;
 }
+.widget-content
+ {
+    font-size: 0px;
+}
+.password-container {
+    position: relative;
+    display: contents;
+    align-items: inherit;
+    gap: inherit;
+}
+span.userTitle {
+    display: block;
+    padding-right: 55px;
+    FONT-WEIGHT: 700;
+    font-size: 14px;
+}
+
+
 /* --- هذا هو الجزء الفعال لتعريف المتغيرات --- */
 :root {
   --main-bg-color: #f0f0f0; /* خلفية الصفحة العامة */
