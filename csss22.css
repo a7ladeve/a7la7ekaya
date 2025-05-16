@@ -2163,7 +2163,558 @@ div#Members-ONLINE a {
     font-size: 0px;
 }
 
+/* ... (بداية الكود CSS السابق تبقى كما هي) ... */
+ul#custom-basic-info-list img
+ {
+    width: 1px;
+}
+/* تطبيق النمط فقط إذا كان body يحتوي على الكلاس المميز لصفحة البروفايل */
+body.page-profile #index {
+    margin-left: 0px; 
+    transition: none !important; /* أضفت !important لزيادة الأولوية إذا لزم الأمر */
+}
+body.is-profile-page-by-js #index {
+    margin-left: 0px; 
+    transition: none !important;
+}
+/* 1. إخفاء الإعلانات بشكل أكثر تحديدًا */
+body .h2fc211f9,
+body iframe[src*="a7la.0wn0.com"],
+body div[style*="height: 90px"][style*="min-width: 728px"], /* إخفاء الحاويات التي قد تحتوي إعلانات */
+body div[style*="height:250px"][style*="margin-bottom:18px"] iframe,
+body div[id="h2fc211f9"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important; /* إبعادها عن التدفق */
+    left: -9999px !important;
+}
 
+/* إخفاء حاويات الإعلانات التي قد تظهر بسبب inline styles */
+div[style*="max-height: 90px"][style*="min-width: 728px"],
+div[style*="height:250px"][style*="margin-bottom:18px"] {
+    display: none !important;
+}
+
+/* 2. إخفاء عناصر الواجهة الأصلية التي سنعيد بناءها أو لا نريدها */
+/* تأكد من أن هذه المحددات دقيقة لصفحة الملف الشخصي فقط */
+body.profile-page .main-inner > .cp.advanced-profile, /* حاوية المعلومات الرئيسية الأصلية */
+body.profile-page .main-inner > .cp-sidebar.advanced-profile { /* الشريط الجانبي الأصلي */
+    display: none !important;
+}
+
+/* إذا أردت إخفاء الفواصل التي قد تتركها الإعلانات */
+div[style="height:3px"] {
+    display: none !important;
+}
+
+button.custom-tab-link {
+    width: max-content;
+}
+/* --- بداية تنسيقات الملف الشخصي الجديد --- */
+body {
+    background-color: #f0f2f5; /* خلفية الصفحة العامة */
+    margin: 0; /* إزالة أي هوامش افتراضية من المتصفح للـ body */
+    padding: 0; /* إزالة أي حشوات افتراضية */
+}
+a.btn.btn-default.action-button.secondary {
+    background-color: var(--primary-color);
+}
+.custom-profile-container {
+    /* max-width: 1000px; */ /* --- إزالة أو تعليق هذا السطر */
+    width: 100%; /* --- إضافة هذا السطر لجعل العرض 100% */
+    margin: 0 auto; /* --- تغيير الهامش: 0 علوي/سفلي، auto يمين/يسار (للتوسيط إذا كان هناك حد أقصى للعرض لاحقًا) */
+    /* يمكنك تعديل الهامش العلوي إذا أردت مسافة من أعلى الصفحة، مثال: margin: 20px 0 0 0; */
+    background-color: #fff;
+    /* border-radius: 8px; */ /* --- يمكنك إزالة هذا إذا كنت تريد الحواف مستقيمة مع عرض الشاشة الكامل */
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */ /* --- يمكنك إزالة هذا أو تعديله */
+    overflow: hidden;
+    direction: rtl;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    min-height: 100vh; /* للتأكد أن الحاوية تمتد على الأقل بكامل ارتفاع الشاشة */
+}
+
+.custom-profile-header {
+    position: relative;
+}
+
+.custom-cover-image img {
+    width: 100%;
+    height: 250px; /* يمكنك تعديل هذا الارتفاع حسب رغبتك */
+    object-fit: cover;
+    display: block;
+}
+
+.custom-profile-main-info {
+    display: flex;
+    align-items: flex-end;
+    /* padding: 0 20px; */ /* --- يمكنك تعديل هذا أو إزالته */
+    padding: 0 3%; /* استخدام نسبة مئوية للحشو الجانبي ليكون متناسبًا */
+    margin-top: -146px;
+    position: relative;
+    z-index: 1;
+    /* إذا أردت أن تكون هذه المنطقة بعرض محدد داخل العرض الكامل */
+    /* max-width: 1200px; */ /* مثال: حد أقصى لعرض المحتوى داخل الغلاف */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+.custom-avatar-container {
+    margin-left: 20px; /* هذا سيعمل كما هو في RTL */
+}
+
+.custom-profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    object-fit: cover;
+}
+
+.custom-user-details {
+    padding-bottom: 15px;
+}
+
+.custom-username {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: #1c1e21;
+}
+/* .custom-profile-header .custom-username {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+} */
+
+.custom-user-title {
+    font-size: 16px;
+    color: #606770;
+    margin: 0 0 15px 0;
+}
+
+.custom-user-actions .action-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    background-color: #1877f2;
+    color: white;
+    display: inline;
+}
+.custom-user-actions .action-button:hover {
+    background-color: #166fe5;
+}
+.custom-user-actions .action-button.secondary {
+    background-color: #e4e6eb;
+    color: #050505;
+}
+.custom-user-actions .action-button.secondary:hover {
+    background-color: #d8dbdf;
+}
+
+.custom-profile-content {
+    display: flex;
+    /* padding: 20px; */ /* --- يمكنك تعديل هذا أو إزالته */
+    padding: 20px 3%; /* استخدام نسبة مئوية للحشو الجانبي */
+    /* border-top: 1px solid #ddd; */ /* --- يمكنك إزالة هذا الخط الفاصل إذا أردت */
+    margin-top: 20px;
+    /* إذا أردت أن يكون هذا المحتوى بعرض محدد داخل العرض الكامل */
+    /* max-width: 1200px; */ /* مثال: حد أقصى لعرض المحتوى */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+.custom-profile-sidebar {
+    flex: 0 0 280px; /* يمكنك تعديل هذا العرض أو استخدام نسبة مئوية مثل flex: 0 0 25%; */
+    margin-left: 20px; /* في RTL هذا يضع مسافة على يمين الشريط */
+}
+
+.custom-profile-sidebar .info-box,
+.custom-profile-sidebar .stats-box {
+    background-color: #f7f8fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+}
+.custom-profile-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+.custom-profile-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.custom-profile-sidebar ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #555;
+}
+.custom-profile-sidebar ul li strong {
+    color: #111;
+    margin-left: 5px;
+}
+.custom-profile-sidebar ul li a {
+    color: #1877f2;
+    text-decoration: none;
+}
+.custom-profile-sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+
+.custom-profile-main-area {
+    flex-grow: 1;
+}
+
+/* --- Tabs --- */
+.custom-tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+.custom-tab-link {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+}
+.custom-tab-link:hover {
+    color: #1877f2;
+}
+.custom-tab-link.active {
+    color: #1877f2;
+    border-bottom: 2px solid #1877f2;
+    font-weight: bold;
+}
+
+.custom-tab-content {
+    display: none;
+    padding: 15px;
+    /* border: 1px solid #e0e0e0; */ /* --- يمكنك إزالة هذا الإطار */
+    /* border-top: none; */
+    /* border-radius: 0 0 6px 6px; */ /* --- يمكنك إزالة هذا إذا أردت */
+    background-color: #fff; /* أو اجعلها شفافة إذا كان لون الحاوية الرئيسية مناسبًا */
+}
+.custom-tab-content.active-content {
+    display: block;
+}
+.custom-tab-content h3 {
+    font-size: 18px;
+    margin-top: 0;
+    color: #333;
+}
+.custom-tab-content p, .custom-tab-content div {
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.custom-tab-content dl.profile-advanced-stats { margin-bottom: 8px; }
+.custom-tab-content dl.profile-advanced-stats dt { font-weight: bold; color: #111; display: inline-block; min-width: 100px; }
+.custom-tab-content dl.profile-advanced-stats dd { display: inline-block; color: #555; }
+.custom-tab-content .field_uneditable { display: inline !important; }
+.custom-tab-content .field_editable { display: none !important; }
+
+/* للاستجابة (تبقى مهمة حتى مع عرض 100% للتعامل مع الشاشات الصغيرة جدًا) */
+@media (max-width: 768px) {
+    .custom-profile-content {
+        flex-direction: column;
+        padding: 15px 2%; /* تعديل الحشو للشاشات الأصغر */
+    }
+    .custom-profile-sidebar {
+        flex: 0 0 auto;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+    .custom-profile-main-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: -50px;
+        padding: 0 2%; /* تعديل الحشو */
+    }
+    .custom-avatar-container {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    .custom-profile-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    .custom-tabs {
+        flex-wrap: wrap;
+    }
+    .custom-tab-link {
+        flex-basis: 50%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-cover-image img { height: 180px; }
+    .custom-profile-avatar { width: 100px; height: 100px; border-width: 3px; }
+    .custom-username { font-size: 22px; }
+    .custom-user-title { font-size: 14px; }
+    .custom-user-actions .action-button { font-size: 13px; padding: 6px 10px; display: block; width: 90%; margin: 5px auto; }
+    .custom-tab-link { flex-basis: 100%; }
+}
+/* --- نهاية تنسيقات الملف الشخصي الجديد --- */
+
+
+
+
+
+/* ... (الكود CSS السابق لإخفاء الإعلانات والعناصر الأصلية، وتنسيق الهيكل العام) ... */
+
+/* --- جديد: تنسيقات الخلفية الديناميكية لـ .custom-profile-container --- */
+.custom-profile-container.has-dynamic-container-background {
+    /* الصورة الفعلية يتم تعيينها عبر متغير CSS من JavaScript */
+    background-image:
+        linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 25%, rgba(255, 255, 255, 0.2) 50%, transparent 75%), /* التدرج الشفاف من الأسفل للأعلى */
+        var(--dynamic-container-bg-image); /* الصورة الديناميكية */
+
+    background-size: cover; /* لتغطية كامل المساحة */
+    background-position: center center; /* لتوسيط الصورة */
+    background-repeat: no-repeat; /* لمنع تكرار الصورة */
+    /* background-attachment: fixed; */ /* أزل أو أبقِ هذا حسب رغبتك، قد لا يكون مناسبًا لحاوية داخلية */
+
+    /* قد تحتاج إلى التأكد من أن لون خلفية body لا يتعارض */
+    /* إذا كان .custom-profile-container يأخذ عرض الصفحة 100%، فهذا أقل أهمية */
+}
+
+/* إذا كانت الخلفية مطبقة على .custom-profile-container، */
+/* تأكد أن العناصر الداخلية (مثل الصناديق البيضاء) لا تزال واضحة */
+.custom-profile-container.has-dynamic-container-background .custom-profile-sidebar .info-box,
+.custom-profile-container.has-dynamic-container-background .custom-profile-sidebar .stats-box,
+.custom-profile-container.has-dynamic-container-background .custom-profile-main-area .custom-tab-content {
+    /* يمكنك جعلها شبه شفافة أو الحفاظ على لونها الصلب */
+    background-color: rgba(255, 255, 255, 0.92); /* مثال: خلفية بيضاء شبه شفافة للمحتوى */
+    /* border: 1px solid rgba(224, 224, 224, 0.7); */ /* قد ترغب في إزالة أو تخفيف الإطارات */
+}
+
+/* إذا كنت قد طبقت خلفية على #index سابقًا وتريد إزالتها */
+#index.has-dynamic-index-background {
+    background-image: none !important; /* لإلغاء أي خلفية مطبقة سابقًا */
+}
+
+
+/* --- تنسيقات صورة الغلاف (كما هي أو مع تعديلات طفيفة إذا لزم الأمر) --- */
+.custom-cover-image img {
+    width: 100%;
+    height: 250px; /* أو الارتفاع الذي تفضله */
+    object-fit: cover;
+    display: block;
+    background-color: #e9e9e9; /* لون احتياطي أثناء تحميل الصورة */
+}
+
+/* ... (باقي تنسيقات CSS الخاصة بك) ... */
+
+.custom-profile-container.has-dynamic-container-background {
+    background-image:
+        linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 25%, rgba(255, 255, 255, 0.2) 50%, transparent 75%),
+        var(--dynamic-container-bg-image);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+/* إذا لم يتم العثور على صورة خلفية، يمكنك إضافة لون افتراضي عبر CSS */
+.custom-profile-container:not(.has-dynamic-container-background) {
+    /* background-color: #eceff1; */ /* مثال للون خلفية افتراضي */
+}
+
+/* ... (جميع أكواد CSS السابقة تبقى كما هي) ... */
+
+/* --- تعديل لفصل الغلاف عن الخلفية --- */
+.custom-profile-header {
+    position: relative; /* هذا يجب أن يكون موجودًا بالفعل */
+    /* أضف لون خلفية مصمت هنا. اختر اللون الذي يناسب تصميمك. */
+    /* هذا اللون سيكون خلف صورة الغلاف الفعلية ويمنع تداخل الخلفية الرئيسية. */
+    background-color: #202427; /* مثال: لون رمادي داكن. يمكنك استخدام #000 للأسود أو أي لون آخر */
+    /* تأكد من أن هذا اللون لا يتعارض مع أي نصوص أو عناصر أخرى في الهيدر */
+}
+
+/* تأكيد على أن حاوية صورة الغلاف نفسها لا تضيف شفافية غير مرغوبة */
+.custom-cover-image {
+    line-height: 0; /* لإزالة أي مسافات إضافية قد تسببها الصورة إذا كانت inline */
+    /* إذا كان هناك أي padding على .custom-cover-image قد يكشف الخلفية، */
+    /* تأكد أن .custom-profile-header هو الذي يحمل لون الخلفية الحاجز */
+}
+
+.custom-cover-image img {
+    width: 100%;
+    height: 250px; /* أو الارتفاع الذي حددته لصورة الغلاف */
+    object-fit: cover; /* هذا مهم للحفاظ على نسب الصورة وتغطية المساحة */
+    display: block; /* يضمن أن الصورة تتصرف كعنصر كتلة */
+}
+
+/* --- مراجعة لتنسيق خلفية الحاوية الرئيسية --- */
+/* هذا هو الكود الحالي لخلفية .custom-profile-container (الخلفية العامة للملف الشخصي) */
+/* تأكد أن التدرج لا يزال يحقق التأثير الذي تريده للخلفية نفسها */
+.custom-profile-container.has-dynamic-container-background {
+    background-image:
+        /* التدرج: يبدأ من الأسفل بلون أبيض شبه شفاف، ويصبح شفافًا تمامًا في الأعلى ليكشف الصورة الخلفية */
+        /* إذا كنت ترى أن هذا التدرج يساهم في المشكلة، يمكنك تعديله */
+        linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 25%, rgba(255, 255, 255, 0.2) 50%, transparent 75%),
+        var(--dynamic-container-bg-image); /* صورة الخلفية الديناميكية */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; -- كان معلقًا، يمكن إبقاؤه أو إزالته */
+}
+
+/* إذا لم يتم العثور على صورة خلفية ديناميكية، يمكنك تحديد لون خلفية افتراضي للحاوية */
+.custom-profile-container:not(.has-dynamic-container-background) {
+    background-color: #f0f2f5; /* مثال: لون رمادي فاتح جداً كخلفية افتراضية للملف الشخصي */
+}
+
+/* --- تأكيد على أن المحتوى فوق الخلفية واضح --- */
+/* هذه القواعد مهمة إذا كانت الخلفية الديناميكية تجعل قراءة المحتوى صعبة */
+.custom-profile-container.has-dynamic-container-background .custom-profile-sidebar .info-box,
+.custom-profile-container.has-dynamic-container-background .custom-profile-sidebar .stats-box,
+.custom-profile-container.has-dynamic-container-background .custom-profile-main-area .custom-tab-content {
+    background-color: rgba(255, 255, 255, 0.92); /* خلفية بيضاء شبه شفافة لمربعات المحتوى */
+    /* border: 1px solid rgba(224, 224, 224, 0.7); -- يمكنك تعديل أو إزالة الإطارات */
+}
+
+/* ... (جميع أكواد CSS السابقة تبقى كما هي) ... */
+
+/* --- تحسين وضوح النصوص والروابط --- */
+
+/* 1. الألوان الأساسية للنصوص (لضمان التباين) */
+.custom-profile-container,
+.custom-profile-sidebar ul li,
+.custom-tab-content p,
+.custom-tab-content div,
+.custom-tab-content dl dt, /* لعناصر التعريف في حقول الملف الشخصي */
+.custom-tab-content dl dd {
+    color: #333; /* لون رمادي داكن لمعظم النصوص، يوفر تباين جيد على خلفيات فاتحة/متوسطة */
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5); /* ظل خفيف جداً لمساعدة القراءة إذا كانت الخلفية داكنة قليلاً */
+}
+
+/* 2. اسم المستخدم والعنوان/الرتبة (فوق صورة الغلاف/الخلفية العلوية) */
+.custom-username {
+    color: #ffffff; /* لون أبيض لاسم المستخدم */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 5px rgba(0,0,0,0.4); /* ظل أسود قوي لتحسين الوضوح */
+}
+
+.custom-user-title {
+    color: #f0f0f0; /* لون أبيض مائل للرمادي قليلاً للرتبة */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7); /* ظل أسود واضح */
+}
+
+/* يمكنك إضافة خلفية خفيفة جدا وشبه شفافة لحاوية تفاصيل المستخدم إذا لزم الأمر */
+/*
+.custom-user-details {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block; // أو حسب تصميمك
+}
+*/
+
+
+/* 3. رؤوس الأقسام (Sidebar و Tab Content) */
+.custom-profile-sidebar h3,
+.custom-tab-content h3 {
+    color: #111; /* لون أسود أو داكن جداً للعناوين الرئيسية */
+    text-shadow: none; /* لا حاجة لظل هنا لأنها عادة فوق خلفية شبه مصمتة */
+}
+
+/* 4. عناصر القائمة في الشريط الجانبي (الأسماء الغامقة) */
+.custom-profile-sidebar ul li strong {
+    color: #000; /* أسود لأسماء الحقول */
+}
+
+/* 5. الروابط العامة داخل محتوى الملف الشخصي */
+.custom-profile-container a,
+.custom-profile-sidebar ul li a, /* روابط داخل الشريط الجانبي */
+.custom-tab-content a { /* روابط داخل محتوى التابات */
+    color: #007bff; /* لون أزرق قياسي للروابط */
+    text-decoration: none; /* إزالة الخط السفلي الافتراضي */
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.4); /* ظل خفيف جداً للروابط */
+    transition: color 0.2s ease;
+}
+
+.custom-profile-container a:hover,
+.custom-profile-sidebar ul li a:hover,
+.custom-tab-content a:hover {
+    color: #0056b3; /* لون أغمق عند التحويم */
+    text-decoration: underline; /* إضافة خط سفلي عند التحويم */
+}
+
+/* 6. أزرار التابات */
+.custom-tab-link {
+    color: #444; /* لون رمادي داكن للتابات غير النشطة */
+    font-weight: 500; /* وزن خط متوسط */
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.3);
+}
+
+.custom-tab-link.active {
+    color: #007bff; /* لون أزرق للتاب النشط */
+    font-weight: bold;
+    text-shadow: none; /* لا حاجة لظل للتاب النشط لأنه مميز بالفعل */
+}
+.custom-tab-link:hover:not(.active) {
+    color: #111; /* لون داكن عند التحويم على التاب غير النشط */
+}
+
+
+/* 7. أزرار الإجراءات (مثل زر المتابعة، إضافة صديق) */
+/* تأكد أن لون النص داخل الأزرار متباين مع لون خلفية الزر نفسه */
+.custom-user-actions .action-button {
+    /* لون النص الافتراضي (عادة أبيض أو أسود) يتم تحديده عند تعريف خلفية الزر */
+    /* مثال: إذا كان الزر أزرق، النص أبيض */
+    /* color: white; */
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2); /* ظل خفيف للنص داخل الأزرار لمزيد من البروز */
+}
+.custom-user-actions .action-button.secondary { /* للأزرار ذات الخلفية الفاتحة */
+    /* color: #333; */ /* نص داكن */
+    /* text-shadow: none; */ /* أو ظل فاتح خفيف جداً */
+}
+
+
+/* 8. لضمان أن حاويات المحتوى الرئيسية لها خلفية شبه مصمتة كافية */
+/* هذه القواعد مهمة لجعل النص فوقها واضحًا بغض النظر عن الخلفية الديناميكية */
+.custom-profile-container.has-dynamic-container-background .custom-profile-sidebar .info-box,
+.custom-profile-container.has-dynamic-container-background .custom-profile-sidebar .stats-box,
+.custom-profile-container.has-dynamic-container-background .custom-profile-main-area .custom-tab-content {
+    background-color: rgba(255, 255, 255, 0.94); /* زيادة طفيفة في عتامة الخلفية البيضاء */
+    /* أو يمكنك استخدام لون أفتح قليلاً من لون الخلفية العام للموقع إذا كان داكناً */
+    /* مثال إذا كان الموقع داكناً: background-color: rgba(50, 50, 50, 0.9); */
+    /* وفي هذه الحالة ستحتاج لتغيير ألوان النصوص داخل هذه الصناديق إلى فاتحة */
+    padding: 15px;
+    border-radius: 6px;
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.08); */ /* ظل خفيف للصناديق إذا أردت */
+}
+
+/* إذا لم تكن هناك خلفية ديناميكية، تأكد أن ألوان النصوص لا تزال مناسبة */
+.custom-profile-container:not(.has-dynamic-container-background) {
+    background-color: #f4f7f6; /* لون خلفية افتراضي فاتح */
+}
+/* والنصوص داخل الصناديق في هذه الحالة يمكن أن تكون على خلفية بيضاء مصمتة */
+.custom-profile-container:not(.has-dynamic-container-background) .custom-profile-sidebar .info-box,
+.custom-profile-container:not(.has-dynamic-container-background) .custom-profile-sidebar .stats-box,
+.custom-profile-container:not(.has-dynamic-container-background) .custom-profile-main-area .custom-tab-content {
+    background-color: #ffffff;
+}
 /* --- Forum Stats Widget for A7la7ekaya (General) --- */
 .forum-stats-widget.ahlamontada-stats {
     font-family: Tahoma, Arial, sans-serif;
