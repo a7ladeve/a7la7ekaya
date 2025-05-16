@@ -89,7 +89,15 @@ span.userTitle {
     /* padding-left: 0px; */
     width: 100%;
 }
-
+.block .block-header {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1);
+    color: #FFF;
+    border-radius: 3px;
+    padding: 16px;
+    position: relative;
+    word-break: break-word;
+}
 /* --- هذا هو الجزء الفعال لتعريف المتغيرات --- */
 :root {
   --main-bg-color: #f0f0f0; /* خلفية الصفحة العامة */
