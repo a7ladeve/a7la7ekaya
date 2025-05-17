@@ -413,7 +413,7 @@ body#phpbb.dark-mode .custom-title a {
 /* --- 7. Panneau de Personnalisation du Style --- */
 #style-options-container { position: fixed; top: 150px; left: -255px; z-index: 999; direction: ltr; transition: left 0.3s ease-in-out; }
 #style-options-container.open { left: 0; }
-#style-options-trigger { position: absolute; left: 100%; top: 0; background-color: var(--primary-color); color: var(--header-text-color); padding: 8px 10px; border-radius: 0 5px 5px 0; cursor: pointer; font-size: 20px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); transition: background-color 0.3s ease, color 0.3s ease; border: 1px solid rgba(0,0,0,0.2); border-left: none; }
+#style-options-trigger { position: absolute; left: 100%; top: 0; background-color: var(--primary-color); color: var(--header-text-color); padding: 0px 0px; border-radius: 0 5px 5px 0; cursor: pointer; font-size: 20px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); transition: background-color 0.3s ease, color 0.3s ease; border: 1px solid rgba(0,0,0,0.2); border-left: none; }
 #style-options-trigger:hover { filter: brightness(1.1); }
 #style-options-panel { width: 250px; background-color: var(--content-bg-color); border: 1px solid var(--border-color); border-left: none; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); border-radius: 0 5px 5px 0; padding: 15px; height: auto; max-height: calc(100vh - 180px); overflow-y: auto; transition: background-color 0.3s ease, border-color 0.3s ease; }
 body.dark-mode #style-options-panel { background-color: var(--dark-content-bg); border-color: var(--dark-border); }
@@ -3232,3 +3232,768 @@ body#phpbb a, body#phpbb a:hover  {
 .quick-reply-textarea-wrap {
     padding-right: 0px;
 }
+
+
+
+/* ==========================================================================
+   CSS لتصميم صفحة تعديل الملف الشخصي - قائمة جانبية مع تبويبات داخلية
+   ========================================================================== */
+
+:root {
+    --modern-primary-blue: #3498db;
+    --modern-light-blue-bg: #f4f7f9;
+    --modern-content-bg: #ffffff;
+    --modern-border-color: #e1e8ed;
+    --modern-input-bg: #f8f9fa;
+    --modern-input-border: #d0d9e0;
+    --modern-text-color: #566573;
+    --modern-text-heading: #2c3e50;
+    --modern-text-muted: #7f8c8d;
+    --modern-sidebar-link-hover-bg: #eaf5fb;
+    --font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* --- إعدادات الجسم العامة --- */
+body {
+    background-color: var(--modern-light-blue-bg) !important;
+    font-family: var(--font-family) !important;
+    direction: rtl;
+    font-size: 14px;
+    color: var(--modern-text-color);
+    margin: 0; padding: 0;
+}
+span.label-text-content a {
+    line-height: 2;
+}
+/* إخفاء عناصر غير مرغوب فيها */
+div[style*="overflow:visible"] > span.corners-top + .inner[style*="height: 90px"], 
+div[style*="height:3px"], 
+body > #h08f040 {
+    display: none !important;
+}
+
+/* --- الحاوية الرئيسية للصفحة --- */
+.profile-page-container {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+/* --- العنوان الرئيسي للصفحة --- */
+.page-main-title {
+    color: var(--modern-text-heading);
+    margin: 0 0 25px 0;
+    font-size: 1.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.page-main-title i.main-title-icon-js {
+    margin-left: 12px;
+    color: var(--modern-primary-blue);
+    font-size: 1.5rem;
+}
+
+/* --- حاوية التخطيط --- */
+.profile-layout-container {
+    display: flex;
+    flex-direction: row-reverse; /* القائمة يمين، المحتوى يسار */
+    background-color: var(--modern-content-bg);
+    border: 1px solid var(--modern-border-color);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+/* --- القائمة الجانبية --- */
+.profile-sidebar {
+    flex: 0 0 260px;
+    background-color: var(--modern-sidebar-bg);
+    border-left: 1px solid var(--modern-sidebar-border); /* لليمين بسبب RTL */
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+.profile-sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+.profile-sidebar-nav ul li { margin: 0; padding: 0; position: relative; }
+
+.profile-sidebar-header-icon-js { /* يضاف بـ JS */
+    text-align: left; padding: 0 20px 15px 20px;
+    font-size: 1.6rem; color: var(--modern-primary-blue);
+    border-bottom: 1px solid var(--modern-border-color); margin-bottom: 10px;
+}
+.profile-sidebar-nav ul li.nav-section-title {
+    padding: 15px 20px 8px 20px !important; font-size: 0.75rem !important;
+    font-weight: 600 !important; color: var(--modern-text-muted) !important;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    border-right: none !important; cursor: default; background-color: transparent !important;
+}
+.profile-sidebar-nav ul li.nav-section-title:not(:first-of-type) { margin-top: 10px !important; }
+.profile-sidebar-nav ul li a {
+    display: flex !important; align-items: center; padding: 10px 20px 10px 15px !important;
+    text-decoration: none !important; color: var(--modern-text-color) !important;
+    border-right: 4px solid transparent !important;
+    transition: all 0.2s ease; font-size: 0.88rem !important; font-weight: 500 !important;
+    background-color: transparent !important; border-bottom: none !important;
+    border-left: none !important; border-top: none !important; margin: 0 !important; line-height: 1.5 !important;
+}
+.profile-sidebar-nav ul li a span { flex-grow: 1; text-align: right; }
+.profile-sidebar-nav ul li a i.sidebar-icon-js {
+    margin-left: 10px; width: 18px; text-align: center;
+    color: #8899a8; font-size: 1em; transition: color 0.2s ease; line-height: 1;
+}
+.profile-sidebar-nav ul li:not(.nav-section-title) a:hover,
+.profile-sidebar-nav ul li:not(.nav-section-title) a:focus {
+    background-color: var(--modern-sidebar-link-hover-bg) !important;
+    color: var(--modern-primary-blue) !important;
+}
+.profile-sidebar-nav ul li:not(.nav-section-title) a:hover i.sidebar-icon-js,
+.profile-sidebar-nav ul li:not(.nav-section-title) a:focus i.sidebar-icon-js {
+    color: var(--modern-primary-blue) !important;
+}
+.profile-sidebar-nav ul li.active-nav-item a {
+    background-color: var(--modern-sidebar-link-hover-bg) !important;
+    color: var(--modern-primary-blue) !important;
+    border-right-color: var(--modern-primary-blue) !important;
+    font-weight: 600 !important;
+}
+.profile-sidebar-nav ul li.active-nav-item a i.sidebar-icon-js { color: var(--modern-primary-blue) !important; }
+
+/* --- منطقة المحتوى الرئيسية --- */
+.profile-main-content { flex-grow: 1; padding: 0; }
+.tab-pane { display: none; padding: 0; animation: modernFadeIn 0.3s ease-out; }
+.tab-pane.active-pane { display: block; }
+@keyframes modernFadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+.content-section-header {
+    padding: 22px 25px; border-bottom: 1px solid var(--modern-border-color);
+    background-color: #fcfdfe;
+}
+.content-section-header.inner-section-header { /* للعناوين الفرعية داخل tab-pane */
+    padding: 15px 25px 10px 25px; font-size: 1.15rem; background-color: transparent;
+    border-top: 1px solid var(--modern-border-color); border-bottom: none; margin-top: 20px;
+}
+.content-section-header h3 {
+    margin: 0; font-size: 1.4rem; font-weight: 600; color: var(--modern-text-heading);
+    display: flex; align-items: center;
+}
+.content-section-header h3 i { margin-left: 12px; color: var(--modern-primary-blue); font-size: 0.9em; }
+.content-section-header.inner-section-header h3 i { font-size: 0.85em; }
+
+.form-section-body { padding: 25px; }
+.form-section-body > p.form-text.text-muted:first-child { margin-bottom: 20px !important; }
+
+
+/* --- تصميم الحقول --- */
+.form-group {
+    display: grid; grid-template-columns: 200px 1fr; 
+    gap: 0 15px; align-items: flex-start; margin-bottom: 18px;
+}
+.form-group > label:first-child:not(.radio-option label):not(.checkbox-option label):not(.main-option-label) { /* نص الليبل الرئيسي */
+    grid-column: 1 / 2; padding-top: 8px; font-weight: 500;
+    text-align: left; color: var(--modern-text-color); line-height: 1.6; word-break: break-word; 
+    font-size: 0.9rem;
+}
+.form-group .form-control-wrapper { /* حاوية الحقل */
+    grid-column: 2 / 3; width: 100%; display: flex; flex-direction: column;
+}
+/* حالة خاصة لليبلات التي هي عنوان لمجموعة خيارات */
+.form-group.stacked-options > label.main-option-label {
+    grid-column: 1 / 2; padding-top: 8px; font-weight: 600; /* أثقل قليلاً */
+    color: var(--modern-text-heading); text-align: left; font-size: 0.9rem;
+}
+.form-group.stacked-options .form-control-wrapper {
+    /* لا حاجة لـ padding-right هنا لأن الليبل الرئيسي يأخذ العمود الأول */
+}
+
+
+.form-control, .inputbox, .input-subtle, select.gensmall {
+    display: block !important; width: 100% !important; padding: 9px 14px !important;
+    font-size: 0.88rem !important; font-family: var(--font-family) !important;
+    line-height: 1.6 !important; color: var(--modern-text-color) !important;
+    background-color: var(--modern-input-bg) !important;
+    border: 1px solid var(--modern-input-border) !important;
+    border-radius: 5px !important; box-sizing: border-box !important;
+    transition: all .2s ease-in-out;
+}
+.form-control:focus, .inputbox:focus, .input-subtle:focus, select.gensmall:focus {
+    background-color: #fff !important; border-color: var(--modern-primary-blue) !important;
+    outline: 0 !important; box-shadow: 0 0 0 0.15rem rgba(52, 152, 219, .25) !important;
+}
+textarea.form-control, textarea.inputbox { min-height: 120px; line-height: 1.5; }
+input[type="file"].form-control-file { /* كلاس يضاف بـ JS إذا كان input-subtle */
+    padding: 8px !important; border: 1px dashed var(--modern-input-border) !important;
+    background-color: var(--modern-input-bg) !important; border-radius: 5px;
+}
+
+/* الراديو والتشيكبوكس */
+.radio-option, .checkbox-option { /* كلاسات نضيفها بـ JS أو في HTML المحول */
+    display: flex; align-items: center; margin-bottom: 8px; cursor: pointer;
+}
+.radio-option input[type="radio"], .checkbox-option input[type="checkbox"] {
+    margin: 0 0 0 8px !important; /* لليمين بسبب RTL */
+    transform: scale(1.05); accent-color: var(--modern-primary-blue);
+    position: relative; top: -1px; flex-shrink: 0;
+}
+.radio-option label, .checkbox-option label { /* الليبل بجانب input الراديو/التشيكبوكس */
+    font-weight: normal; color: var(--modern-text-color); font-size: 0.9rem; margin-bottom: 0;
+}
+
+/* الأوصاف */
+span.description, .form-text.text-muted {
+    font-size: 0.8rem !important; color: var(--modern-text-muted) !important;
+    margin-top: 6px !important; display: block !important; width: 100%; line-height: 1.4;
+}
+
+/* فواصل */
+.form-divider { border: 0; border-top: 1px solid var(--modern-border-color); margin: 25px 0; }
+
+/* شريط قوة كلمة المرور */
+.pwd_strength_wrap { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background-color: #e9ecef; margin-top: 8px;}
+.pwd_strength_bar { height: 100%; transition: width 0.3s ease; }
+.pwd_bar_bad { background-color: #e74c3c; } .pwd_bar_middle { background-color: #f39c12; } .pwd_bar_good { background-color: #2ecc71; }
+
+/* الصورة الرمزية */
+.avatar-main-group > label:first-child { visibility: hidden; } /* إخفاء الليبل الفارغ */
+.avatar-upload-area { text-align: center; width: 100%; }
+.current-avatar-wrapper { display: inline-block; position: relative; cursor: pointer; margin-bottom:10px; }
+.current-avatar-wrapper img, .default-avatar-preview {
+    width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--modern-content-bg);
+    box-shadow: 0 0 0 2px var(--modern-border-color);
+}
+.avatar-delete-option { justify-content: center; margin-top: 10px; }
+
+
+/* --- الأزرار --- */
+fieldset.form-buttons.modern-form-actions {
+    padding: 20px 25px; text-align: left; border-top: 1px solid var(--modern-border-color);
+    background-color: #f9fbfd; margin-top: 20px;
+}
+.btn.modern-submit-btn, .btn.modern-reset-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 500; text-align: center; vertical-align: middle; cursor: pointer;
+    border: 1px solid transparent; padding: 9px 20px !important;
+    font-size: 0.88rem !important; line-height: 1.6 !important;
+    border-radius: 5px !important; transition: all .2s ease-in-out;
+    font-family: var(--font-family) !important;
+}
+.btn.modern-submit-btn i, .btn.modern-reset-btn i { margin-right: 8px; margin-left: -4px; }
+.btn.modern-submit-btn {
+    background-color: var(--modern-primary-blue) !important; color: #FFFFFF !important;
+    border-color: var(--modern-primary-blue) !important;
+}
+.btn.modern-submit-btn:hover { background-color: #2980b9 !important; border-color: #2980b9 !important; }
+.btn.modern-reset-btn {
+    background-color: #e4e7ea !important; color: var(--modern-text-color) !important;
+    border-color: #ced4da !important; margin-right: 10px !important;
+}
+.btn.modern-reset-btn:hover { background-color: #d3d9df !important; border-color: #b9c0c7 !important; }
+.btn-info.btn-sm, .btn-secondary.btn-sm, .btn-outline-primary.btn-sm, .btn-outline-secondary.btn-sm { /* للأزرار الصغيرة الأخرى */
+    padding: 6px 12px !important; font-size: 0.8rem !important;
+}
+
+
+/* --- الاستجابة للشاشات الصغيرة --- */
+@media (max-width: 991px) {
+    .profile-sidebar { flex-basis: 220px; }
+    .form-group { grid-template-columns: 160px 1fr; }
+    .form-group.stacked-options .form-control-wrapper { /* لا يوجد padding-right */ }
+}
+@media (max-width: 767px) {
+    .profile-page-container { padding: 0; margin-top: 10px; }
+    .page-main-title { font-size: 1.6rem; margin: 0 15px 15px 15px; }
+    .profile-layout-container { flex-direction: column; border-radius: 0; border-left:0; border-right:0; }
+    .profile-sidebar {
+        order: 1; flex-basis: auto; width: 100%; border-left: 0;
+        border-bottom: 1px solid var(--modern-sidebar-border); padding: 0;
+    }
+    .profile-sidebar-nav ul { display: flex; overflow-x: auto; white-space: nowrap; padding: 0 5px; }
+    .profile-sidebar-nav ul li.nav-section-title { display: none; }
+    .profile-sidebar-nav ul li a { border-right: 0 !important; border-bottom: 3px solid transparent !important; padding: 10px !important; border-radius:0 !important; }
+    .profile-sidebar-nav ul li.active-nav-item a { border-bottom-color: var(--modern-primary-blue) !important; border-right-color:transparent !important; }
+
+    .profile-main-content { order: 2; }
+    .content-section-header, .form-section-body, .main-form-actions { padding: 15px; }
+    .content-section-header h3 { font-size: 1.2rem; }
+    .content-section-header.inner-section-header h3 {font-size: 1.1rem;}
+
+
+    .form-group { grid-template-columns: 1fr !important; }
+    .form-group > label:first-child:not(.radio-option label):not(.checkbox-option label):not(.main-option-label) {
+        text-align: right; padding-left:0; margin-bottom: 8px; padding-top:0;
+    }
+    .main-form-actions { text-align: center; }
+    .main-form-actions .btn { width: calc(50% - 5px); margin-bottom: 0;}
+    .main-form-actions .btn:first-child { margin-left: 10px; }
+}
+
+.resizebox {
+    background-color: #fff;
+    max-width: 100%;
+    line-height: 1.1em;
+    cursor: default;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    text-align: right;
+    display: inline-block;
+}
+
+.resizebox .resize_border {
+    border: 1px solid #d4d4d4;
+    display: block;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.resizebox a.enlarge, .resizebox a.fullsize, .resizebox a.resize {
+    display: inline-block;
+    zoom: 1;
+}
+.resizebox a.resize {
+    display: none;
+}
+
+
+.resizebox .resize_filler {
+    border: none;
+    padding: 0;
+    width: 40px;
+    display: inline-block;
+    zoom: 1;
+}
+
+
+
+******
+
+/* متغيرات CSS الأساسية للخطوط والألوان */
+:root {
+  --primary-color: #446FAB; /* اللون الافتراضي */
+  --body-font-family-default: "Droid Arabic Kufi", Tahoma, Verdana, Arial, sans-serif;
+  --body-font-family: var(--body-font-family-default);
+  --body-font-size: 14px;
+  --posts-font-size: 13px;
+  --sections-font-size: 15px;
+  
+  --link-color: var(--primary-color);
+  --link-hover-color: #33598a;
+  --button-bg-color: var(--primary-color);
+  --button-text-color: #fff;
+}
+
+/* تطبيق الخط العام وحجمه على الجسم */
+body {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  line-height: 1.6;
+  transition: background-image 0.5s ease-in-out;
+}
+/* عند تطبيق خلفية مخصصة على body، قد نحتاج لإلغاء خلفية html */
+html.custom-body-bg-active {
+    background-image: none !important; /* يزيل خلفية html إذا كان body لديه خلفية مخصصة */
+}
+
+
+a { color: var(--link-color); }
+a:hover { color: var(--link-hover-color); }
+
+/* الوضع الليلي */
+/* ================================================= */
+/* الوضع الليلي: التحكم بالخلفية الرئيسية */
+html.dark-mode-active {
+    background-image: none !important; /* إزالة صورة الخلفية من html */
+    background-color: #121212 !important; /* لون خلفية داكن جداً لـ html */
+}
+body.dark-mode {
+  background-color: transparent !important; /* جعل خلفية body شفافة لترى خلفية html */
+  color: #e0e0e0;
+}
+/* استهداف div#wrap لتغيير خلفيته البيضاء في الوضع الليلي */
+body.dark-mode div#wrap {
+  background-color: #1e1e1e !important; /* لون أفتح قليلاً من خلفية الصفحة الرئيسية */
+  border: 1px solid #333 !important; /* تغيير لون الحدود إذا كان هناك */
+  box-shadow: none !important; /* إزالة الظل إذا كان موجودًا */
+}
+
+/* باقي عناصر الوضع الليلي (مُحسّنة لـ deve-arab.yoo7.com) */
+body.dark-mode a { color: #8ab4f8; }
+body.dark-mode a:hover { color: #aecbfa; }
+
+body.dark-mode #page-header,
+body.dark-mode div#pun-header, /* الهيدر في قالب deve-arab */
+body.dark-mode div#pun-nav /* شريط الترحيب والملاحة في deve-arab */ {
+  background-color: #2a2a2a !important;
+  border-bottom: 1px solid #444 !important;
+  background-image: none !important;
+}
+body.dark-mode div#pun-nav a, body.dark-mode div#pun-nav li { color: #e0e0e0 !important; }
+body.dark-mode #search-box input.inputbox { background-color: #3a3a3a !important; color: #e0e0e0 !important; border-color: #555 !important; }
+
+body.dark-mode .forabg,
+body.dark-mode .forumbg {
+  background-color: #2c2c2c !important;
+  border: 1px solid #404040 !important;
+}
+body.dark-mode .forabg .inner, body.dark-mode .forumbg .inner {
+    background-image: none !important;
+    background-color: transparent !important;
+}
+body.dark-mode .forabg li.header, body.dark-mode .forumbg li.header, 
+body.dark-mode th, body.dark-mode .thHead /* رؤوس الجداول */ {
+    background-color: #333333 !important;
+    background-image: none !important;
+    color: #f1f1f1 !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode .panel {
+  background-color: #333 !important;
+  border-color: #444 !important;
+}
+body.dark-mode .panel .inner { background-image: none !important; }
+
+body.dark-mode .post,
+body.dark-mode .postprofile,
+body.dark-mode .topicreview {
+  background-color: #282828 !important;
+  border: 1px solid #404040 !important;
+}
+body.dark-mode .postprofile { border-left-color: #404040 !important; border-right-color: #404040 !important; background-color: #2a2a2a !important;}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+body.dark-mode .topictitle, body.dark-mode a.topictitle,
+body.dark-mode .forumtitle, body.dark-mode a.forumtitle,
+body.dark-mode .forabg strong a, /* لعناوين الفئات */
+body.dark-mode .header_title_connect,
+body.dark-mode .block-title, /* لعناوين البلوكات الجانبية */
+body.dark-mode legend { /* لعناوين fieldset مثل "صندوق الرد السريع" */
+  color: #f1f1f1 !important;
+}
+body.dark-mode .postbody .content, body.dark-mode .postbody, body.dark-mode .postmsg  { color: #e0e0e0 !important; }
+
+body.dark-mode input, body.dark-mode textarea, body.dark-mode select {
+  background-color: #3a3a3a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #555 !important;
+}
+body.dark-mode input::placeholder, body.dark-mode textarea::placeholder { color: #aaa; }
+body.dark-mode .button2, body.dark-mode input[type="submit"], body.dark-mode input[type="button"], body.dark-mode button {
+    background-color: #555 !important;
+    color: #f0f0f0 !important;
+    border-color: #666 !important;
+    background-image: none !important;
+}
+body.dark-mode .button1, body.dark-mode input.mainoption { /* الأزرار الرئيسية */
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    border-color: var(--primary-color) !important;
+}
+
+
+body.dark-mode .pagination span a, body.dark-mode .pagination span strong, 
+body.dark-mode .page-item a, body.dark-mode .page-item span,
+body.dark-mode .nav { /* لأرقام الصفحات في punbb */
+  background-color: #3a3a3a !important;
+  border: 1px solid #555 !important;
+  color: #e0e0e0 !important;
+}
+body.dark-mode .pagination span a:hover, body.dark-mode .nav a:hover { background-color: #4a4a4a !important; }
+body.dark-mode .pagination .active-page, body.dark-mode .page-item.active .page-link,
+body.dark-mode .nav strong { /* الصفحة الحالية */
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    border-color: var(--primary-color) !important;
+}
+
+body.dark-mode .row1, body.dark-mode li.row:nth-child(odd) td, body.dark-mode tr.bg1 td,
+body.dark-mode .bg1 { /* صفوف الجداول - فردي */
+  background-color: #2f2f2f !important;
+}
+body.dark-mode .row2, body.dark-mode li.row:nth-child(even) td, body.dark-mode tr.bg2 td,
+body.dark-mode .bg2 { /* صفوف الجداول - زوجي */
+  background-color: #2a2a2a !important;
+}
+body.dark-mode .row3 { background-color: #383838 !important; }
+
+body.dark-mode blockquote {
+    background-color: #303030 !important;
+    border-color: #454545 !important;
+    color: #ccc !important;
+}
+body.dark-mode .codebox {
+    background-color: #222 !important;
+    border-color: #444 !important;
+    color: #d0d0d0 !important;
+}
+body.dark-mode .codebox pre { color: #d0d0d0 !important; }
+/* ================================================= */
+
+/* تمدد بكامل الصفحة */
+body.full-width-layout div#wrap,
+body.full-width-layout div#page-body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 15px !important; /* هامش داخلي بسيط للمحتوى */
+  padding-right: 15px !important;
+  box-sizing: border-box !important;
+}
+/* في منتداك، المحتوى الرئيسي هو #pun-main والشريط الجانبي #aside_right. عند التمدد، قد تحتاج إلى: */
+body.full-width-layout #pun-main {
+    width: calc(100% - 270px) !important; /* مثال: إذا كان الشريط الجانبي لا يزال ظاهرًا وعرضه 250px + هامش */
+}
+body.full-width-layout.sidebar-hidden #pun-main { /* إذا كان الشريط الجانبي مخفيًا أيضًا */
+    width: 100% !important;
+}
+
+
+/* تطبيق حجم خط المساهمات */
+body .postbody, body .postbody .content, body .post_content p, body .postcolor,
+body .entry-content, /* كلاسات محتملة أخرى للمساهمات */
+body .postmsg /* مستخدم في deve-arab.yoo7.com */ { 
+  font-size: var(--posts-font-size) !important;
+}
+
+/* تطبيق حجم خط الأقسام وعناوين المواضيع */
+body .forabg strong a, /* عناوين الفئات الرئيسية في deve-arab.yoo7.com */
+body a.forumtitle,      /* أسماء المنتديات في قائمة المنتديات */
+body a.topictitle,      /* عناوين المواضيع في قائمة المواضيع */
+body h2.forum-name a    /* عناوين الأقسام في صفحات الأقسام (أقل شيوعًا) */ {
+  font-size: var(--sections-font-size) !important;
+}
+
+
+/* الشريط الجانبي: التحكم في عرض المحتوى الرئيسي عند إخفاء الشريط الجانبي */
+/* في deve-arab.yoo7.com، المحتوى الرئيسي هو #pun-main والشريط الجانبي #aside_right */
+/* #pun-main { float: left; width: ~74%; } */
+/* #aside_right { float: right; width: ~25%; } */
+body.sidebar-hidden #pun-main {
+    width: 99% !important; /* اجعل المحتوى الرئيسي يأخذ العرض الكامل تقريبًا */
+    float: none !important; /* قد تحتاج لإلغاء الـ float */
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+/* تنسيقات لوحة التحكم بالاستايل (تبقى كما هي من الإجابة السابقة) */
+#style-options-container {
+  position: fixed;
+  top: 150px;
+  left: -250px;
+  width: 250px;
+  z-index: 999;
+  transition: left 0.3s ease-in-out;
+  font-family: "Droid Arabic Kufi", Tahoma, sans-serif;
+}
+#style-options-container.open {
+  left: 0;
+}
+#style-options-trigger {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+#style-options-panel {
+  width: 100%;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-left: none;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  padding: 15px;
+  box-sizing: border-box;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+body.dark-mode #style-options-panel {
+    background-color: #2d2d2d !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode #style-options-panel h4 {
+    border-bottom-color: #444 !important;
+    color: #f1f1f1 !important; /* تعديل لون العنوان */
+}
+body.dark-mode #style-options-panel button, 
+body.dark-mode #style-options-panel select,
+body.dark-mode #style-options-panel input[type="url"] {
+    background-color: #3a3a3a !important;
+    color: #e0e0e0 !important;
+    border-color: #555 !important;
+}
+body.dark-mode #style-options-panel button.toggle-button[data-state="on"] {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+body.dark-mode #style-options-panel .color-swatch.active {
+    box-shadow: 0 0 0 3px #1e1e1e, 0 0 0 5px var(--primary-color) !important;
+}
+.options-tabs-nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+body.dark-mode .options-tabs-nav { border-bottom-color: #444 !important; }
+.options-tabs-nav li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: none;
+  margin-right: 5px;
+  border-radius: 4px 4px 0 0;
+  background-color: #eee;
+}
+body.dark-mode .options-tabs-nav li { background-color: #383838 !important; }
+.options-tabs-nav li.active {
+  background-color: #fff;
+  border-color: #ddd;
+  border-bottom-color: #fff;
+  position: relative;
+  top: 1px;
+}
+body.dark-mode .options-tabs-nav li.active {
+    background-color: #2d2d2d !important;
+    border-color: #444 !important;
+    border-bottom-color: #2d2d2d !important;
+}
+.options-tab-pane { display: none; }
+.options-tab-pane.active { display: block; }
+#style-options-panel h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+#color-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+.color-swatch {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+.color-swatch:hover { transform: scale(1.1); }
+.color-swatch.active {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--primary-color);
+}
+.control-item {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.control-item span {
+  flex-basis: calc(100% - 90px);
+  margin-bottom: 5px;
+}
+.control-item .toggle-button {
+  padding: 5px 10px;
+  min-width: 80px;
+  border: 1px solid #ccc;
+  background-color: #e9e9e9;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.control-item .toggle-button[data-state="on"] {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+#font-family-select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+.font-size-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.font-size-controls button {
+  width: 35px;
+  height: 35px;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.font-size-controls span {
+  font-weight: bold;
+  min-width: 50px;
+  text-align: center;
+}
+#reset-all-options, #reset-font-settings, #apply-custom-bg, #remove-custom-bg {
+  width: 100%;
+  padding: 8px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#apply-custom-bg { background-color: #28a745; }
+#remove-custom-bg { background-color: #dc3545; }
+#reset-all-options:hover, #reset-font-settings:hover,
+#apply-custom-bg:hover, #remove-custom-bg:hover {
+  opacity: 0.9;
+}
+#custom-bg-image-url {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+.toggle-button {
+    text-indent: -9999px;
+    position: relative;
+    overflow: hidden;
+}
+.toggle-button::before {
+    text-indent: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    line-height: inherit; /* لضمان محاذاة النص بشكل صحيح */
+}
+.toggle-button[data-state="on"]::before { content: attr(data-on); }
+.toggle-button[data-state="off"]::before { content: attr(data-off); }
