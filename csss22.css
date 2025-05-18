@@ -285,8 +285,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--primary-color); 
 body.dark-mode input:focus, body.dark-mode textarea:focus, body.dark-mode select:focus { border-color: var(--dark-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--dark-primary) 30%, transparent); }
 blockquote { background-color: #f9f9f9; border-right: 4px solid var(--border-color); padding: 10px 15px; margin: 10px 0; color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
 body.dark-mode blockquote { background-color: #3e444c; border-right-color: var(--dark-border); }
-.codebox code { font-family: var(--code-font-family); background-color: #f5f5f5; border: 1px solid var(--border-color); padding: 10px; display: block; overflow-x: auto; color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; text-align: left; direction: ltr; }
-body.dark-mode .codebox code { background-color: #282c34; border-color: var(--dark-border); color: #abb2bf; }
+
 .pagination span a, .pagination span a:link, .pagination span a:visited, .pagination > a { background-color: var(--content-bg-color); border: 1px solid var(--border-color); color: var(--link-color); padding: 3px 6px; margin: 0 1px; border-radius: 3px; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
 .pagination span a:hover, .pagination > a:hover { background-color: var(--primary-color); color: var(--header-text-color) !important; border-color: var(--primary-color); text-decoration: none !important; } /* !important */
 body.dark-mode .pagination span a, body.dark-mode .pagination span a:link, body.dark-mode .pagination span a:visited, body.dark-mode .pagination > a { background-color: var(--dark-content-bg); border-color: var(--dark-border); color: var(--dark-link); }
@@ -3727,12 +3726,7 @@ body.dark-mode blockquote {
     border-color: #454545 !important;
     color: #ccc !important;
 }
-body.dark-mode .codebox {
-    background-color: #222 !important;
-    border-color: #444 !important;
-    color: #d0d0d0 !important;
-}
-body.dark-mode .codebox pre { color: #d0d0d0 !important; }
+
 /* ================================================= */
 
 /* تمدد بكامل الصفحة */
