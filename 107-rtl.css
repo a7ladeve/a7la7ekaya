@@ -9538,3 +9538,415 @@ top: 0;
 #fa_menulist :link, #fa_menulist :visited {
 	color: #00569c !important;
 	}
+*******
+
+/* القاعدة العامة لتطبيق الخط على العناصر التي ستستخدم ::before */
+a span[style="color:#D60303"] strong::before, a span[style="color:#F00058"] strong::before, a span[style="color:#850707"] strong::before,
+a span[style="color:#020994"] strong::before, a span[style="color:#077A07"] strong::before,a span[style="color:#910591"] strong::before,
+a span[style="color:#0B7D05"] strong::before,a span[style="color:#02A186"] strong::before,a span[style="color:#000000"] strong::before,
+a span[style="color:#8553F2"] strong::before{
+    font-family: "Font Awesome 5 Free","Font Awesome 6 Free", FontAwesome; /* مهم جداً */
+    font-weight: 700; /* للأيقونات الصلبة (Solid) */
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 0.5em; /* مسافة بين الأيقونة والنص */
+    margin-left: 2px;
+}
+.stat-section.groups-legend .legend-content a[style="color: #D60303"]::before,.stat-section.groups-legend .legend-content a[style="color: #F00058"]::before,
+.stat-section.groups-legend .legend-content a[style="color: #850707"]::before,.stat-section.groups-legend .legend-content a[style="color: #020994"]::before,
+.stat-section.groups-legend .legend-content a[style="color: #077A07"]::before,.stat-section.groups-legend .legend-content a[style="color: #910591"]::before,
+.stat-section.groups-legend .legend-content a[style="color: #F00058"]::before,.stat-section.groups-legend .legend-content a[style="color: #000000"]::before{
+    font-family: "Font Awesome 5 Free","Font Awesome 6 Free", FontAwesome; /* مهم جداً */
+    font-weight: 700; /* للأيقونات الصلبة (Solid) */
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 0.5em; /* مسافة بين الأيقونة والنص */
+    margin-left: 2px;
+}
+a span[style="color:#D60303"] strong::before ,.stat-section.groups-legend .legend-content a[style="color: #D60303"]::before{
+    content: "\f521";
+  
+}
+a span[style="color:#F00058"] strong::before,.stat-section.groups-legend .legend-content a[style="color: #F00058"]::before {
+    content: "\f43f";
+  
+}
+
+a span[style="color:#850707"] strong::before,.stat-section.groups-legend .legend-content a[style="color: #850707"]::before {
+    content: "\f21b";
+  
+}
+a span[style="color:#020994"] strong::before,.stat-section.groups-legend .legend-content a[style="color: #020994"]::before {
+    content: "\f3ed";
+  
+}
+a span[style="color:#077A07"] strong::before,.stat-section.groups-legend .legend-content a[style="color: #077A07"]::before{
+    content: "\f505";
+  
+}
+a span[style="color:#910591"] strong::before,.stat-section.groups-legend .legend-content a[style="color: #910591"]::before{
+    content: "\f005";
+  
+}
+a span[style="color:#000000"] strong::before,.stat-section.groups-legend .legend-content a[style="color: #000000"]::before{
+    content: "\f05e";
+  
+}
+/* تطبيق الأيقونات المحددة */
+.online-users-list br{
+    display: none;
+}
+.online-users-list {
+    margin-top: 10px;
+}
+
+
+.reactionsBar.js-reactionsList.is-active ul.reactionSummary li.reaction-like::marker {
+    font-size: 0;
+}
+
+ .minister-crown-icon::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f21b"; /* user-tie */
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+
+.legend-content a.gensmall {
+    display: inline-block;
+    padding: 7px 14px;
+    margin: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px; /* زوايا أكثر نعومة قليلاً */
+    text-align: center;
+    position: relative; /* مهم للعناصر الزائفة إذا أردت لمعة متقدمة */
+    overflow: hidden;   /* لإخفاء أي تجاوزات من اللمعة */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    cursor: pointer;
+
+    /* الظل الأساسي */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+    /* يمكنك إضافة لمعة ثابتة باستخدام background-image هنا إذا أردت */
+    /* لكن تأكد أنها لا تتعارض مع background-color الذي يحدده JavaScript */
+    /* مثال على لمعة خفيفة (يجب أن تكون خلفية اللون الأساسي شفافة جزئياً) */
+    /* background-image: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%); */
+}
+
+/* تأثير اللمعة عند التمرير (اختياري) */
+.legend-content a.gensmall::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* ابدأ من خارج العنصر */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.25) 50%, /* لمعة بيضاء شبه شفافة */
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg); /* إمالة اللمعة */
+    transition: left 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* حركة أبطأ وأكثر سلاسة */
+}
+
+.legend-content a.gensmall:hover::after {
+    left: 150%; /* تحريك اللمعة عبر العنصر */
+}
+
+.legend-content a.gensmall:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+/* تأكد أن الوسم b لا يضيف font-weight إذا كان الرابط نفسه bold */
+.legend-content b {
+    font-weight: normal; /* أو اتركه إذا كنت تريد النص داخل b أن يكون bold بغض النظر عن الرابط */
+}
+/* القاعدة العامة للروابط */
+.legend-content a.gensmall {
+    display: inline-block;
+    padding: 7px 14px;
+    margin: 4px;
+    color: white !important; /* النص دائما أبيض */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    cursor: pointer;
+    /* يمكنك إضافة لمعة ثابتة هنا إذا أردت، مثلاً: */
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 60%);
+}
+
+.legend-content a.gensmall:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+/* تعريف لون الخلفية لكل رابط بناءً على href أو كلاس خاص */
+.legend-content a[href="/g2-group"] { background-color: #D60303; }
+.legend-content a[href="/g11-group"] { background-color: #F00058; }
+.legend-content a[href="/g3-group"] { background-color: #850707; }
+.legend-content a[href="/g12-group"] { background-color: #020994; }
+.legend-content a[href="/g4-group"] { background-color: #077A07; }
+.legend-content a[href="/g10-group"] { background-color: #910591; }
+.legend-content a[href="/g9-group"] { background-color: #000000; }
+.legend-content a[href="/g6-group"] { background-color: #02A186; }
+.legend-content a[href="/g8-group"] { background-color: #8553F2; }
+
+/* ... وهكذا لبقية الروابط */
+
+.codebox p {
+    width: 100%;
+    height: 40px;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    /* text-align: center; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+div.codebox code.hljs.cpp {
+    background-color: #f4f7f9;
+    border-color: var(--primary-color);
+    color: #FFF;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 0 6px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 8px 10px 8px 16px;
+}
+
+.codebox p {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Droid Arabic Kufi;
+    text-align: right;
+}
+dl.codebox{
+    background-color: rgb(0 0 0 / 0%);
+    border-color: #f5f5f500;
+
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 0 6px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 8px 10px 8px 16px;
+}
+
+.post-content dl.codebox.hidecode {
+    background-color: #fff;
+    border-color: #f5f5f500;
+    color: #000000;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 0 6px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 8px 10px 8px 16px;
+}
+dl.codebox.hidecode {
+    display: none;
+}
+code.hljs.cpp span.hljs-comment, span.hljs-comment {
+    color: black;
+}
+.rep-button, .rep-button:active, .rep-button:focus {
+    background-color: var(--primary-color);
+}
+ul.reactionSummary, li.reaction-like, p.fa_like_list {
+    width: 100%;
+}
+
+li.reaction-like.reaction--small-like.reaction--2-like {
+    width: 100%;
+}
+
+.dynamic-code-actions > button {
+    line-height: 1;
+}
+
+/* --- Codebox Enhancements (Dynamic) --- */
+
+/* تنسيق صندوق الكود الرئيسي من أحلى منتدى (إذا لزم الأمر) */
+.codebox {
+  margin-bottom: 5px; /* مسافة قبل الأزرار المضافة ديناميكياً */
+  /* إذا كان لـ .codebox حدود أو خلفية من المنتدى وتريد إزالتها/تعديلها، يمكنك فعل ذلك هنا */
+  /* مثال: border: none; padding: 0; */
+}
+
+/* تنسيق الفقرة "الكود:" إذا أردت تغييرها */
+.codebox p {
+  margin-bottom: 1px;
+  font-weight: bold;
+}
+
+/* حاوية الكود الفعلية (سواء كانت code> مباشرة أو pre>) */
+.codebox code, 
+.codebox pre code { /* نستهدف كليهما لضمان التغطية */
+  display: block; /* ضروري لـ padding و overflow */
+  background-color: #f4f7f9; /* لون الخلفية المطلوب */
+  color: #2c3e50; /* لون نص داكن ومقروء على الخلفية الفاتحة */
+  font-family: "Consolas", "Monaco", "Courier New", Courier, monospace; /* خطوط برمجية شائعة */
+  font-size: 14px; /* حجم خط مناسب */
+  line-height: 1.6; /* تباعد أسطر جيد للقراءة */
+  padding: 15px; /* حشوة داخلية جيدة */
+  border: 1px solid #e0e4e8; /* حدود رقيقة حول صندوق الكود */
+  border-radius: 6px; /* زوايا دائرية */
+  overflow-x: auto; /* شريط تمرير أفقي إذا كان الكود طويلاً جداً */
+  max-height: 450px; /* حد أقصى للارتفاع مع شريط تمرير عمودي إذا لزم الأمر */
+  white-space: pre; /* يحافظ على المسافات البادئة والأسطر الجديدة */
+  direction: ltr; /* ضمان اتجاه النص من اليسار لليمين للكود */
+  text-align: left; /* محاذاة النص لليسار */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* ظل خفيف لإعطاء عمق */
+}
+
+/* إذا كنت تستخدم highlight.js، هذه التنسيقات ستكون فوق تنسيقات highlight.js الافتراضية */
+/* يمكنك تخصيص ألوان highlight.js هنا إذا أردت */
+/* مثال لتخصيص التعليقات إذا كنت تستخدم hljs */
+/* .codebox code .hljs-comment { color: #95a5a6; font-style: italic; } */
+/* .codebox code .hljs-keyword { color: #3498db; } */
+/* .codebox code .hljs-string { color: #e67e22; } */
+
+
+/* --- الأزرار المضافة ديناميكياً --- */
+.dynamic-code-actions {
+    margin-top: -35px;
+    margin-bottom: 25px;
+    padding-top: revert-layer;
+    text-align: left;
+}
+
+.dynamic-code-actions button {
+  background-color: #3498db; /* لون أزرق رئيسي للأزرار */
+  border: none;
+  color: white;
+  padding: 8px 15px; /* حجم زر مريح */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 5px 3px; /* مسافات بين الأزرار */
+  cursor: pointer;
+  border-radius: 5px; /* زوايا دائرية للأزرار */
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.dynamic-code-actions button:hover {
+  background-color: #2980b9; /* لون أغمق عند المرور */
+  transform: translateY(-1px); /* تأثير رفع خفيف عند المرور */
+}
+
+.dynamic-code-actions button:active {
+  transform: translateY(0px); /* إرجاع الزر عند النقر */
+  box-shadow: none;
+}
+
+/* تخصيص ألوان أزرار التحميل المختلفة */
+.dynamic-code-actions button.btn-download-txt { background-color: #2ecc71; } /* أخضر */
+.dynamic-code-actions button.btn-download-txt:hover { background-color: #27ae60; }
+
+.dynamic-code-actions button.btn-download-css { background-color: #f39c12; } /* برتقالي */
+.dynamic-code-actions button.btn-download-css:hover { background-color: #e67e22; }
+
+.dynamic-code-actions button.btn-download-js { background-color: #e74c3c; } /* أحمر */
+.dynamic-code-actions button.btn-download-js:hover { background-color: #c0392b; }
+
+.dynamic-code-actions button.btn-download-html { background-color: #9b59b6; } /* بنفسجي */
+.dynamic-code-actions button.btn-download-html:hover { background-color: #8e44ad; }
+
+
+/* رسالة التغذية الراجعة للنسخ */
+.copy-feedback-message {
+  display: inline-block;
+  color: #27ae60; /* أخضر لرسالة النجاح */
+  margin-left: 10px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.copy-feedback-message.error {
+  color: #e74c3c; /* أحمر لرسالة الخطأ */
+}
+code.hljs.ruby.hljs-highlighted {
+    line-height: 2;
+}
+
+.codebox p {
+    font-size: 0px;
+}
+.codebox p::before {
+    font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", FontAwesome;
+    font-weight: 700;
+    content: "\f121\ يمكنك نسخ الكود او تحميله حسب الصيغه الخاصه به ";
+    font-size: 18px;
+}
+code.hljs.ruby.hljs-highlighted {
+    border-right: solid 5px;
+    border-right-color: var(--primary-color);
+    border-left: solid 5px;
+    border-left-color: var(--primary-color);
+    border-bottom: solid;
+    border-bottom-color: var(--primary-color);
+}
+.credit a ,.tab-pane-inner-content ul.styled-labels-list span.label-text-content a{
+    color: #ffff;
+    FONT-WEIGHT: 900;
+}
+
+button.rep-button.fa_like::before,button.rep-button.fa_liked:before  {
+    content: "\f087";
+    font-family: FontAwesome;
+    padding-left: 4px;
+    FONT-WEIGHT: 700;
+}
+button.rep-button.fa_like,button.rep-button.fa_liked {
+    font-size: 14px;
+    FONT-WEIGHT: 700;
+}
+li.reaction-like.reaction--small-like.reaction--2-like p.fa_like_list {
+    width: 100%;
+    background-color: #5d403769;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 900;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+    border-radius: 5px 5px;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.reactionsBar.js-reactionsList.is-active ul.reactionSummary {
+    margin-left: 0px;
+    margin-right: 0px;
+}
