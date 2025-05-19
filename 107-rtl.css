@@ -9758,20 +9758,8 @@ dl.codebox{
     padding: 8px 10px 8px 16px;
 }
 
-.post-content dl.codebox.hidecode {
-    background-color: #fff;
-    border-color: #f5f5f500;
-    color: #000000;
-    border-radius: 3px;
-    border-style: solid;
-    border-width: 0 6px 0 0;
-    font-size: 14px;
-    line-height: 1.5;
-    padding: 8px 10px 8px 16px;
-}
-dl.codebox.hidecode {
-    display: none;
-}
+
+
 code.hljs.cpp span.hljs-comment, span.hljs-comment {
     color: black;
 }
