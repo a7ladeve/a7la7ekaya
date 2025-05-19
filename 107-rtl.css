@@ -2078,10 +2078,7 @@ header button,header .button {
 .block-login .label,.block-modal .label {
 	margin: 22px 0;
 	}
-.block-login .sub-head,.block-modal .sub-head {
-	margin: 32px -64px;
-	padding: 16px 64px;
-	}
+
 .block-login h2,.block-modal h2 {
 	margin: 0 0 22px !important;
 	text-align: center;
