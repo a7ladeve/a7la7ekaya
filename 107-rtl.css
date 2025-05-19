@@ -9758,7 +9758,17 @@ dl.codebox{
     padding: 8px 10px 8px 16px;
 }
 
-
+.post-content dl.codebox.hidecode {
+    background-color: #fff;
+    border-color: #f5f5f500;
+    color: #000000;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 0 6px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 8px 10px 8px 16px;
+}
 
 code.hljs.cpp span.hljs-comment, span.hljs-comment {
     color: black;
@@ -9774,62 +9784,56 @@ li.reaction-like.reaction--small-like.reaction--2-like {
     width: 100%;
 }
 
-.dynamic-code-actions > button {
+.a7la7ekaya-code-actions > button {
     line-height: 1;
 }
 
-/* --- Codebox Enhancements (Dynamic) --- */
+/* --- Codebox Enhancements (a7la7ekaya) --- */
 
-/* تنسيق صندوق الكود الرئيسي من أحلى منتدى (إذا لزم الأمر) */
+
 .codebox {
-  margin-bottom: 5px; /* مسافة قبل الأزرار المضافة ديناميكياً */
-  /* إذا كان لـ .codebox حدود أو خلفية من المنتدى وتريد إزالتها/تعديلها، يمكنك فعل ذلك هنا */
-  /* مثال: border: none; padding: 0; */
+  margin-bottom: 5px; 
+  
 }
 
-/* تنسيق الفقرة "الكود:" إذا أردت تغييرها */
+
 .codebox p {
   margin-bottom: 1px;
   font-weight: bold;
 }
 
-/* حاوية الكود الفعلية (سواء كانت code> مباشرة أو pre>) */
+
 .codebox code, 
-.codebox pre code { /* نستهدف كليهما لضمان التغطية */
-  display: block; /* ضروري لـ padding و overflow */
-  background-color: #f4f7f9; /* لون الخلفية المطلوب */
-  color: #2c3e50; /* لون نص داكن ومقروء على الخلفية الفاتحة */
-  font-family: "Consolas", "Monaco", "Courier New", Courier, monospace; /* خطوط برمجية شائعة */
-  font-size: 14px; /* حجم خط مناسب */
-  line-height: 1.6; /* تباعد أسطر جيد للقراءة */
-  padding: 15px; /* حشوة داخلية جيدة */
-  border: 1px solid #e0e4e8; /* حدود رقيقة حول صندوق الكود */
-  border-radius: 6px; /* زوايا دائرية */
-  overflow-x: auto; /* شريط تمرير أفقي إذا كان الكود طويلاً جداً */
-  max-height: 450px; /* حد أقصى للارتفاع مع شريط تمرير عمودي إذا لزم الأمر */
-  white-space: pre; /* يحافظ على المسافات البادئة والأسطر الجديدة */
-  direction: ltr; /* ضمان اتجاه النص من اليسار لليمين للكود */
-  text-align: left; /* محاذاة النص لليسار */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* ظل خفيف لإعطاء عمق */
+.codebox pre code { 
+  display: block; 
+  background-color: #f4f7f9;
+  color: #fff; 
+  font-family: "Consolas", "Monaco", "Courier New", Courier, monospace; 
+  font-size: 14px; 
+  line-height: 1.6; 
+  padding: 15px; 
+  border: 1px solid #e0e4e8; 
+  border-radius: 6px; 
+  overflow-x: auto;
+  max-height: 450px; 
+  white-space: pre;
+  direction: ltr; 
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
 }
 
-/* إذا كنت تستخدم highlight.js، هذه التنسيقات ستكون فوق تنسيقات highlight.js الافتراضية */
-/* يمكنك تخصيص ألوان highlight.js هنا إذا أردت */
-/* مثال لتخصيص التعليقات إذا كنت تستخدم hljs */
-/* .codebox code .hljs-comment { color: #95a5a6; font-style: italic; } */
-/* .codebox code .hljs-keyword { color: #3498db; } */
-/* .codebox code .hljs-string { color: #e67e22; } */
+
 
 
 /* --- الأزرار المضافة ديناميكياً --- */
-.dynamic-code-actions {
+.a7la7ekaya-code-actions {
     margin-top: -35px;
     margin-bottom: 25px;
     padding-top: revert-layer;
     text-align: left;
 }
 
-.dynamic-code-actions button {
+.a7la7ekaya-code-actions button {
   background-color: #3498db; /* لون أزرق رئيسي للأزرار */
   border: none;
   color: white;
@@ -9846,31 +9850,31 @@ li.reaction-like.reaction--small-like.reaction--2-like {
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.dynamic-code-actions button:hover {
+.a7la7ekaya-code-actions button:hover {
   background-color: #2980b9; /* لون أغمق عند المرور */
   transform: translateY(-1px); /* تأثير رفع خفيف عند المرور */
 }
 
-.dynamic-code-actions button:active {
+.a7la7ekaya-code-actions button:active {
   transform: translateY(0px); /* إرجاع الزر عند النقر */
   box-shadow: none;
 }
 
 /* تخصيص ألوان أزرار التحميل المختلفة */
-.dynamic-code-actions button.btn-download-txt { background-color: #2ecc71; } /* أخضر */
-.dynamic-code-actions button.btn-download-txt:hover { background-color: #27ae60; }
+.a7la7ekaya-code-actions button.btn-download-txt { background-color: #2ecc71; } /* أخضر */
+.a7la7ekaya-code-actions button.btn-download-txt:hover { background-color: #27ae60; }
 
-.dynamic-code-actions button.btn-download-css { background-color: #f39c12; } /* برتقالي */
-.dynamic-code-actions button.btn-download-css:hover { background-color: #e67e22; }
+.a7la7ekaya-code-actions button.btn-download-css { background-color: #f39c12; } /* برتقالي */
+.a7la7ekaya-code-actions button.btn-download-css:hover { background-color: #e67e22; }
 
-.dynamic-code-actions button.btn-download-js { background-color: #e74c3c; } /* أحمر */
-.dynamic-code-actions button.btn-download-js:hover { background-color: #c0392b; }
+.a7la7ekaya-code-actions button.btn-download-js { background-color: #e74c3c; } /* أحمر */
+.a7la7ekaya-code-actions button.btn-download-js:hover { background-color: #c0392b; }
 
-.dynamic-code-actions button.btn-download-html { background-color: #9b59b6; } /* بنفسجي */
-.dynamic-code-actions button.btn-download-html:hover { background-color: #8e44ad; }
+.a7la7ekaya-code-actions button.btn-download-html { background-color: #9b59b6; } /* بنفسجي */
+.a7la7ekaya-code-actions button.btn-download-html:hover { background-color: #8e44ad; }
 
 
-/* رسالة التغذية الراجعة للنسخ */
+
 .copy-feedback-message {
   display: inline-block;
   color: #27ae60; /* أخضر لرسالة النجاح */
@@ -9903,6 +9907,7 @@ code.hljs.ruby.hljs-highlighted {
     border-bottom: solid;
     border-bottom-color: var(--primary-color);
 }
+
 .credit a ,.tab-pane-inner-content ul.styled-labels-list span.label-text-content a{
     color: #ffff;
     FONT-WEIGHT: 900;
