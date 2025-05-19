@@ -1937,15 +1937,16 @@ header button,header .button {
 	margin-top: 6px;
 	padding: 8px 16px;
 	}
-.block .sub-head {
-	background-color: #F5F5F5;
-	border-color: #EBEBEB;
-	border-style: solid;
-	border-width: 1px 0;
-	font-weight: 600;
-	margin: 22px -16px;
-	padding: 16px;
-	}
+.block-login .sub-head, .block-modal .sub-head {
+    margin: 0 auto 0 auto;
+    padding: 16px 64px;
+    background-color: #021e47;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    border-radius: 3px;
+    margin-bottom: 22px;
+    padding: 11px 16px;
+}
 .block .block-p-big {
 	font-size: 21px;
 	font-weight: 300;
@@ -2051,7 +2052,7 @@ header button,header .button {
 	}
 .block-login,.block-modal {
 	margin: 0 auto;
-	max-width: 500px;
+	max-width: 100%;
 	width: 100%;
 	}
 .block-login .block-content,.block-modal .block-content {
