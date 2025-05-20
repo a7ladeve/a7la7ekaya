@@ -1250,8 +1250,8 @@ header button,header .button {
 	bottom: 0;
 	}
 }
-.cp {
-	margin-right: 272px;
+.cp {	
+    /* margin-right: 272px;
 	}
 .cp.advanced-profile{
 	margin-top:21px;
