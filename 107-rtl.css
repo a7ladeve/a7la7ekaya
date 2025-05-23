@@ -9600,7 +9600,7 @@ a span[style="color:#000000"] strong::before,.stat-section.groups-legend .legend
 }
 /* تطبيق الأيقونات المحددة */
 .online-users-list br{
-    display: none;
+    /* display: none;
 }
 .online-users-list {
     margin-top: 10px;
