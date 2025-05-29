@@ -89,7 +89,7 @@
         'جنوب سيناء': {
             'شرم الشيخ': ['مستشفى شرم الشيخ الدولي', 'وحدة صحة شرم الشيخ']
         },
-        'Daqahleya': { // تم تغيير اسم المحافظة هنا للتدريب على أسماء مختلفة
+        'الدقهلية': {
             'المنصورة': ['مستشفى المنصورة الجامعي', 'مستشفى الأطفال الجامعي بالمنصورة']
         },
         'دمياط': {
@@ -857,9 +857,97 @@
         `;
 
         // دالة JavaScript التي ستُضاف داخل النافذة المنبثقة
-        // !!! هام: يجب وضع هذا الكود في ملف JS منفصل وربطه برابط مباشر !!!
-        const externalJsUrl = "https://a7ladeve.github.io/a7la7ekaya/about-blank.js"; // *** استبدل هذا بالرابط الفعلي لملف JavaScript الخاص بك ***
-        const scriptTag = `<script src="${externalJsUrl}"></script>`;
+        const inlineScript = `
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const reportTable = document.getElementById('reportTable');
+                    const reportTitle = document.querySelector('.saved-data-report-title-main').textContent;
+                    const reportDate = document.querySelector('.saved-data-report-date-line').textContent.replace('عن يوم الموافق ', '').trim();
+
+                    // دالة تصدير Excel
+                    document.getElementById('exportExcel').addEventListener('click', function() {
+                        if (!reportTable) {
+                            alert('لا يوجد جدول لتصديره.');
+                            return;
+                        }
+                        const ws = XLSX.utils.table_to_sheet(reportTable);
+                        const wb = XLSX.utils.book_new();
+                        XLSX.utils.book_append_sheet(wb, ws, "التقرير");
+                        XLSX.writeFile(wb, \`\${reportTitle} - \${reportDate}.xlsx\`);
+                    });
+
+                    // دالة تصدير PDF
+                    document.getElementById('exportPdf').addEventListener('click', function() {
+                        const { jsPDF } = window.jspdf;
+                        const pdf = new jsPDF({ orientation: 'l', unit: 'pt', format: 'a4' });
+                        pdf.html(document.body, { // تصدير كامل محتوى body النافذة
+                            callback: function (doc) {
+                                doc.save(\`\${reportTitle} - \${reportDate}.pdf\`);
+                            },
+                            x: 15, y: 15,
+                            html2canvas: { 
+                                scale: 0.65, 
+                                useCORS: true, 
+                                logging: true, 
+                                letterRendering: true, 
+                                windowWidth: document.body.scrollWidth, 
+                                windowHeight: document.body.scrollHeight 
+                            },
+                            width: pdf.internal.pageSize.getWidth() - 30,
+                            windowWidth: document.body.scrollWidth // استخدام عرض الـ body لتجنب الاقتصاص
+                        });
+                    });
+
+                    // دالة تصدير Word (HTML to DOC hack)
+                    document.getElementById('exportWord').addEventListener('click', function() {
+                        const content = document.body.innerHTML; // الحصول على كامل محتوى الـ body
+                        const fileName = \`\${reportTitle} - \${reportDate}.doc\`;
+                        
+                        // إضافة رأس ملف Word الأساسي لضمان التنسيق
+                        const htmlDoc = \`
+                            <html xmlns:v="urn:schemas-microsoft-com:vml"
+                            xmlns:o="urn:schemas-microsoft-com:office:office"
+                            xmlns:w="urn:schemas-microsoft-com:office:word"
+                            xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+                            xmlns="http://www.w3.org/TR/REC-html40">
+                            <head>
+                                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                                <meta name=ProgId content=Word.Document>
+                                <meta name=Generator content="Microsoft Word 15">
+                                <meta name=Originator content="Microsoft Word 15">
+                                <style>
+                                    /* تضمين الـ CSS الخاص بالتقرير هنا */
+                                    body { margin: 20px; font-family: 'Arial Unicode MS', Arial, sans-serif; direction: rtl; }
+                                    .report-header { text-align: center; margin-bottom: 20px; }
+                                    .report-title-main { font-size: 16px; font-weight: bold; }
+                                    .report-date-line { font-size: 14px; margin-top: 5px; }
+                                    .saved-data-formatted-data { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 10pt; }
+                                    .saved-data-formatted-data th, .saved-data-formatted-data td { border: 1px solid #000; padding: 4px; text-align: center; vertical-align: middle; word-wrap: break-word; }
+                                    .saved-data-formatted-data th { background-color: #e0e0e0; font-weight: bold; }
+                                    .export-buttons-container { display: none; } /* إخفاء الأزرار في ملف Word */
+                                </style>
+                            </head>
+                            <body dir="rtl">
+                                \${content}
+                            </body>
+                            </html>
+                        \`;
+
+                        const blob = new Blob([htmlDoc], { type: 'application/msword;charset=utf-8' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = fileName;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    });
+                });
+            </script>
+        `;
 
 
         return `
@@ -883,9 +971,6 @@
                         .export-buttons-container { display: none; }
                     }
                 </style>
-                <!-- تضمين مكتبات XLSX و jsPDF في النافذة المنبثقة لضمان عملها -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
             </head>
             <body class="saved-data-window-body">
                 <div class="report-header saved-data-report-header">
@@ -894,7 +979,7 @@
                 </div>
                 ${tableHtml}
                 ${exportButtonsHtml}
-                ${scriptTag} <!-- ربط ملف JavaScript الخارجي هنا -->
+                ${inlineScript}
             </body>
             </html>`;
     }
