@@ -2936,8 +2936,8 @@ a.btn.btn-default.action-button.secondary {
 /* --- Forum Stats Widget for A7la7ekaya (General) --- */
 .forum-stats-widget.ahlamontada-stats {
     font-family: Tahoma, Arial, sans-serif;
-
-  
+    background-color: var(--dark-content-bg);
+    border-color: var(--dark-border);
     border: 1px solid #CADCEA;
     border-radius: 6px;
     margin-bottom: 20px;
@@ -2945,6 +2945,7 @@ a.btn.btn-default.action-button.secondary {
     direction: rtl;
     overflow: hidden;
 }
+
 
 .forum-stats-widget.ahlamontada-stats h2 {
     background: linear-gradient(to bottom, #E5EEF5 0%, #D8E6F2 100%);
