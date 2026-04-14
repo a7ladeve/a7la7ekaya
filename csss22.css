@@ -2945,7 +2945,12 @@ a.btn.btn-default.action-button.secondary {
     direction: rtl;
     overflow: hidden;
 }
-
+.forum-stats-widget.ahlamontada-stats.horizontal-stats li {
+    background-color: var(--content-bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
 
 .forum-stats-widget.ahlamontada-stats h2 {
     background: linear-gradient(to bottom, #E5EEF5 0%, #D8E6F2 100%);
