@@ -219,6 +219,7 @@ span.userTitle {
   --dark-dropdown-bg: #444c56; /* خلفية المنسدلة بالوضع الليلي */
   --dark-dropdown-text: #cdd9e5; /* نص المنسدلة بالوضع الليلي */
   --dark-dropdown-hover-bg: #586069; /* خلفية الماوس فوق المنسدلة بالوضع الليلي */
+  --dar111k-dropdown-hover-bg: #D8E6F2; /* خلفية الماوس فوق المنسدلة بالوضع الليلي */
 }
 
 /* --- 2. Styles Généraux & Application des Variables --- */
