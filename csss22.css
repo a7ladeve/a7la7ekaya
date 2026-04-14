@@ -2957,16 +2957,7 @@ a.btn.btn-default.action-button.secondary {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.forum-stats-widget.ahlamontada-stats h2 {
-    background: linear-gradient(to bottom, #E5EEF5 0%, #D8E6F2 100%);
-    border-bottom: 1px solid #CADCEA;
-    color: #00417D;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 8px 12px;
-    margin: 0;
-    text-align: right;
-}
+
 
 .forum-stats-widget.ahlamontada-stats h2 i {
     margin-left: 8px;
